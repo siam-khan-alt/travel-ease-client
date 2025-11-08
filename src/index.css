@@ -1,2 +1,5 @@
 @import "tailwindcss";
 @plugin "daisyui";
+.menu a.active{
+    @apply font-bold underline text-[#E07A5F]
+}
