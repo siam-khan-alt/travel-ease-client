@@ -1,6 +1,24 @@
+import { use } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+ const { users, Logout } = use(AuthContext);
+
+ 
+
+  const handleLogout = () => {
+    Logout()
+      .then(() => {
+        toast.success("Successfully logged out!");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
+
   const allLinks = (
     <>
       <NavLink
@@ -72,18 +90,40 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-6">{allLinks}</ul>
       </div>
-      <div className="navbar-end flex items-center space-x-3">
-        <Link to="/login">
-          <button className="bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] text-white font-semibold py-2 px-5 rounded-full shadow-md hover:from-[#D35D42] hover:to-[#E4B462] transition duration-300">
-            Login
-          </button>
-        </Link>
-        <Link to="/register">
-          <button className="bg-[#81B29A] text-[#3D405B] font-medium py-2 px-5 rounded-full hover:bg-[#E07A5F] hover:text-white transition duration-300">
-            Register
-          </button>
-        </Link>
+     <div className="navbar-end">
+  {users ? (<div className="flex justify-center items-center gap-4">
+    <div className="relative group">
+      <img
+        src={users.photoURL || "https://via.placeholder.com/40"}
+        alt=""
+        className="w-10 h-10 rounded-full cursor-pointer border-2 border-[#7C3AED]"
+      />
+      <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-[#1E293B] text-white px-3 py-1 rounded shadow-md whitespace-nowrap">
+        {users.displayName || "User"}
       </div>
+    </div>
+     <button
+          onClick={handleLogout}
+          className="px-4 py-2 rounded-full text-white font-semibold bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] hover:from-[#D35D42] hover:to-[#E4B462] transition duration-300 shadow-md"
+        >
+          Logout
+        </button>
+        </div>
+  ) : (
+    <div className="flex gap-2">
+      <Link to="/login">
+        <button className="px-4 py-2 rounded-full text-white font-semibold bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] hover:from-[#D35D42] hover:to-[#E4B462] transition duration-300 shadow-md">
+          Login
+        </button>
+      </Link>
+      <Link to="/register">
+        <button className="px-4 py-2 rounded-full text-white font-semibold bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] hover:from-[#D35D42] hover:to-[#E4B462] transition duration-300 shadow-md">
+          Register
+        </button>
+      </Link>
+    </div>
+  )}
+</div>
 
     </div>
    </div>
