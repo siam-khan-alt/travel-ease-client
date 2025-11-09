@@ -9,6 +9,7 @@ import MyVehicles from "../Pages/MyVehicles/MyVehicles";
 import MyBookings from "../Pages/MyBookings/MyBookings";
 import Details from "../Pages/Details/Details";
 import MainLayout from "../Layout/MainLayout";
+import PrivateRoute from "../Private/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -20,10 +21,10 @@ const router = createBrowserRouter([
       { path: "/login", Component: Login},
       { path: "/register", Component: Register },
       { path: "/allVehicles", Component: AllVehicle },
-      { path: "/addVehicle", element: <AddVehicle /> },
-      { path: "/myVehicles", element: <MyVehicles /> },
-      { path: "/myBookings", element:<MyBookings />},
-      { path: "/details/:id", element:<Details />},
+      { path: "/addVehicle", element: <PrivateRoute><AddVehicle /></PrivateRoute> },
+      { path: "/myVehicles", element: <PrivateRoute><MyVehicles /></PrivateRoute>   },
+      { path: "/myBookings", element: <PrivateRoute><MyBookings /></PrivateRoute>   },
+      { path: "/details/:id", element: <PrivateRoute><Details /></PrivateRoute>  },
     ],
   },
   { path: "*", element: <NotFound /> },

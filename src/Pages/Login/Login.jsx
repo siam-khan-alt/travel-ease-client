@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { FaEye, FaGoogle } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
-import { Link,  useNavigate } from "react-router-dom";
+import { Link,  useLocation,  useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
 const Login = () => {
@@ -11,7 +11,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
 
   const { Login, SignInGoogle, setUser, setLoading } = useContext(AuthContext);
-
+  const location = useLocation();
+  const backLocation = location.state || "/";
   
   const navigate = useNavigate();
   
@@ -30,7 +31,7 @@ const Login = () => {
         setUser(res.user);
         toast.success("Login successful!");
         setLoading(false);
-        navigate('/');
+        navigate(backLocation);
       })
       .catch((err) => {
         toast.error(err.message);
@@ -45,7 +46,7 @@ const Login = () => {
         setUser(res.user);
         toast.success("Google SignIn successful!");
         setLoading(false);
-        navigate('/');
+        navigate(backLocation);
       })
       .catch((err) => {
         toast.error(err.message);
