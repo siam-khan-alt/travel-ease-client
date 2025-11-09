@@ -23,7 +23,7 @@ const VehicleCard = ({ vehicle }) => {
         <div className="flex justify-between items-center mt-2">
           <span className="text-[#7C3AED] font-semibold">${vehicle.pricePerDay}/day</span>
           <Link
-            to={`/vehicle/${vehicle._id}`}
+            to={`/details/${vehicle._id}`}
             className="flex items-center gap-2 bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] text-white py-1 px-3 rounded-lg hover:from-[#D35D42] hover:to-[#E4B462] transition duration-300"
           >
             View Details <FaArrowRight />

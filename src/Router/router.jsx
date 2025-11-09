@@ -7,9 +7,10 @@ import AllVehicle from "../Pages/AllVehicle/AllVehicle";
 import AddVehicle from "../Pages/AddVehicle/AddVehicle";
 import MyVehicles from "../Pages/MyVehicles/MyVehicles";
 import MyBookings from "../Pages/MyBookings/MyBookings";
-import Details from "../Pages/Details/Details";
+
 import MainLayout from "../Layout/MainLayout";
 import PrivateRoute from "../Private/PrivateRoute";
+import Details from "../Pages/Details/Details";
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,9 @@ const router = createBrowserRouter([
       { path: "/addVehicle", element: <PrivateRoute><AddVehicle /></PrivateRoute> },
       { path: "/myVehicles", element: <PrivateRoute><MyVehicles /></PrivateRoute>   },
       { path: "/myBookings", element: <PrivateRoute><MyBookings /></PrivateRoute>   },
-      { path: "/details/:id", element: <PrivateRoute><Details /></PrivateRoute>  },
+      { path: "/details/:id",
+        loader: ({params})=>fetch(`http://localhost:3000/vehicles/${params.id}`), 
+        element: <PrivateRoute><Details /></PrivateRoute>  },
     ],
   },
   { path: "*", element: <NotFound /> },
