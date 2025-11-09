@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
+import useAxios from "../../Hooks/useAxios";
 
 
 const Register = () => {
@@ -11,7 +12,7 @@ const Register = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePassword = () => setPasswordVisible(!passwordVisible);
-
+ const instanceAxios=useAxios()
   const handleSignUp = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -41,9 +42,19 @@ const Register = () => {
       .then(() => {
         profileUpdate(displayName, photoURL)
           .then(() => {
-            toast.success("Registration successful!");
+              const newUser={
+               name: displayName,
+              email,
+              photo: photoURL,
+              createdAt: new Date(),
+        }
+        instanceAxios.post('/users', newUser)
+        .then(()=>{
+           toast.success("Registration successful!");
             e.target.reset();
             navigate("/"); 
+        })
+           
           })
           .catch((err) => toast.error(err.message));
         setLoading(false);
@@ -58,10 +69,21 @@ const Register = () => {
     setLoading(true);
     SignInGoogle()
       .then((res) => {
-        setUser(res.user);
-        toast.success("Google SignIn successful!");
-        setLoading(false);
-        navigate("/")
+          const user = res.user;
+          setUser(res.user)
+   
+    const newUser = {
+      name: user.displayName,
+      email: user.email,
+      photo: user.photoURL,
+      createdAt: new Date()
+    };
+    instanceAxios.post('/users', newUser)
+      .then(() => {
+        toast.success("Google Signin successful");
+        navigate("/");
+      })
+      
       })
       .catch((err) => {
         toast.error(err.message);
