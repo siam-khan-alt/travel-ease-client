@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
 const Login = () => {
  
-
+  const [errors, setErrors]=useState("")
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
 
@@ -34,7 +34,7 @@ const Login = () => {
         navigate(backLocation);
       })
       .catch((err) => {
-        toast.error(err.message);
+        setErrors(err.message);
         setLoading(false);
       });
   };
@@ -88,6 +88,8 @@ const Login = () => {
               {showPassword ? <FaEye /> : <IoEyeOff />}
             </span>
           </div>
+          <p className="text-[#E07A5F] font-medium my-2">{errors}
+          </p>
           <div>
             <Link to="/reset" state={{ email }}>
               <p className="link link-hover text-[#E07A5F] hover:text-[#D35D42]">
