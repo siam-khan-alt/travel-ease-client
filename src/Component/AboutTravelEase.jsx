@@ -4,15 +4,22 @@ import React from "react";
 
 const AboutTravelEase = () => {
   return (
-   <div className="bg-[#1E293B]">
-     <div className="mx-auto container text-[#F8FAFC] py-8   transition duration-300">
-  <h2 className="text-3xl font-bold mb-3 text-[#F2CC8F]">
-    Explore with <span className="text-[#E07A5F]">TravelEase</span>
+   <div className="bg-[#F4F1DE] dark:bg-[#1E293B]">
+     <div className="mx-auto container text-[#1E293B] dark:text-[#F8FAFC]
+ py-8   transition duration-300">
+  <h2 className="main-heading mb-3">
+    Explore with <span className="text-[#F2CC8F] dark:text-[#E07A5F]">TravelEase</span>
   </h2>
-  <p className="text-[#CBD5E1] mb-6">
-    Discover and book vehicles effortlessly. Comfort meets convenience!
+  <p className="text-[#3D405B] dark:text-[#CBD5E1] mb-6">
+    TravelEase is your ultimate travel companion, designed to make exploring the world 
+          easier and more enjoyable. With an extensive range of vehicles at your fingertips, 
+          you can effortlessly find the perfect ride for every journey—whether it's a weekend 
+          getaway, a business trip, or an adventurous road trip. Our platform combines comfort, 
+          convenience, and reliability to ensure every ride is seamless. Experience the freedom 
+          of choice, transparency in pricing, and a user-friendly booking process, all tailored 
+          to make your travels smooth and memorable. Travel with confidence, Travel with Ease.
   </p>
-  <button className="bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] text-white py-2 px-6 rounded-full font-semibold shadow-md hover:from-[#D35D42] hover:to-[#E4B462] transition duration-300">
+  <button className="btn-gradient max-w-[200px] mx-auto">
     Get Started
   </button>
 </div>

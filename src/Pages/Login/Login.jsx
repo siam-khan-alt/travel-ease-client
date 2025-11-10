@@ -55,9 +55,9 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#F4F1DE] px-4">
-      <div className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
-        <h2 className="text-3xl font-bold text-[#3D405B] mb-6 text-center">Login</h2>
+    <div className="flex items-center justify-center min-h-screen  px-4">
+     <div className="bg-base-100 dark:bg-[#1E293B] shadow-lg rounded-xl p-8 w-full max-w-md transition-colors duration-300">
+  <h2 className="text-3xl font-bold text-[#3D405B] dark:text-[#E2E8F0] mb-6 text-center">Login</h2>
 
         <form onSubmit={handleLogIn} className="space-y-4">
           <div className="flex flex-col">
@@ -97,7 +97,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] text-white py-2 rounded-full font-semibold shadow-md hover:from-[#D35D42] hover:to-[#E4B462] transition duration-300"
+            className="btn-gradient"
           >
             Login
           </button>

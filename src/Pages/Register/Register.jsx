@@ -5,14 +5,15 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
 import useAxios from "../../Hooks/useAxios";
 
-
 const Register = () => {
-  const { SignUp, profileUpdate, SignInGoogle, setUser, setLoading } = useContext(AuthContext);
+  const { SignUp, profileUpdate, SignInGoogle, setUser, setLoading } =
+    useContext(AuthContext);
   const navigate = useNavigate();
+  const [errors, setErrors] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePassword = () => setPasswordVisible(!passwordVisible);
- const instanceAxios=useAxios()
+  const instanceAxios = useAxios();
   const handleSignUp = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -23,17 +24,17 @@ const Register = () => {
     const password = e.target.password.value;
 
     if (password.length < 6) {
-      toast.error("Password must be at least 6 characters long!");
+      setErrors("Password must be at least 6 characters long!");
       setLoading(false);
       return;
     }
     if (!/[A-Z]/.test(password)) {
-      toast.error("Password must contain at least one uppercase letter!");
+      setErrors("Password must contain at least one uppercase letter!");
       setLoading(false);
       return;
     }
     if (!/[a-z]/.test(password)) {
-      toast.error("Password must contain at least one lowercase letter!");
+      setErrors("Password must contain at least one lowercase letter!");
       setLoading(false);
       return;
     }
@@ -42,25 +43,23 @@ const Register = () => {
       .then(() => {
         profileUpdate(displayName, photoURL)
           .then(() => {
-              const newUser={
-               name: displayName,
+            const newUser = {
+              name: displayName,
               email,
               photo: photoURL,
               createdAt: new Date(),
-        }
-        instanceAxios.post('/users', newUser)
-        .then(()=>{
-           toast.success("Registration successful!");
-            e.target.reset();
-            navigate("/"); 
-        })
-           
+            };
+            instanceAxios.post("/users", newUser).then(() => {
+              toast.success("Registration successful!");
+              e.target.reset();
+              navigate("/");
+            });
           })
           .catch((err) => toast.error(err.message));
         setLoading(false);
       })
       .catch((err) => {
-        toast.error(err.message);
+        setErrors(err.message);
         setLoading(false);
       });
   };
@@ -69,21 +68,19 @@ const Register = () => {
     setLoading(true);
     SignInGoogle()
       .then((res) => {
-          const user = res.user;
-          setUser(res.user)
-   
-    const newUser = {
-      name: user.displayName,
-      email: user.email,
-      photo: user.photoURL,
-      createdAt: new Date()
-    };
-    instanceAxios.post('/users', newUser)
-      .then(() => {
-        toast.success("Google Signin successful");
-        navigate("/");
-      })
-      
+        const user = res.user;
+        setUser(res.user);
+
+        const newUser = {
+          name: user.displayName,
+          email: user.email,
+          photo: user.photoURL,
+          createdAt: new Date(),
+        };
+        instanceAxios.post("/users", newUser).then(() => {
+          toast.success("Google Signin successful");
+          navigate("/");
+        });
       })
       .catch((err) => {
         toast.error(err.message);
@@ -92,10 +89,11 @@ const Register = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#F4F1DE] px-4">
-      <div className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
-        <h2 className="text-3xl font-bold text-[#3D405B] mb-6 text-center">Register</h2>
-
+    <div className="flex items-center justify-center min-h-screen  px-4">
+      <div className="bg-base-100 my-4 dark:bg-[#1E293B] shadow-lg rounded-xl p-8 w-full max-w-md transition-colors duration-300">
+        <h2 className="text-3xl font-bold text-[#3D405B] dark:text-[#E2E8F0] mb-6 text-center">
+          Register
+        </h2>
         <form onSubmit={handleSignUp} className="space-y-4">
           <div className="flex flex-col">
             <label className="text-[#3D405B] font-medium mb-1">Name</label>
@@ -142,11 +140,10 @@ const Register = () => {
               {passwordVisible ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
+          <p className="text-[#E07A5F] font-medium my-2">{errors}
+          </p>
 
-          <button
-            type="submit"
-            className="w-full bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] text-white py-2 rounded-full font-semibold shadow-md hover:from-[#D35D42] hover:to-[#E4B462] transition duration-300"
-          >
+          <button type="submit" className="btn-gradient">
             Register
           </button>
         </form>
@@ -161,7 +158,10 @@ const Register = () => {
         </button>
         <p className="text-[#3D405B] text-center mt-3">
           Already have an account?{" "}
-          <Link to="/login" className="text-[#E07A5F] font-medium hover:underline">
+          <Link
+            to="/login"
+            className="text-[#E07A5F] font-medium hover:underline"
+          >
             Login
           </Link>
         </p>

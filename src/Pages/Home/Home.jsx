@@ -5,7 +5,7 @@ import TopCategories from '../../Component/TopCategories';
 
 const Home = () => {
     return (
-        <div className='bg-[#F4F1DE]'>
+        <div>
 
             <Latestvehicles></Latestvehicles>
             <TopCategories></TopCategories>
