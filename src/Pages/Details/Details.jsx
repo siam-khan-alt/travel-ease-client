@@ -1,12 +1,17 @@
-import React from "react";
+import React, { use } from "react";
 
 import { FaMapMarkerAlt, FaDollarSign, FaCar, FaCalendarAlt } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
+import LoadingSpinner from "../../Component/LoadingSpinner";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Details = () => {
   const vehicle = useLoaderData();
+  const {loading}=use(AuthContext)
   
-  
+  if (loading) {
+   return <LoadingSpinner/>
+  }
   if (!vehicle) {
     return <p className="text-center text-white mt-10">Loading...</p>;
   }

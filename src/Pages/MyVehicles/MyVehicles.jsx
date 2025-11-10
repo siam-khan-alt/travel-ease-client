@@ -3,9 +3,11 @@ import { AuthContext } from "../../Context/AuthContext";
 import useAxios from "../../Hooks/useAxios";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import LoadingSpinner from "../../Component/LoadingSpinner";
 
 const MyVehicles = () => {
-  const { users } = use(AuthContext);
+  const { users, loading } = use(AuthContext);
   const [myVehicles, setMyVehicles] = useState([]);
   const instanceAxios = useAxios();
 
@@ -36,24 +38,26 @@ const MyVehicles = () => {
       }
     });
   };
-
+if (loading) {
+   return <LoadingSpinner/>
+  }
   return (
-    <div className="max-w-6xl mx-auto p-6 mt-6">
-      <h2 className="text-3xl font-bold text-center text-[#3D405B] mb-6">
+    <div className="container mx-auto p-6 mt-3">
+      <h2 className="text-3xl  text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] mb-6">
         My Vehicles
       </h2>
 
       {myVehicles.length === 0 && (
-        <p className="text-center text-gray-500 text-lg">
+        <p className="text-center text-gray-500 dark:text-gray-300 text-lg">
           You have not added any vehicles yet.
         </p>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid container mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {myVehicles.map((vehicle) => (
           <div
             key={vehicle._id}
-            className="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            className="bg-white dark:bg-gray-800 shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
             <img
               src={vehicle.coverImage}
@@ -61,28 +65,31 @@ const MyVehicles = () => {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h3 className="text-xl font-semibold text-[#3D405B]">
+              <h3 className="text-xl font-semibold text-[#3D405B] dark:text-gray-100">
                 {vehicle.vehicleName}
               </h3>
-              <p className="text-[#3D405B] mt-1">{vehicle.location}</p>
+              <p className="text-[#3D405B] dark:text-gray-100 mt-1">{vehicle.location}</p>
               <p className="text-[#E07A5F] font-semibold mt-2">
                 ${vehicle.pricePerDay}/day
               </p>
-              <p className="text-gray-500 text-sm mt-1">
+              <p className="text-gray-500 dark:text-gray-300 text-sm mt-1">
                 Seats: {vehicle.sets} | Category: {vehicle.categories} |{" "}
                 {vehicle.availability}
               </p>
 
               <div className="flex gap-3 mt-4">
-                <button className="flex-1 py-2 rounded-full bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] text-white font-semibold hover:from-[#D35D42] hover:to-[#E4B462] transition duration-300 shadow-md">
-                  Edit
+                
+                <button className="flex-1 btn-gradient "><Link to={`/updateVehicle/${vehicle._id}`}>
+                  Edit </Link>
                 </button>
+                
                 <button
                   onClick={() => handleDelete(vehicle._id)}
-                  className="flex-1 py-2 rounded-full bg-gradient-to-r from-red-500 to-red-400 text-white font-semibold hover:from-red-600 hover:to-red-500 transition duration-300 shadow-md"
+                  className="flex-1 px-4 py-2 w-full rounded-full bg-gradient-to-r from-red-500 to-red-400 text-white font-semibold hover:from-red-600 hover:to-red-500 
+         transition duration-300 shadow-md"
                 >
                   Delete
-                </button>
+                </button >
               </div>
             </div>
           </div>

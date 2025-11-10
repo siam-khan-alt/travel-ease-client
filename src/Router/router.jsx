@@ -11,6 +11,7 @@ import MyBookings from "../Pages/MyBookings/MyBookings";
 import MainLayout from "../Layout/MainLayout";
 import PrivateRoute from "../Private/PrivateRoute";
 import Details from "../Pages/Details/Details";
+import UpdateVehicle from "../Component/UpdateVehicle";
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,9 @@ const router = createBrowserRouter([
       { path: "/details/:id",
         loader: ({params})=>fetch(`http://localhost:3000/vehicles/${params.id}`), 
         element: <PrivateRoute><Details /></PrivateRoute>  },
+        { path: "/updateVehicle/:id",
+        loader: ({params})=>fetch(`http://localhost:3000/vehicles/${params.id}`), 
+        element: <PrivateRoute><UpdateVehicle /></PrivateRoute>  }
     ],
   },
   { path: "*", element: <NotFound /> },

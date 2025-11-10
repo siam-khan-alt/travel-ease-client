@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import useAxios from '../../Hooks/useAxios';
 import VehicleCard from '../../Component/VehiclesCard';
+import { AuthContext } from '../../Context/AuthContext';
+import LoadingSpinner from '../../Component/LoadingSpinner';
 
 const AllVehicle = () => {
+  const {loading}=use(AuthContext)
     const instanceAxios = useAxios();
   const [vehicles, setVehicles] = useState([]);
   useEffect(() => {
@@ -10,7 +13,10 @@ const AllVehicle = () => {
       setVehicles(data.data);
     });
   }, [instanceAxios]);
-  console.log(vehicles);
+
+if (loading) {
+  return <LoadingSpinner/>
+}
 
   return (
     <div className="mx-auto container">

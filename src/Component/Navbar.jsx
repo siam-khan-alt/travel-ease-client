@@ -105,7 +105,6 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-6">{allLinks}</ul>
       </div>
-     <div className="navbar-end">
       <label  className="toggle text-base-content mr-3">
   <input onChange={(e)=>handletheme(e.target.checked)} type="checkbox" value="synthwave" className="theme-controller" />
 
@@ -114,6 +113,8 @@ const Navbar = () => {
   <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g></svg>
 
 </label>
+     <div className="navbar-end">
+      
   {users ? (<div className="flex justify-center items-center gap-4">
     <div className="relative group">
       <img

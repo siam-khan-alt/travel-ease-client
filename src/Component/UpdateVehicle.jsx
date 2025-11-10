@@ -1,15 +1,12 @@
-import React, { use,  } from "react";
-import { AuthContext } from "../../Context/AuthContext";
-import useAxios from "../../Hooks/useAxios";
-import { toast } from "react-toastify";
+import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import useAxios from '../Hooks/useAxios';
+import { toast } from 'react-toastify';
 
-const AddVehicle = () => {
-  const { users } = use(AuthContext);
-  const instanceAxios = useAxios();
-
- 
-
-  const handleSubmit = (e) => {
+const UpdateVehicle = () => {
+    const vehicle = useLoaderData()
+    const instanceAxios = useAxios()
+  const handleUpdate=(e)=>{
     e.preventDefault()
     const vehicleName = e.target.vehicleName.value
     const owner = e.target.owner.value
@@ -21,7 +18,7 @@ const AddVehicle = () => {
     const sets = e.target.sets.value
     const availability = e.target.availability.value
     const categories = e.target.categories.value
-     const newVehicle ={
+     const updateVehicle ={
       vehicleName,
     owner,
     userEmail,
@@ -34,25 +31,25 @@ const AddVehicle = () => {
     categories,
     createdAt: new Date()
      }
-  instanceAxios.post("/vehicles", newVehicle)
-  .then(()=>{
-    toast.success("Vehicle added successfully!")
-  })
-  .catch((err) => toast.error(err.message));
-  };
-
-  
-  return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-xl mt-6">
-      <h2 className="text-3xl text-center font-bold mb-4 text-[#3D405B]">Add Vehicle</h2>
-      <form className="space-y-3" onSubmit={handleSubmit}>
+     instanceAxios.patch(`/vehicles/${vehicle?._id}`, updateVehicle)
+       .then(()=>{
+         toast.success("Vehicle updated successfully!")
+       })
+       .catch((err) => toast.error(err.message));
+       
+  }
+    
+    return (
+        <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-xl mt-6">
+      <h2 className="text-3xl text-center font-bold mb-4 text-[#3D405B]">Update Vehicle</h2>
+      <form className="space-y-3" onSubmit={handleUpdate}>
       
         <div className="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0">
           <input
             type="text"
             name="vehicleName"
             placeholder="Vehicle Name"
-           
+            defaultValue={vehicle?.vehicleName}
             className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
             required
           />
@@ -60,7 +57,7 @@ const AddVehicle = () => {
             type="text"
             name="owner"
             placeholder="Owner"
-            value={users?.displayName|| "User"}
+            defaultValue={vehicle?.owner}
             
             className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
             required
@@ -72,10 +69,9 @@ const AddVehicle = () => {
             type="email"
             name="userEmail"
             placeholder="User Email"
-            value={users?.email}
+            defaultValue={vehicle?.userEmail}
             className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
             required
-            
           />
           <input
             type="number"
@@ -83,6 +79,7 @@ const AddVehicle = () => {
             min={1}
             step={1}
             placeholder="Price per Day"
+            defaultValue={vehicle?.pricePerDay}
             className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
             required
           />
@@ -92,6 +89,7 @@ const AddVehicle = () => {
             type="text"
             name="location"
             placeholder="Location"
+            defaultValue={vehicle?.location}
             className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
             required
           />
@@ -101,6 +99,7 @@ const AddVehicle = () => {
             placeholder="Seats"
             min={1}
             step={1}
+            defaultValue={vehicle?.sets}
             className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
             required
           />
@@ -110,11 +109,13 @@ const AddVehicle = () => {
             type="text"
             name="coverImage"
             placeholder="Cover Image URL"
+            defaultValue={vehicle?.coverImage}
             className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
             required
           />
           <select
             name="availability"
+            defaultValue={vehicle?.availability}
             className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
           >
             <option value="Available">Available</option>
@@ -123,6 +124,7 @@ const AddVehicle = () => {
         </div>
         <select
           name="categories"
+          defaultValue={vehicle?.categories}
           className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
         >
           <option value="Sedan">Sedan</option>
@@ -132,6 +134,7 @@ const AddVehicle = () => {
         </select>
         <textarea
           name="description"
+          defaultValue={vehicle?.description}
           placeholder="Description"
           className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
           rows={3}
@@ -142,11 +145,12 @@ const AddVehicle = () => {
           type="submit"
           className="btn-gradient"
         >
-          Add Vehicle
+          Update Vehicle
         </button>
       </form>
     </div>
   );
+    
 };
 
-export default AddVehicle;
+export default UpdateVehicle;
