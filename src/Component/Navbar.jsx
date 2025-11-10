@@ -73,7 +73,7 @@ const Navbar = () => {
    <div className=" navbars  ">
      <div className="navbar container mx-auto px-4 py-3 ">
       <div className="navbar-start  items-center">
-        <div className="dropdown lg:hidden">
+        <div className="dropdown mr-0 lg:hidden">
           <div tabIndex={0} className="btn btn-ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -97,15 +97,19 @@ const Navbar = () => {
             {allLinks}
           </ul>
         </div>
-        <Link to="/" className="text-2xl font-bold">
+        <Link to="/" className="text-2xl font-bold hidden md:flex">
           <span className="text-[#E07A5F]">Travel</span>
           <span className="text-[#F2CC8F]">Ease</span>
+        </Link>
+        <Link to="/" className="text-2xl font-bold md:hidden flex">
+          <span className="text-[#E07A5F]">T</span>
+          <span className="text-[#F2CC8F]">E</span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-6">{allLinks}</ul>
       </div>
-      <label  className="toggle text-base-content mr-3">
+      <label  className="toggle text-base-content mx-3">
   <input onChange={(e)=>handletheme(e.target.checked)} type="checkbox" value="synthwave" className="theme-controller" />
 
   <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
@@ -141,7 +145,7 @@ const Navbar = () => {
         </button>
       </Link>
       <Link to="/register">
-        <button className="btn-gradient">
+        <button className="btn-gradient ">
           Register
         </button>
       </Link>

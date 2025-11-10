@@ -18,7 +18,7 @@ const Latestvehicles = () => {
   }
 
   return (
-    <div className="mx-auto container mb-5">
+    <div className="mx-auto container px-4 md:px-0 mb-5">
       <h2 className=" my-4 main-heading mb-6">
         Latest Vehicles
       </h2>

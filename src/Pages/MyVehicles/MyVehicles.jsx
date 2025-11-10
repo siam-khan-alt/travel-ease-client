@@ -38,20 +38,21 @@ const MyVehicles = () => {
       }
     });
   };
-if (loading) {
-   return <LoadingSpinner/>
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+  if (myVehicles.length === 0) {
+    return (
+      <p className="min-h-screen flex text-3xl font-bold  items-center justify-center text-gray-500 dark:text-gray-400">
+        You have not added any vehicles yet.
+      </p>
+    );
   }
   return (
     <div className="container mx-auto p-6 mt-3">
       <h2 className="text-3xl  text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] mb-6">
         My Vehicles
       </h2>
-
-      {myVehicles.length === 0 && (
-        <p className="text-center text-gray-500 dark:text-gray-300 text-lg">
-          You have not added any vehicles yet.
-        </p>
-      )}
 
       <div className="grid container mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {myVehicles.map((vehicle) => (
@@ -68,7 +69,9 @@ if (loading) {
               <h3 className="text-xl font-semibold text-[#3D405B] dark:text-gray-100">
                 {vehicle.vehicleName}
               </h3>
-              <p className="text-[#3D405B] dark:text-gray-100 mt-1">{vehicle.location}</p>
+              <p className="text-[#3D405B] dark:text-gray-100 mt-1">
+                {vehicle.location}
+              </p>
               <p className="text-[#E07A5F] font-semibold mt-2">
                 ${vehicle.pricePerDay}/day
               </p>
@@ -78,18 +81,17 @@ if (loading) {
               </p>
 
               <div className="flex gap-3 mt-4">
-                
-                <button className="flex-1 btn-gradient "><Link to={`/updateVehicle/${vehicle._id}`}>
-                  Edit </Link>
+                <button className="flex-1 btn-gradient ">
+                  <Link to={`/updateVehicle/${vehicle._id}`}>Edit </Link>
                 </button>
-                
+
                 <button
                   onClick={() => handleDelete(vehicle._id)}
                   className="flex-1 px-4 py-2 w-full rounded-full bg-gradient-to-r from-red-500 to-red-400 text-white font-semibold hover:from-red-600 hover:to-red-500 
          transition duration-300 shadow-md"
                 >
                   Delete
-                </button >
+                </button>
               </div>
             </div>
           </div>

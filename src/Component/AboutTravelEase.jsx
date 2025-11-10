@@ -4,8 +4,8 @@ import React from "react";
 
 const AboutTravelEase = () => {
   return (
-   <div className="bg-[#F4F1DE] dark:bg-[#1E293B]">
-     <div className="mx-auto container text-[#1E293B] dark:text-[#F8FAFC]
+   <div className="bg-[#F4F1DE] dark:bg-[#1E293B] px-4 md:px-0 mx-auto container">
+     <div className=" text-[#1E293B] dark:text-[#F8FAFC]
  py-8   transition duration-300">
   <h2 className="main-heading mb-3">
     Explore with <span className="text-[#F2CC8F] dark:text-[#E07A5F]">TravelEase</span>

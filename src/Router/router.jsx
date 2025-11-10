@@ -12,6 +12,7 @@ import MainLayout from "../Layout/MainLayout";
 import PrivateRoute from "../Private/PrivateRoute";
 import Details from "../Pages/Details/Details";
 import UpdateVehicle from "../Component/UpdateVehicle";
+import LoadingSpinner from "../Component/LoadingSpinner";
 
 
 const router = createBrowserRouter([
@@ -28,10 +29,14 @@ const router = createBrowserRouter([
       { path: "/myBookings", element: <PrivateRoute><MyBookings /></PrivateRoute>   },
       { path: "/details/:id",
         loader: ({params})=>fetch(`http://localhost:3000/vehicles/${params.id}`), 
-        element: <PrivateRoute><Details /></PrivateRoute>  },
+        element: <PrivateRoute><Details /></PrivateRoute> ,
+        HydrateFallback:LoadingSpinner
+       },
         { path: "/updateVehicle/:id",
         loader: ({params})=>fetch(`http://localhost:3000/vehicles/${params.id}`), 
-        element: <PrivateRoute><UpdateVehicle /></PrivateRoute>  }
+        element: <PrivateRoute><UpdateVehicle /></PrivateRoute>,
+      HydrateFallback:LoadingSpinner  },
+      { path: "/*", element: <NotFound /> }
     ],
   },
   { path: "*", element: <NotFound /> },

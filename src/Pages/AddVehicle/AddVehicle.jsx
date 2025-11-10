@@ -35,8 +35,8 @@ const AddVehicle = () => {
     createdAt: new Date()
      }
   instanceAxios.post("/vehicles", newVehicle)
-  .then(()=>{
-    toast.success("Vehicle added successfully!")
+  .then((res)=>{
+    if (res.data.insertedId) toast.success("Vehicle added successfully!")
   })
   .catch((err) => toast.error(err.message));
   };
