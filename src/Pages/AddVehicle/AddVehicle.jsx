@@ -2,7 +2,8 @@ import React, { use,  } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import useAxios from "../../Hooks/useAxios";
 import { toast } from "react-toastify";
-
+import { format } from "date-fns";
+import Motions from "../../Component/Motions";
 const AddVehicle = () => {
   const { users } = use(AuthContext);
   const instanceAxios = useAxios();
@@ -32,7 +33,7 @@ const AddVehicle = () => {
     sets,
     availability,
     categories,
-    createdAt: new Date()
+    createdAt: format(new Date(), "yyyy-MM-dd hh:mm:ss a")
      }
   instanceAxios.post("/vehicles", newVehicle)
   .then((res)=>{
@@ -43,7 +44,7 @@ const AddVehicle = () => {
 
   
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg dark:bg-[#1E293B] rounded-xl mt-6">
+    <Motions className="max-w-2xl mx-auto p-6 bg-white shadow-lg dark:bg-[#1E293B] rounded-xl mt-6">
       <h2 className="text-3xl text-center font-bold mb-4 text-[#3D405B]">Add Vehicle</h2>
       <form className="space-y-3" onSubmit={handleSubmit}>
       
@@ -145,7 +146,7 @@ const AddVehicle = () => {
           Add Vehicle
         </button>
       </form>
-    </div>
+    </Motions>
   );
 };
 

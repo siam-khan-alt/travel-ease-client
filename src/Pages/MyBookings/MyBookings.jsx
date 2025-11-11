@@ -4,6 +4,7 @@ import useAxios from "../../Hooks/useAxios";
 import LoadingSpinner from "../../Component/LoadingSpinner";
 import { toast } from "react-toastify";
 import { FaCar, FaDollarSign, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
+import Motions from "../../Component/Motions";
 
 const MyBookings = () => {
   const { users, loading } = use(AuthContext);
@@ -23,14 +24,14 @@ const MyBookings = () => {
 
   if (bookings.length === 0) {
     return (
-      <div className="min-h-screen flex text-3xl font-bold  items-center justify-center text-gray-500 dark:text-gray-400">
+      <Motions className="min-h-screen flex text-3xl font-bold  items-center justify-center text-gray-500 dark:text-gray-400">
         <p>No bookings found.</p>
-      </div>
+      </Motions>
     );
   }
 
   return (
-    <div className="min-h-screen px-4 py-8 bg-gray-100 dark:bg-gray-900">
+    <Motions className="min-h-screen px-4 py-8 bg-gray-100 dark:bg-gray-900">
       <div className="container mx-auto">
         <h2 className=" mb-6 main-heading">
           My Bookings
@@ -74,7 +75,7 @@ const MyBookings = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Motions>
   );
 };
 

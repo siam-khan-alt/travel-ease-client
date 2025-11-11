@@ -3,7 +3,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 
+
 const VehicleCard = ({ vehicle }) => {
+  
+
   return (
     <div className="bg-[#FFFFFF] dark:bg-[#1E293B] rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300">
     

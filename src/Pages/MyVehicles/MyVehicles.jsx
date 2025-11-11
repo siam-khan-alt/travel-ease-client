@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../Component/LoadingSpinner";
+import Motions from "../../Component/Motions";
+
 
 const MyVehicles = () => {
   const { users, loading } = use(AuthContext);
@@ -41,18 +43,19 @@ const MyVehicles = () => {
   if (loading) {
     return <LoadingSpinner />;
   }
-  if (myVehicles.length === 0) {
-    return (
-      <p className="min-h-screen flex text-3xl font-bold  items-center text-center justify-center text-gray-500 dark:text-gray-400">
-        You have not added any vehicles yet.
-      </p>
-    );
-  }
+ 
   return (
-    <div className="container mx-auto p-6 mt-3">
+    <Motions className="container mx-auto p-6 mt-3">
       <h2 className="text-3xl  text-center font-bold text-transparent bg-clip-text bg-linear-to-r from-[#E07A5F] to-[#F2CC8F] mb-6">
         My Vehicles
       </h2>
+      {
+        myVehicles.length === 0 && <Motions className=" flex text-3xl font-bold  items-center text-center  justify-center text-gray-500 dark:text-gray-400"> <p >
+        You have not added any vehicles yet.
+      </p></Motions>
+     
+ 
+      }
 
       <div className="grid container mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {myVehicles.map((vehicle) => (
@@ -97,7 +100,7 @@ const MyVehicles = () => {
           </div>
         ))}
       </div>
-    </div>
+    </Motions>
   );
 };
 

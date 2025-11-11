@@ -3,7 +3,7 @@ import useAxios from "../../Hooks/useAxios";
 import VehicleCard from "../../Component/VehiclesCard";
 import { AuthContext } from "../../Context/AuthContext";
 import LoadingSpinner from "../../Component/LoadingSpinner";
-
+import Motions from "../../Component/Motions";
 const AllVehicle = () => {
   const { loading } = use(AuthContext);
   const instanceAxios = useAxios();
@@ -11,7 +11,8 @@ const AllVehicle = () => {
   const [sortBy, setSortBy] = useState("");
   useEffect(() => {
     instanceAxios.get("/vehicles").then((data) => {
-      setVehicles(data.data);
+      setVehicles(data.data); console.log(data.data);
+      
     });
   }, [instanceAxios]);
   const sortVehicles = [...vehicles].sort((a, b) => {
@@ -27,7 +28,7 @@ const AllVehicle = () => {
   }
 
   return (
-    <div className="mx-auto container px-5">
+    <Motions className="mx-auto container px-5">
       <h2 className="text-3xl my-4 text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] mb-6">
         Our Vehicles
       </h2>
@@ -49,7 +50,7 @@ const AllVehicle = () => {
           <VehicleCard vehicle={vehicle} key={vehicle._id}></VehicleCard>
         ))}
       </div>
-    </div>
+    </Motions>
   );
 };
 

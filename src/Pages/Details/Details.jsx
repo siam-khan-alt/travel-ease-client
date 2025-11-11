@@ -6,7 +6,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
 import useAxios from "../../Hooks/useAxios";
 import LoadingSpinner from "../../Component/LoadingSpinner";
-
+import Motions from "../../Component/Motions";
 const Details = () => {
   const vehicle = useLoaderData();
   const { users}=use(AuthContext)
@@ -51,7 +51,7 @@ const Details = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 px-4 py-8">
+    <Motions className="min-h-screen bg-gray-100 dark:bg-gray-900 px-4 py-8">
       <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-2xl rounded-xl p-6 md:p-10">
       
         <div className="flex flex-col md:flex-row gap-6">
@@ -89,7 +89,7 @@ const Details = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Motions>
   );
 };
 

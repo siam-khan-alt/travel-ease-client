@@ -6,7 +6,7 @@ import LoadingSpinner from "./LoadingSpinner";
 
 const Latestvehicles = () => {
   const instanceAxios = useAxios();
-  const {loading}=use(AuthContext)
+  const { loading } = use(AuthContext);
   const [vehicles, setVehicles] = useState([]);
   useEffect(() => {
     instanceAxios.get("/vehicles/latest").then((data) => {
@@ -14,15 +14,18 @@ const Latestvehicles = () => {
     });
   }, [instanceAxios]);
   if (loading) {
-   return <LoadingSpinner/>
+    return <LoadingSpinner />;
   }
 
   return (
     <div className="mx-auto container px-5  mb-5">
-      <h2 className=" my-4 main-heading mb-6">
-        Latest Vehicles
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <h2 className=" my-4 main-heading mb-6">Latest Vehicles</h2>
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {vehicles.map((vehicle) => (
           <VehiclesCard vehicle={vehicle} key={vehicle._id}></VehiclesCard>
         ))}

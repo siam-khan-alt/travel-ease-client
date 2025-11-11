@@ -4,6 +4,8 @@ import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
 import useAxios from "../../Hooks/useAxios";
+import { format } from "date-fns";
+import Motions from "../../Component/Motions";
 
 const Register = () => {
   const { SignUp, profileUpdate, SignInGoogle, setUser, setLoading } =
@@ -60,6 +62,7 @@ const Register = () => {
       })
       .catch((err) => {
         setErrors(err.message);
+        
         setLoading(false);
       });
   };
@@ -75,21 +78,23 @@ const Register = () => {
           name: user.displayName,
           email: user.email,
           photo: user.photoURL,
-          createdAt: new Date(),
+          createdAt: format(new Date(), "yyyy-MM-dd hh:mm:ss a"),
         };
         instanceAxios.post("/users", newUser).then(() => {
-          toast.success("Google Signin successful");
-          navigate("/");
+          
         });
+        toast.success("Google Login Successful");
+          navigate("/");
       })
       .catch((err) => {
         toast.error(err.message);
+        
         setLoading(false);
       });
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen  px-4">
+    <Motions className="flex items-center justify-center min-h-screen  px-4">
       <div className="bg-base-100 my-4 dark:bg-[#1E293B] shadow-lg rounded-xl p-8 w-full max-w-md transition-colors duration-300">
         <h2 className="text-3xl font-bold text-[#3D405B] dark:text-[#E2E8F0] mb-6 text-center">
           Register
@@ -154,7 +159,7 @@ const Register = () => {
           className="flex items-center justify-center w-full gap-2 bg-white border border-gray-300 text-[#3D405B] py-2 px-4 rounded-full shadow-md hover:bg-[#E07A5F] hover:text-white transition duration-300"
         >
           <FaGoogle size={20} />
-          Register with Google
+          Signin with Google
         </button>
         <p className="text-[#3D405B] text-center mt-3">
           Already have an account?{" "}
@@ -166,7 +171,7 @@ const Register = () => {
           </Link>
         </p>
       </div>
-    </div>
+    </Motions>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { FaCarSide, FaBolt, FaShuttleVan, FaTaxi } from "react-icons/fa";
 
 const categories = [
@@ -13,6 +14,22 @@ const categories = [
 ];
 
 const TopCategories = () => {
+  const categoryVariants = {
+  hidden: { opacity: 0, y: 30 }, 
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.5, ease: "easeOut" }
+  },
+};
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.5,
+    },
+  },
+};
   return (
     <div
       className=" bg-[#F4F1DE] dark:bg-[#0F172A]
@@ -22,10 +39,14 @@ text-[#1E293B] dark:text-white px-4 md:px-10 py-12 "
         Top Categories
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-5xl mx-auto">
+      <motion.div  className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-5xl mx-auto"   variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}>
         {categories.map((cat) => (
-          <div
+          <motion.div
             key={cat.name}
+             variants={categoryVariants}
             className={`bg-linear-to-br ${cat.color} p-[1px] rounded-xl hover:scale-105 transition duration-300`}
           >
             <div
@@ -34,9 +55,9 @@ text-[#1E293B] dark:text-white px-4 md:px-10 py-12 "
               <span className="text-3xl">{cat.icon}</span>
               <p className="font-semibold">{cat.name}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

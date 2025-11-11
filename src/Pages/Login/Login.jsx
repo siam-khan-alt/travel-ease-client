@@ -4,6 +4,7 @@ import { IoEyeOff } from "react-icons/io5";
 import { Link,  useLocation,  useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
+import Motions from "../../Component/Motions";
 const Login = () => {
  
   const [errors, setErrors]=useState("")
@@ -55,7 +56,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen  px-4">
+    <Motions className="flex items-center justify-center min-h-screen  px-4">
      <div className="bg-base-100 dark:bg-[#1E293B] shadow-lg rounded-xl p-8 w-full max-w-md transition-colors duration-300">
   <h2 className="text-3xl font-bold text-[#3D405B] dark:text-[#E2E8F0] mb-6 text-center">Login</h2>
 
@@ -120,7 +121,7 @@ const Login = () => {
           </Link>
         </p>
       </div>
-    </div>
+    </Motions>
   );
 };
 
