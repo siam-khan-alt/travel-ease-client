@@ -43,7 +43,7 @@ const AddVehicle = () => {
 
   
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-xl mt-6">
+    <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg dark:bg-[#1E293B] rounded-xl mt-6">
       <h2 className="text-3xl text-center font-bold mb-4 text-[#3D405B]">Add Vehicle</h2>
       <form className="space-y-3" onSubmit={handleSubmit}>
       

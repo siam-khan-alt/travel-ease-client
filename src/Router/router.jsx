@@ -28,12 +28,12 @@ const router = createBrowserRouter([
       { path: "/myVehicles", element: <PrivateRoute><MyVehicles /></PrivateRoute>   },
       { path: "/myBookings", element: <PrivateRoute><MyBookings /></PrivateRoute>   },
       { path: "/details/:id",
-        loader: ({params})=>fetch(`http://localhost:3000/vehicles/${params.id}`), 
+        loader: ({params})=>fetch(`https://travel-ease-server-83763lbts-siam-khans-projects-3bc1c6be.vercel.app/vehicles/${params.id}`), 
         element: <PrivateRoute><Details /></PrivateRoute> ,
         HydrateFallback:LoadingSpinner
        },
         { path: "/updateVehicle/:id",
-        loader: ({params})=>fetch(`http://localhost:3000/vehicles/${params.id}`), 
+        loader: ({params})=>fetch(`https://travel-ease-server-83763lbts-siam-khans-projects-3bc1c6be.vercel.app/vehicles/${params.id}`), 
         element: <PrivateRoute><UpdateVehicle /></PrivateRoute>,
       HydrateFallback:LoadingSpinner  },
       { path: "/*", element: <NotFound /> }

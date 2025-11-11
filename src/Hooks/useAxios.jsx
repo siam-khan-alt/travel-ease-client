@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://travel-ease-server-83763lbts-siam-khans-projects-3bc1c6be.vercel.app',
   
   
 });

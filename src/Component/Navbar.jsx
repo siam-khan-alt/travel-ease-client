@@ -124,7 +124,7 @@ const Navbar = () => {
       <img
         src={users.photoURL || "https://via.placeholder.com/40"}
         alt=""
-        className="w-10 h-10 rounded-full cursor-pointer border-2 border-[#7C3AED]"
+        className="w-18 h-10 rounded-full cursor-pointer border-2 border-[#7C3AED]"
       />
       <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-[#1E293B] text-white px-3 py-1 rounded shadow-md whitespace-nowrap">
         {users.displayName || "User"}

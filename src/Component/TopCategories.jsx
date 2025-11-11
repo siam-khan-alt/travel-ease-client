@@ -26,7 +26,7 @@ text-[#1E293B] dark:text-white px-4 md:px-10 py-12 "
         {categories.map((cat) => (
           <div
             key={cat.name}
-            className={`bg-gradient-to-br ${cat.color} p-[1px] rounded-xl hover:scale-105 transition duration-300`}
+            className={`bg-linear-to-br ${cat.color} p-[1px] rounded-xl hover:scale-105 transition duration-300`}
           >
             <div
               className=" rounded-xl flex flex-col items-center justify-center bg-[#F4F1DE] dark:bg-[#1E293B] h-32 gap-3"

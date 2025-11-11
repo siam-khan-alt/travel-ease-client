@@ -43,14 +43,14 @@ const MyVehicles = () => {
   }
   if (myVehicles.length === 0) {
     return (
-      <p className="min-h-screen flex text-3xl font-bold  items-center justify-center text-gray-500 dark:text-gray-400">
+      <p className="min-h-screen flex text-3xl font-bold  items-center text-center justify-center text-gray-500 dark:text-gray-400">
         You have not added any vehicles yet.
       </p>
     );
   }
   return (
     <div className="container mx-auto p-6 mt-3">
-      <h2 className="text-3xl  text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] mb-6">
+      <h2 className="text-3xl  text-center font-bold text-transparent bg-clip-text bg-linear-to-r from-[#E07A5F] to-[#F2CC8F] mb-6">
         My Vehicles
       </h2>
 
@@ -87,7 +87,7 @@ const MyVehicles = () => {
 
                 <button
                   onClick={() => handleDelete(vehicle._id)}
-                  className="flex-1 px-4 py-2 w-full rounded-full bg-gradient-to-r from-red-500 to-red-400 text-white font-semibold hover:from-red-600 hover:to-red-500 
+                  className="flex-1 px-4 py-2 w-full rounded-full bg-linear-to-r from-red-500 to-red-400 text-white font-semibold hover:from-red-600 hover:to-red-500 
          transition duration-300 shadow-md"
                 >
                   Delete

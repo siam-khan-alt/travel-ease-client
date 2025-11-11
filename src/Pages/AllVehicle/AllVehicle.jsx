@@ -27,7 +27,7 @@ const AllVehicle = () => {
   }
 
   return (
-    <div className="mx-auto container px-4 md:px-0">
+    <div className="mx-auto container px-5">
       <h2 className="text-3xl my-4 text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] mb-6">
         Our Vehicles
       </h2>
