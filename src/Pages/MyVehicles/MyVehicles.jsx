@@ -18,7 +18,6 @@ const MyVehicles = () => {
     instanceAxios
       .get(`/vehicles/users?email=${users.email}`)
       .then((res) => setMyVehicles(res.data))
-      .catch((err) => console.log(err));
   }, [users?.email, instanceAxios]);
 
   const handleDelete = (id) => {

@@ -11,7 +11,7 @@ const AllVehicle = () => {
   const [sortBy, setSortBy] = useState("");
   useEffect(() => {
     instanceAxios.get("/vehicles").then((data) => {
-      setVehicles(data.data); console.log(data.data);
+      setVehicles(data.data); 
       
     });
   }, [instanceAxios]);
