@@ -42,7 +42,7 @@ const UpdateVehicle = () => {
   }
     
     return (
-        <Motions className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-xl mt-6">
+        <Motions className="max-w-2xl mx-auto p-6 dark:bg-[#1E293B] bg-base-100 shadow-lg rounded-xl mt-6">
       <h2 className="text-3xl text-center font-bold mb-4 text-[#3D405B]">Update Vehicle</h2>
       <form className="space-y-3" onSubmit={handleUpdate}>
       

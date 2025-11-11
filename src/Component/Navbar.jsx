@@ -97,10 +97,10 @@ const Navbar = () => {
             {allLinks}
           </ul>
         </div>
-        <Link to="/" className="text-2xl font-bold hidden md:flex">
+        <h2><Link to="/" className="text-2xl font-bold hidden md:flex">
           <span className="text-[#E07A5F]">Travel</span>
           <span className="text-[#F2CC8F]">Ease</span>
-        </Link>
+        </Link></h2>
         <Link to="/" className="text-2xl font-bold md:hidden flex">
           <span className="text-[#E07A5F]">T</span>
           <span className="text-[#F2CC8F]">E</span>
@@ -109,7 +109,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-6">{allLinks}</ul>
       </div>
-      <label  className="toggle text-base-content mx-3">
+      <label  className="toggle text-base-content mr-7">
   <input onChange={(e)=>handletheme(e.target.checked)} type="checkbox" value="synthwave" className="theme-controller" />
 
   <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
@@ -124,7 +124,7 @@ const Navbar = () => {
       <img
         src={users.photoURL || "https://via.placeholder.com/40"}
         alt=""
-        className="w-18 h-10 rounded-full cursor-pointer border-2 border-[#7C3AED]"
+        className="w-18  h-10 rounded-full cursor-pointer border-2 border-[#7C3AED]"
       />
       <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-[#1E293B] text-white px-3 py-1 rounded shadow-md whitespace-nowrap">
         {users.displayName || "User"}

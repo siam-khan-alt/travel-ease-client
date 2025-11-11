@@ -33,9 +33,9 @@ const containerVariants = {
   return (
     <div
       className=" bg-[#F4F1DE] dark:bg-[#0F172A]
-text-[#1E293B] dark:text-white px-4 md:px-10 py-12 "
+text-[#1E293B] dark:text-white px-4 md:px-10 pt-0.5 md:pt-5 pb-5 md:pb-10"
     >
-      <h2 className="main-heading mb-10">
+      <h2 className="main-heading my-5 md:mb-5 ">
         Top Categories
       </h2>
 

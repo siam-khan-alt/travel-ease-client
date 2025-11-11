@@ -85,7 +85,7 @@ const MyVehicles = () => {
 
               <div className="flex gap-3 mt-4">
                 <button className="flex-1 btn-gradient ">
-                  <Link to={`/updateVehicle/${vehicle._id}`}>Edit </Link>
+                  <Link to={`/updateVehicle/${vehicle._id}`}>Update </Link>
                 </button>
 
                 <button

@@ -29,10 +29,10 @@ const HeroBanner = () => {
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
       <div className="relative z-10 px-4">
-        <motion.h1 className="text-5xl md:text-6xl font-bold mb-4"
+        <motion.h2 className="text-5xl md:text-6xl font-bold mb-4"
         variants={childVariants}>
           Find Your Perfect Ride!
-        </motion.h1>
+        </motion.h2>
         <motion.p className="text-lg md:text-xl mb-8 text-gray-200 max-w-2xl mx-auto" variants={childVariants}>
           Explore a variety of vehicles and book your next trip with ease and
           comfort.

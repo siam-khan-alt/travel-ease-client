@@ -5,6 +5,8 @@ import { Link,  useLocation,  useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
 import Motions from "../../Component/Motions";
+import { format } from "date-fns";
+import useAxios from "../../Hooks/useAxios";
 const Login = () => {
  
   const [errors, setErrors]=useState("")
@@ -16,6 +18,7 @@ const Login = () => {
   const backLocation = location.state || "/";
   
   const navigate = useNavigate();
+  const instanceAxios = useAxios()
   
 
   const togglePassword = () => setShowPassword(!showPassword);
@@ -48,6 +51,14 @@ const Login = () => {
         toast.success("Google SignIn successful!");
         setLoading(false);
         navigate(backLocation);
+        const user= res.user 
+        const newUser = {
+                  name: user.displayName,
+                  email: user.email,
+                  photo: user.photoURL,
+                  createdAt: format(new Date(), "yyyy-MM-dd hh:mm:ss a"),
+                };
+                instanceAxios.post("/users", newUser)
       })
       .catch((err) => {
         toast.error(err.message);

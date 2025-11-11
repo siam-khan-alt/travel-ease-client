@@ -18,8 +18,8 @@ const Latestvehicles = () => {
   }
 
   return (
-    <div className="mx-auto container px-5  mb-5">
-      <h2 className=" my-4 main-heading mb-6">Latest Vehicles</h2>
+    <div className="mx-auto container px-5  mb-5 md:mb-10">
+      <h2 className=" my-5 md:my-10 main-heading ">Latest Vehicles</h2>
       <div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         initial="hidden"
