@@ -147,7 +147,7 @@ const UpdateVehicle = () => {
           type="submit"
           className="btn-gradient"
         >
-          Update Vehicle
+          Update
         </button>
       </form>
     </Motions>

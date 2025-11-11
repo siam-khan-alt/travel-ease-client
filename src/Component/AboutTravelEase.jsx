@@ -2,10 +2,11 @@ import React from "react";
 
 const AboutTravelEase = () => {
   return (
-    <div className="bg-[#F4F1DE] dark:bg-[#1E293B] px-4 mx-auto container">
+    <div className="bg-[#F4F1DE] dark:bg-[#1E293B] px-4 mx-auto container t-0.5
+ md:pt-2.5 pb-5 dark:md:pb-12 md:pb-10">
       <div
         className=" text-[#1E293B] dark:text-[#F8FAFC] pb-5   transition duration-300">
-        <h2 className="main-heading my-5">
+        <h2 className="main-heading mt-2 mb-5 dark:my-5">
           Explore with{" "}
           <span className="text-[#F2CC8F] dark:text-[#E07A5F]">TravelEase</span>
         </h2>

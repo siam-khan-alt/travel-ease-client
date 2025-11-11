@@ -1,16 +1,44 @@
-# React + Vite
+# 🌍 Travel Ease
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Travel Ease** is a modern vehicle booking and travel management web application where users can browse, book, and manage different types of vehicles with ease.
 
-Currently, two official plugins are available:
+🔗 **Live Site URL:** [monumental-licorice-6fb8c3.netlify.app]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚗 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **User-Friendly Booking System:**  
+  Users can easily book their preferred vehicles and view all their bookings in one place.
 
-## Expanding the ESLint configuration
+- **Dark & Light Theme Support:**  
+  Includes a smooth light/dark mode toggle using DaisyUI and Tailwind CSS.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Authentication System:**  
+  Secure login and registration using Firebase Authentication.
+
+- **Responsive Design:**  
+  Fully responsive design that works seamlessly on mobile, tablet, and desktop devices.
+
+- **Modern UI Components:**  
+  Interactive buttons, forms, and animations using Tailwind CSS and Framer Motion.
+
+---
+
+## 🛠️ Technologies Used
+
+- **Frontend:** React, React-router-dom, Vite, Tailwind CSS, DaisyUI, Framer Motion  
+- **Backend:** Node.js, Express.js, MongoDB  
+- **Authentication:** Firebase  
+- **Hosting:** Netlify (Client), Vercel (Server)
+
+---
+
+### 📫 Contact
+
+Developed by **Md Siam Khan**  
+📧 Email: nssiam99@gmail.com
+
+---
+
+> “Travel easily, explore freely — with **Travel Ease** 🚗💨”

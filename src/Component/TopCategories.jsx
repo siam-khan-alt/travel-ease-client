@@ -19,7 +19,7 @@ const TopCategories = () => {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.5, ease: "easeOut" }
+    transition: { duration: 0.4, ease: "easeOut" }
   },
 };
 const containerVariants = {
@@ -33,9 +33,10 @@ const containerVariants = {
   return (
     <div
       className=" bg-[#F4F1DE] dark:bg-[#0F172A]
-text-[#1E293B] dark:text-white px-4 md:px-10 pt-0.5 md:pt-5 pb-5 md:pb-10"
+text-[#1E293B] dark:text-white px-4 md:px-10 pt-0.5
+ md:pt-2.5 pb-5 dark:md:pb-12 md:pb-10"
     >
-      <h2 className="main-heading my-5 md:mb-5 ">
+      <h2 className="main-heading dark:my-5 mb-5 md:mb-6 ">
         Top Categories
       </h2>
 
