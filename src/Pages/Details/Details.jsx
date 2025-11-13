@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 
 import { FaMapMarkerAlt, FaDollarSign, FaCar, FaCalendarAlt } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
@@ -11,12 +11,10 @@ const Details = () => {
   const vehicle = useLoaderData();
   const { users}=use(AuthContext)
    const instanceAxios = useAxios();
+   const [bookingCount, setBookingCount] = useState(vehicle.bookingCount || 0)
 
   const handleBooking = async () => {
-    if (!users) {
-      toast.error("Please login to book a vehicle!");
-      return;
-    }
+   
     const bookingData = {
       userEmail: users.email,
       userName: users.displayName,
@@ -31,11 +29,14 @@ const Details = () => {
       sets:vehicle.sets,
       status: "Pending",
       bookedAt: new Date(),
+      bookingCount: vehicle.bookingCount
     };
 
    instanceAxios.post("/bookings", bookingData)
   .then(res => {
-    if (res.data.insertedId) toast.success("Vehicle booked successfully!");
+    if (res.data.insertedId) {toast.success("Vehicle booked successfully!")
+       setBookingCount(prev => prev + 1)
+    };
   })
   .catch(error => {
     if (error.response && error.response.data?.message) {
@@ -77,13 +78,14 @@ const Details = () => {
               <p className="flex items-center gap-2">
                 <FaCalendarAlt /> <span>Status: {vehicle?.availability}</span>
               </p>
+              <p className="flex items-center gap-2 font-medium text-blue-600 dark:text-yellow-400"> Total Bookings: {bookingCount}</p>
             </div>
             <div className="mb-4">
               <h3 className="text-xl font-semibold mb-2">Owner</h3>
               <p>{vehicle?.owner}</p>
               <p className="text-gray-400 dark:text-gray-400">{vehicle?.userEmail}</p>
             </div>
-            <button onClick={handleBooking} className="btn w-full md:w-auto bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] hover:from-[#D35D42] hover:to-[#E4B462] text-white rounded-full py-2 px-6 transition duration-300">
+            <button onClick={handleBooking} className="btn-gradient">
               Book Now
             </button>
           </div>

@@ -9,15 +9,18 @@ import Motions from "../../Component/Motions";
 
 
 const MyVehicles = () => {
-  const { users, loading } = use(AuthContext);
+  const { users } = use(AuthContext);
   const [myVehicles, setMyVehicles] = useState([]);
   const instanceAxios = useAxios();
+const [Loading, setLoading] = useState(true);
+
 
   useEffect(() => {
-    if (!users?.email) return;
+    setLoading(true)
     instanceAxios
       .get(`/vehicles/users?email=${users.email}`)
-      .then((res) => setMyVehicles(res.data))
+    .then((res) => {setMyVehicles(res.data)})
+    .finally(()=>setLoading(false))
   }, [users?.email, instanceAxios]);
 
   const handleDelete = (id) => {
@@ -27,6 +30,15 @@ const MyVehicles = () => {
       icon: "warning",
       showCancelButton: true,
       confirmButtonText: "Yes, delete it!",
+      background:"#E5E7EB" ,
+      color: "#111827",
+       buttonsStyling: false,
+      customClass: {  
+    confirmButton:
+      "bg-gradient-to-r from-[#E07A5F] to-[#F2CC8F] text-white font-semibold px-4 py-2 rounded-full hover:opacity-90 transition",
+    cancelButton:
+      "bg-gradient-to-r from-[#9A8C98] to-[#C9ADA7] text-white font-semibold px-5 py-2 rounded-full hover:opacity-90 transition",
+  },
     }).then((result) => {
       if (result.isConfirmed) {
         instanceAxios
@@ -39,8 +51,13 @@ const MyVehicles = () => {
       }
     });
   };
-  if (loading) {
-    return <LoadingSpinner />;
+  if (Loading) return <LoadingSpinner />;
+ if (myVehicles.length === 0) {
+    return (
+      <Motions className="min-h-screen flex text-3xl font-bold  items-center justify-center text-gray-500 dark:text-gray-400">
+        <p>You have not added any vehicles yet.</p>
+      </Motions>
+    );
   }
  
   return (
@@ -48,13 +65,6 @@ const MyVehicles = () => {
       <h2 className="text-3xl  text-center font-bold text-transparent bg-clip-text bg-linear-to-r from-[#E07A5F] to-[#F2CC8F] mb-6">
         My Vehicles
       </h2>
-      {
-        myVehicles.length === 0 && <Motions className=" flex text-3xl font-bold  items-center text-center  justify-center text-gray-500 dark:text-gray-400"> <p >
-        You have not added any vehicles yet.
-      </p></Motions>
-     
- 
-      }
 
       <div className="grid container mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {myVehicles.map((vehicle) => (

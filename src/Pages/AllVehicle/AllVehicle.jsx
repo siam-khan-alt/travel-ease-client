@@ -1,19 +1,20 @@
-import React, { use, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import useAxios from "../../Hooks/useAxios";
 import VehicleCard from "../../Component/VehiclesCard";
-import { AuthContext } from "../../Context/AuthContext";
 import LoadingSpinner from "../../Component/LoadingSpinner";
 import Motions from "../../Component/Motions";
 const AllVehicle = () => {
-  const { loading } = use(AuthContext);
   const instanceAxios = useAxios();
   const [vehicles, setVehicles] = useState([]);
   const [sortBy, setSortBy] = useState("");
+  const [Loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true)
     instanceAxios.get("/vehicles").then((data) => {
       setVehicles(data.data); 
       
-    });
+    })
+    .finally(()=>setLoading(false))
   }, [instanceAxios]);
   const sortVehicles = [...vehicles].sort((a, b) => {
     if (sortBy === "price-asc") return a.pricePerDay - b.pricePerDay;
@@ -23,7 +24,7 @@ const AllVehicle = () => {
     return 0;
   });
 
-  if (loading) {
+  if (Loading) {
     return <LoadingSpinner />;
   }
 

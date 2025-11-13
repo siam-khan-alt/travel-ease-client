@@ -2,25 +2,24 @@ import React, { useEffect, useState,  use } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import useAxios from "../../Hooks/useAxios";
 import LoadingSpinner from "../../Component/LoadingSpinner";
-import { toast } from "react-toastify";
 import { FaCar, FaDollarSign, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
 import Motions from "../../Component/Motions";
 
 const MyBookings = () => {
-  const { users, loading } = use(AuthContext);
+  const { users} = use(AuthContext);
   const [bookings, setBookings] = useState([]);
   const instanceAxios = useAxios();
+  const [Loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!users?.email) return;
-
+    setLoading(true)
     instanceAxios
       .get(`/bookings?email=${users.email}`)
       .then((res) => setBookings(res.data))
-      .catch((err) => toast.error(err.message));
+      .finally(()=>setLoading(false))
   }, [users?.email, instanceAxios]);
 
-  if (loading) return <LoadingSpinner />;
+  if (Loading) return <LoadingSpinner />;
 
   if (bookings.length === 0) {
     return (

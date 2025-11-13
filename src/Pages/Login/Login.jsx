@@ -103,11 +103,9 @@ const Login = () => {
           <p className="text-[#E07A5F] font-medium my-2">{errors}
           </p>
           <div>
-            <Link to="/reset" state={{ email }}>
               <p className="link link-hover text-[#E07A5F] hover:text-[#D35D42]">
                 Forgot password?
               </p>
-            </Link>
           </div>
           <button
             type="submit"
