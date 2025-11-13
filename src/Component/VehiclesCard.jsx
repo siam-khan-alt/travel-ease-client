@@ -27,14 +27,14 @@ const VehicleCard = ({ vehicle }) => {
           <p className="text-[#7C3AED] my-2 font-semibold">${vehicle.pricePerDay}/day</p>
           
         
-        <div>
+        <button>
           <Link
             to={`/details/${vehicle._id}`}
             className="flex items-center justify-center  gap-2 btn-gradient"
           >
             View Details <FaArrowRight />
           </Link>
-        </div>
+        </button>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../Component/LoadingSpinner";
 import Motions from "../../Component/Motions";
+import { FaArrowRight } from "react-icons/fa";
 
 
 const MyVehicles = () => {
@@ -91,9 +92,17 @@ const [Loading, setLoading] = useState(true);
                 Seats: {vehicle.sets} | Category: {vehicle.categories} |{" "}
                 {vehicle.availability}
               </p>
+             
+                        <Link
+                          to={`/details/${vehicle._id}`}
+                          
+                        > <button className="flex mt-3 items-center justify-center  gap-2 btn-gradient">
+                          View Details <FaArrowRight />
+                        
+                      </button></Link>
 
               <div className="flex gap-3 mt-4">
-                <button className="flex-1 btn-gradient ">
+                <button className="flex-1 px-4 py-2 w-full rounded-full bg-linear-to-r from-[#38BDF8] to-[#3B82F6] hover:from-[#0EA5E9] hover:to-[#2563EB] text-white font-semibold transition duration-300 shadow-md ">
                   <Link to={`/updateVehicle/${vehicle._id}`}>Update </Link>
                 </button>
 
