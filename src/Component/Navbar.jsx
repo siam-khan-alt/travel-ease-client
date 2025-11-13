@@ -66,6 +66,16 @@ const Navbar = () => {
       >
         My Bookings
       </NavLink>
+        <label  className="toggle text-base-content  ">
+  <input  onChange={(e)=>handletheme(e.target.checked)} type="checkbox" value="synthwave"
+   checked={theme === "dark"} className="theme-controller"  />
+
+  <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
+
+  <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g></svg>
+
+</label>
+      
     </>
   );
 
@@ -105,19 +115,23 @@ const Navbar = () => {
           <span className="text-[#E07A5F]">T</span>
           <span className="text-[#F2CC8F]">E</span>
         </Link>
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-6">{allLinks}</ul>
-      </div>
-      <label  className="toggle text-base-content md::ml-5 md:mr-0 mr-7">
-  <input onChange={(e)=>handletheme(e.target.checked)} type="checkbox" value="synthwave"
-   checked={theme === "dark"} className="theme-controller" />
+       <div className="flex lg:hidden ml-4">
+         <label  className="toggle text-base-content  ">
+  <input  onChange={(e)=>handletheme(e.target.checked)} type="checkbox" value="synthwave"
+   checked={theme === "dark"} className="theme-controller"  />
 
   <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
 
   <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g></svg>
 
 </label>
+       </div>
+      </div>
+      <div className="navbar-center hidden lg:flex  ">
+        <ul className="menu  menu-horizontal px-1 space-x-6">{allLinks}</ul>
+         
+      </div>
+     
      <div className="navbar-end">
       
   {users ? (<div className="flex justify-center items-center gap-4">
@@ -125,7 +139,7 @@ const Navbar = () => {
       <img
         src={users.photoURL || "https://via.placeholder.com/40"}
         alt=""
-        className="w-18  h-10 rounded-full cursor-pointer border-2 border-[#7C3AED]"
+        className="w-10  h-10 rounded-full cursor-pointer border-2 border-[#7C3AED]"
       />
       <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-[#1E293B] text-white px-3 py-1 rounded shadow-md whitespace-nowrap">
         {users.displayName || "User"}
@@ -133,7 +147,9 @@ const Navbar = () => {
     </div>
      <button
           onClick={handleLogout}
-          className="btn-gradient"
+          className="px-4 py-2  rounded-full text-white font-semibold bg-gradient-to-r 
+         from-[#E07A5F] to-[#F2CC8F] hover:from-[#D35D42] hover:to-[#E4B462] 
+         transition duration-300 shadow-md"
         >
           Logout
         </button>

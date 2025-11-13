@@ -33,7 +33,8 @@ const AddVehicle = () => {
     sets,
     availability,
     categories,
-    createdAt: format(new Date(), "yyyy-MM-dd hh:mm:ss a")
+    createdAt: format(new Date(), "yyyy-MM-dd hh:mm:ss a"),
+    bookingCount:0
      }
   instanceAxios.post("/vehicles", newVehicle)
   .then((res)=>{

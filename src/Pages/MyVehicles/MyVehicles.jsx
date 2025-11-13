@@ -54,7 +54,7 @@ const [Loading, setLoading] = useState(true);
   if (Loading) return <LoadingSpinner />;
  if (myVehicles.length === 0) {
     return (
-      <Motions className="min-h-screen flex text-3xl font-bold  items-center justify-center text-gray-500 dark:text-gray-400">
+      <Motions className="min-h-screen flex text-3xl font-bold mx-5 items-center justify-center text-gray-500 dark:text-gray-400 text-center">
         <p>You have not added any vehicles yet.</p>
       </Motions>
     );
