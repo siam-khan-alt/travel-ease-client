@@ -7,7 +7,7 @@ const Navbar = () => {
  const { users, Logout } = use(AuthContext);
  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
- 
+ const firstLetter = users?.displayName?.split(" ")[0]?.[0]?.toUpperCase() || "";
 
   const handleLogout = () => {
     Logout()
@@ -136,11 +136,13 @@ const Navbar = () => {
       
   {users ? (<div className="flex justify-center items-center gap-4">
     <div className="relative group">
-      <img
-        src={users.photoURL || "https://via.placeholder.com/40"}
+      {users?.photoURL?<img
+        src={users.photoURL }
         alt=""
         className="w-10  h-10 rounded-full cursor-pointer border-2 border-[#7C3AED]"
-      />
+      />:<div className="w-10 h-10 rounded-full  bg-[#E07A5F] text-white flex items-center justify-center font-bold text-lg">
+            {firstLetter}
+          </div>}
       <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-[#1E293B] text-white px-3 py-1 rounded shadow-md whitespace-nowrap">
         {users.displayName || "User"}
       </div>
