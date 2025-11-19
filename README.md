@@ -1,9 +1,11 @@
-# 🌍 Travel Ease
+# 🌍 Travel Ease 🚗💨
 
-**Travel Ease** is a modern **React + Vite** web application for vehicle booking and travel management, with Firebase authentication for secure login and registration.
+**Travel Ease** is a modern **vehicle booking and travel management web application** where users can browse, book, and manage different types of vehicles seamlessly.
 
 ## 🔗 Live Demo
-[Visit Live Site](https://monumental-licorice-6fb8c3.netlify.app)
+
+🔗 **Live Client URL:** [Travel Ease](https://monumental-licorice-6fb8c3.netlify.app)  
+🔗 **Server URL:** [Server API](https://travel-ease-server-rho.vercel.app)
 
 ---
 
@@ -95,18 +97,6 @@ The application uses a **single layout** for all pages (Navbar + Footer). Protec
     "react-toastify": "^11.0.5",
     "sweetalert2": "^11.26.3",
     "tailwindcss": "^4.1.17"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.36.0",
-    "@types/react": "^19.1.16",
-    "@types/react-dom": "^19.1.9",
-    "@vitejs/plugin-react": "^5.0.4",
-    "daisyui": "^5.4.7",
-    "eslint": "^9.36.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.22",
-    "globals": "^16.4.0",
-    "vite": "^7.1.7"
   }
 }
 ````
