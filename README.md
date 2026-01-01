@@ -9,6 +9,18 @@
 
 ---
 
+## 📸 Project Visuals
+
+<p align="center">
+  <img src="https://i.ibb.co.com/0LxQgKr/Travel-Ease1.png" alt="Homepage" width="45%" />
+  <img src="https://i.ibb.co.com/HLzDtwVK/Trabel-each-2.png" alt="Vehicle Grid" width="45%" />
+</p>
+<p align="center">
+  <img src="https://i.ibb.co.com/mCq1hjds/tarabel-each-3.png" alt="Details Page" width="91%" />
+</p>
+
+---
+
 ## 📖 Project Overview
 Travel Ease allows users to:  
 - Browse different types of vehicles for rent or travel.  
