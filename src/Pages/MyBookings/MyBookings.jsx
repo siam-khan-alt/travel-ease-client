@@ -30,8 +30,8 @@ const MyBookings = () => {
   }
 
   return (
-    <Motions className="min-h-screen px-4 py-8 bg-gray-100 dark:bg-gray-900">
-      <div className="container mx-auto">
+    <Motions className="min-h-screen  py-8 bg-gray-100 dark:bg-[#1E293B]">
+      <div className="container mx-auto px-4">
         <h2 className=" mb-6 main-heading">
           My Bookings
         </h2>
@@ -40,7 +40,7 @@ const MyBookings = () => {
           {bookings.map((booking) => (
             <div
               key={booking._id}
-              className="bg-white dark:bg-gray-800 shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              className="bg-white dark:bg-[#0F172A] shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               <img
                 src={booking.image}

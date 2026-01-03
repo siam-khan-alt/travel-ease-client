@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#3D405B] dark:bg-[#2B2D42] text-[#F2CC8F] dark:text-[#F4F1DE] py-5 md:py-10 px-6">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+    <footer className="bg-[#3D405B] dark:bg-[#2B2D42] text-[#F2CC8F] dark:text-[#F4F1DE] py-5 md:py-10 ">
+      <div className="container px-4 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
         
       
         <div className="flex flex-col space-y-2">

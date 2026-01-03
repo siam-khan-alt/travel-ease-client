@@ -32,9 +32,8 @@ const containerVariants = {
 };
   return (
     <div
-      className=" bg-[#F4F1DE] dark:bg-[#0F172A]
-text-[#1E293B] dark:text-white px-4 md:px-10 pt-0.5
- md:pt-2.5 pb-5 dark:md:pb-12 md:pb-10"
+      className=" bg-[#F4F1DE] dark:bg-[#1E293B]
+text-[#1E293B] dark:text-white container mx-auto px-4  dark:mb-5 dark:md:mb-12 md:mb-10"
     >
       <h2 className="main-heading dark:my-5 mb-5 md:mb-6 ">
         Top Categories
@@ -51,7 +50,7 @@ text-[#1E293B] dark:text-white px-4 md:px-10 pt-0.5
             className={`bg-linear-to-br ${cat.color} p-[1px] rounded-xl hover:scale-105 transition duration-300`}
           >
             <div
-              className=" rounded-xl flex flex-col items-center justify-center bg-[#F4F1DE] dark:bg-[#1E293B] h-32 gap-3"
+              className=" rounded-xl flex flex-col items-center justify-center bg-[#F4F1DE] dark:bg-[#0F172A] h-32 gap-3"
             >
               <span className="text-3xl">{cat.icon}</span>
               <p className="font-semibold">{cat.name}</p>

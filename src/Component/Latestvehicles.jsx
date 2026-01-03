@@ -20,10 +20,10 @@ const Latestvehicles = () => {
   }
 
   return (
-    <div className="mx-auto container px-5 dark:mb-5 dark:md:mb-12 md:mb-10">
+    <div className="mx-auto container px-4 dark:mb-5 dark:md:mb-12 md:mb-10">
       <h2 className=" my-5 md:my-10 main-heading ">Latest Vehicles</h2>
       <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"  
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"  
       >
         {vehicles.map((vehicle) => (
           <VehiclesCard vehicle={vehicle} key={vehicle._id}></VehiclesCard>
