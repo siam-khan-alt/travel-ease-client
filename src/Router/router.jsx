@@ -13,6 +13,7 @@ import PrivateRoute from "../Private/PrivateRoute";
 import Details from "../Pages/Details/Details";
 import UpdateVehicle from "../Component/UpdateVehicle";
 import LoadingSpinner from "../Component/LoadingSpinner";
+import About from "../Pages/About/About";
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: "/login", Component: Login},
       { path: "/register", Component: Register },
       { path: "/allVehicles", Component: AllVehicle },
+      { path: "/about", Component: About },
       { path: "/addVehicle", element: <PrivateRoute><AddVehicle /></PrivateRoute> },
       { path: "/myVehicles", element: <PrivateRoute><MyVehicles /></PrivateRoute>   },
       { path: "/myBookings", element: <PrivateRoute><MyBookings /></PrivateRoute>   },

@@ -30,7 +30,7 @@ const MyBookings = () => {
   }
 
   return (
-    <Motions className="min-h-screen  py-8 bg-gray-100 dark:bg-[#1E293B]">
+    <Motions className="min-h-screen mt-7 pb-12 bg-gray-100 dark:bg-[#1E293B]">
       <div className="container mx-auto px-4">
         <h2 className=" mb-6 main-heading">
           My Bookings

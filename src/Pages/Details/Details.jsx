@@ -52,14 +52,14 @@ const Details = () => {
   }
 
   return (
-    <Motions className="min-h-screen bg-gray-100 dark:bg-gray-900 px-4 py-8">
-      <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-2xl rounded-xl p-6 md:p-10">
+    <Motions className="min-h-screen bg-gray-100 dark:dark:bg-[#1E293B] px-4 py-8">
+      <div className="max-w-5xl mx-auto bg-white dark:dark:bg-[#0F172A] text-gray-900 dark:text-gray-100 shadow-2xl rounded-2xl p-6 md:p-10">
       
         <div className="flex flex-col md:flex-row gap-6">
           <img
             src={vehicle?.coverImage}
             alt=""
-            className="w-full md:w-1/2 rounded-lg object-cover h-[300px] md:h-[400px]"
+            className="w-full md:w-1/2 rounded-2xl object-cover h-[300px] md:h-[400px]"
           />
           <div className="flex-1 ">
             <h2 className="text-4xl font-bold mb-4">{vehicle.vehicleName}</h2>

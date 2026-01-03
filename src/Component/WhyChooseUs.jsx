@@ -9,7 +9,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className=" dark:mb-5 dark:md:mb-12 bg-[#F4F1DE] dark:bg-[#1E293B] px-4">
+    <section className=" mb-5 dark:md:mb-12 bg-[#F4F1DE] dark:bg-[#1E293B] px-4">
       <div className="container md:px-4 mx-auto text-center">
         <h2 className="main-heading mb-12 text-[#3D405B] dark:text-white">Why Choose TravelEase</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

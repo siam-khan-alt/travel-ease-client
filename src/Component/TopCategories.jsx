@@ -3,14 +3,13 @@ import { motion } from "framer-motion";
 import { FaCarSide, FaBolt, FaShuttleVan, FaTaxi } from "react-icons/fa";
 
 const categories = [
-  { name: "SUVs", icon: <FaCarSide />, color: "from-[#7C3AED] to-[#6D28D9]" },
-  { name: "Electric", icon: <FaBolt />, color: "from-[#06B6D4] to-[#3B82F6]" },
+  { name: "SUVs", icon: <FaCarSide />},
+  { name: "Electric", icon: <FaBolt /> },
   {
     name: "Vans",
-    icon: <FaShuttleVan />,
-    color: "from-[#F59E0B] to-[#D97706]",
+    icon: <FaShuttleVan />
   },
-  { name: "Sedans", icon: <FaTaxi />, color: "from-[#10B981] to-[#059669]" },
+  { name: "Sedans", icon: <FaTaxi /> },
 ];
 
 const TopCategories = () => {
@@ -47,10 +46,10 @@ text-[#1E293B] dark:text-white container mx-auto px-4  dark:mb-5 dark:md:mb-12 m
           <motion.div
             key={cat.name}
              variants={categoryVariants}
-            className={`bg-linear-to-br ${cat.color} p-[1px] rounded-xl hover:scale-105 transition duration-300`}
+            className=" rounded-2xl hover:scale-105 transition duration-300"
           >
             <div
-              className=" rounded-xl flex flex-col items-center justify-center bg-[#F4F1DE] dark:bg-[#0F172A] h-32 gap-3"
+              className=" rounded-2xl flex flex-col items-center justify-center bg-white dark:bg-[#0F172A] h-32 gap-3"
             >
               <span className="text-3xl">{cat.icon}</span>
               <p className="font-semibold">{cat.name}</p>

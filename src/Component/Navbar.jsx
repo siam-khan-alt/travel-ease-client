@@ -45,6 +45,12 @@ const Navbar = () => {
         All Vehicles
       </NavLink>
       <NavLink
+        to="/about"
+        className="text-[#3D405B] hover:text-[#E07A5F] transition-colors duration-200 font-semibold"
+      >
+        About Us
+      </NavLink>
+     {users && <><NavLink
         to="/addVehicle"
         className="text-[#3D405B] hover:text-[#E07A5F] transition-colors duration-200 font-semibold"
       >
@@ -61,7 +67,7 @@ const Navbar = () => {
         className="text-[#3D405B] hover:text-[#E07A5F] transition-colors duration-200 font-semibold"
       >
         My Bookings
-      </NavLink>
+      </NavLink></>}
       <label className="toggle text-base-content  ">
         <input
           onChange={(e) => handletheme(e.target.checked)}

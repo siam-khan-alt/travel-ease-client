@@ -62,7 +62,7 @@ const [Loading, setLoading] = useState(true);
   }
  
   return (
-    <Motions className="container mx-auto px-4 p-6 mt-3">
+    <Motions className="container mx-auto px-4  mt-7 pb-12">
       <h2 className="text-3xl  text-center font-bold text-transparent bg-clip-text bg-linear-to-r from-[#E07A5F] to-[#F2CC8F] mb-6">
         My Vehicles
       </h2>

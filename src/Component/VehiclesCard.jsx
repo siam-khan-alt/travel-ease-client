@@ -9,7 +9,7 @@ const VehicleCard = ({ vehicle }) => {
   
 
   return (
-    <div className="bg-[#FFFFFF] dark:bg-[#0F172A] rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300">
+    <div className="bg-[#FFFFFF] dark:bg-[#0F172A] rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300">
     
       <img
         src={vehicle.coverImage}

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const Newsletter = () => {
   return (
     <section className=" container mx-auto px-4 dark:mb-5 dark:md:mb-12 bg-[#F4F1DE] dark:bg-[#1E293B]">
-      <div className=" bg-[#F4F1DE] dark:bg-[#1E293B] rounded-3xl p-10 md:p-16 text-center relative overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm">
+      <div className=" bg-[#F4F1DE] dark:bg-[#1E293B] rounded-2xl p-10 md:p-16 text-center relative overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm">
         
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#F2CC8F] opacity-20 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#E07A5F] opacity-20 rounded-full blur-3xl"></div>

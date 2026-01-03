@@ -9,7 +9,7 @@ const FAQ = () => {
             { q: "What documents are required?", a: "You need a valid driving license, an ID proof (Passport/NID), and a credit card for the security deposit." },
             { q: "Is insurance included?", a: "Yes, all our rentals include basic insurance. Additional premium coverage can be selected during pickup." }
           ].map((item, index) => (
-            <div key={index} className="collapse collapse-plus bg-[#F4F1DE] dark:bg-[#0F172A] border border-gray-200 dark:border-gray-700">
+            <div key={index} className="collapse collapse-plus bg-white dark:bg-[#0F172A] border border-gray-200 dark:border-gray-700">
               <input type="radio" name="faq-accordion" defaultChecked={index === 0} />
               <div className="collapse-title text-lg font-bold text-[#3D405B] dark:text-[#F2CC8F]">
                 {item.q}

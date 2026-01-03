@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AboutTravelEase = () => {
   return (
@@ -21,8 +22,8 @@ const AboutTravelEase = () => {
           user-friendly booking process, all tailored to make your travels
           smooth and memorable. Travel with confidence, Travel with Ease.
         </p>
-        <button className="btn-gradient max-w-[200px] mx-auto">
-          Get Started
+        <button className="btn-gradient max-w-[200px] mx-auto"><Link to="/allVehicles">
+          Get Started</Link>
         </button>
       </div>
     </div>

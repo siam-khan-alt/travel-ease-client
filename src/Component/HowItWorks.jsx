@@ -7,7 +7,7 @@ const HowItWorks = () => {
       icon: <FaSearch />,
       title: "Find Your Car",
       desc: "Search through our fleet of luxury and budget vehicles.",
-      color: "text-blue-500",
+      color: " text-blue-500",
     },
     {
       icon: <FaCalendarAlt />,
@@ -19,7 +19,7 @@ const HowItWorks = () => {
       icon: <FaCarSide />,
       title: "Enjoy Your Drive",
       desc: "Complete booking and hit the road with comfort.",
-      color: "text-green-500",
+      color: " text-green-500 ",
     },
   ];
 
@@ -35,7 +35,8 @@ const HowItWorks = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="relative z-10 flex flex-col items-center"
+              whileHover={{ y: -10 }}
+              className="bg-white dark:bg-[#0F172A] p-10 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 text-center flex flex-col items-center group transition-all"
             >
               <div className="w-20 h-20 rounded-full bg-[#F4F1DE] dark:bg-[#0F172A] flex items-center justify-center text-3xl shadow-md mb-6 border border-gray-100 dark:border-gray-700">
                 <span className={step.color}>{step.icon}</span>

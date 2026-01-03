@@ -9,7 +9,7 @@ const Statistics = () => {
   ];
 
   return (
-    <section className="bg-[#F4F1DE] dark:bg-[#1E293B] dark:mb-5 dark:md:mb-12 md:mb-10 px-4">
+    <section className="bg-[#F4F1DE] dark:bg-[#1E293B] mb-5 dark:md:mb-12 md:mb-10 px-4">
       <div className="container mx-auto">
           <h2 className="main-heading dark:my-5 mb-5 md:mb-6">
             Our Milestone & Achievements
@@ -22,7 +22,9 @@ const Statistics = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              whileHover={{ y: -5 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white dark:bg-[#0F172A] p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 transition-all"
             >
               <h3 className="text-3xl md:text-4xl font-bold text-[#E07A5F] dark:text-[#F2CC8F]">
                 {stat.value}

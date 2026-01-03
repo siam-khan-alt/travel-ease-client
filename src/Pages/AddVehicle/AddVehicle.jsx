@@ -45,8 +45,8 @@ const AddVehicle = () => {
 
   
   return (
-    <Motions className="max-w-2xl mx-auto p-6  shadow-lg dark:bg-[#1E293B] bg-base-100 rounded-xl mt-6">
-      <h2 className="text-3xl text-center font-bold mb-4 text-[#3D405B]">Add Vehicle</h2>
+    <Motions className="max-w-2xl mx-auto p-6  shadow-lg dark:dark:bg-[#0F172A] bg-base-100 rounded-xl mt-6">
+      <h2 className="main-heading">Add Vehicle</h2>
       <form className="space-y-3" onSubmit={handleSubmit}>
       
         <div className="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0">
