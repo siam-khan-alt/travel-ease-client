@@ -64,6 +64,9 @@ const DashboardLayout = () => {
   const menuItems = (
     <>
       <NavLink to="/dashboard/home" className={({ isActive }) => `flex items-center gap-3 p-3 rounded-xl transition-all ${isActive ? 'bg-[#E07A5F] text-white shadow-lg shadow-orange-500/20' : 'hover:bg-gray-700 text-gray-300'}`}>
+        <FaHome /> Back to Home
+      </NavLink>
+      <NavLink to="/dashboard/home" className={({ isActive }) => `flex items-center gap-3 p-3 rounded-xl transition-all ${isActive ? 'bg-[#E07A5F] text-white shadow-lg shadow-orange-500/20' : 'hover:bg-gray-700 text-gray-300'}`}>
         <FaThLarge /> Overview
       </NavLink>
       <NavLink to="/dashboard/add-vehicle" className={({ isActive }) => `flex items-center gap-3 p-3 rounded-xl transition-all ${isActive ? 'bg-[#E07A5F] text-white shadow-lg shadow-orange-500/20' : 'hover:bg-gray-700 text-gray-300'}`}>
@@ -110,7 +113,7 @@ const DashboardLayout = () => {
             <label tabIndex={0} className="btn btn-ghost btn-circle text-[#3D405B] dark:text-white">
               <FaBars size={20} />
             </label>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow-2xl bg-[#3D405B] text-white rounded-2xl w-64 space-y-2">
+            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow-2xl bg-[#3D405B] dark:bg-[#1E293B] text-white rounded-2xl w-64 space-y-2">
               {menuItems}
             </ul>
           </div>

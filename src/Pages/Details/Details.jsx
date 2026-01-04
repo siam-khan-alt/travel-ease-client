@@ -3,10 +3,10 @@ import React, { use, useEffect, useState } from "react";
 import { FaMapMarkerAlt, FaDollarSign, FaCar, FaCalendarAlt, FaStar, FaInfoCircle, FaCheckCircle, FaUsers } from "react-icons/fa";
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
-import { toast } from "react-toastify";
 import useAxios from "../../Hooks/useAxios";
 import LoadingSpinner from "../../Component/LoadingSpinner";
 import Motions from "../../Component/Motions";
+import Swal from "sweetalert2";
 const Details = () => {
   const vehicle = useLoaderData();
   const { users}=use(AuthContext)
@@ -17,38 +17,79 @@ const Details = () => {
    const navigate = useNavigate();
   const location = useLocation();
   const handleBooking = async () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     if (!users) {
-      toast.warning("Please login to book this vehicle!");
-      return navigate("/login", { state: location.pathname });
+      Swal.fire({
+        title: 'Login Required',
+        text: "Please login to book this vehicle!",
+        icon: 'info',
+        confirmButtonColor: '#E07A5F',
+        background: isDark ? '#1E293B' : '#FFFFFF',
+        color: isDark ? '#F4F1DE' : '#3D405B',
+      }).then(() => {
+        navigate("/login", { state: location.pathname });
+      });
+      return;
     }
    
-   const bookingData = {
-      userEmail: users.email,
-      userName: users.displayName,
-      vehicleId: vehicle._id,
-      ownerName: vehicle.owner,
-      ownerEmail: vehicle.userEmail,
-      vehicleName: vehicle.vehicleName,
-      price: vehicle.pricePerDay,
-      image: vehicle.coverImage,
-      location: vehicle.location,
-      category: vehicle.categories,
-      sets: vehicle.seats,
-      status: "Pending",
-      bookedAt: new Date(),
-    };
-   instanceAxios.post("/bookings", bookingData)
-  .then(res => {
-    if (res.data.insertedId) {toast.success("Vehicle booked successfully!")
-       setBookingCount(prev => prev + 1)
-    };
-  })
-  .catch(error => {
-    if (error.response && error.response.data?.message) {
-    toast.error(error.response.data.message)}
-   else{ toast.error("Failed to book vehicle!");}
-   
-  });
+Swal.fire({
+      title: 'Confirm Booking?',
+      text: `Do you want to book ${vehicle.vehicleName} for $${vehicle.pricePerDay}/day?`,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#E07A5F',
+      cancelButtonColor: '#3D405B',
+      confirmButtonText: 'Yes, Book it!',
+      background: isDark ? '#1E293B' : '#FFFFFF',
+      color: isDark ? '#F4F1DE' : '#3D405B',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const bookingData = {
+          userEmail: users.email,
+          userName: users.displayName,
+          vehicleId: vehicle._id,
+          ownerName: vehicle.owner,
+          ownerEmail: vehicle.userEmail,
+          vehicleName: vehicle.vehicleName,
+          price: vehicle.pricePerDay,
+          image: vehicle.coverImage,
+          location: vehicle.location,
+          category: vehicle.categories,
+          sets: vehicle.seats,
+          status: "Pending",
+          bookedAt: new Date(),
+        };
+
+        instanceAxios.post("/bookings", bookingData)
+          .then(res => {
+            if (res.data.insertedId) {
+              Swal.fire({
+                title: 'Booked!',
+                text: 'Vehicle booked successfully!',
+                icon: 'success',
+                timer: 2000,
+                showConfirmButton: false,
+                background: isDark ? '#1E293B' : '#FFFFFF',
+                color: isDark ? '#F4F1DE' : '#3D405B',
+              });
+              setBookingCount(prev => prev + 1);
+            }
+          })
+          .catch(error => {
+            const errorMsg = error.response && error.response.data?.message 
+                             ? error.response.data.message 
+                             : "Failed to book vehicle!";
+            
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: errorMsg,
+              background: isDark ? '#1E293B' : '#FFFFFF',
+              color: isDark ? '#F4F1DE' : '#3D405B',
+            });
+          });
+      }
+    });
   };
   
   useEffect(() => {
