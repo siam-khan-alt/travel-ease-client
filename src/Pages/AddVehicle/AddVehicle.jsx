@@ -38,7 +38,7 @@ const AddVehicle = () => {
   return (
     <Motions className="max-w-2xl mx-auto p-6 mb-8   shadow-lg dark:dark:bg-[#0F172A] bg-base-100 rounded-xl mt-6">
       <h2 className="main-heading">Add Vehicle</h2>
-      <form className="space-y-3" onSubmit={handleSubmit}>
+      <form className="space-y-3 pt-6" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0">
           <input
             type="text"

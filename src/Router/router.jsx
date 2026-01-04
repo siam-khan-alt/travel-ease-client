@@ -14,6 +14,9 @@ import Details from "../Pages/Details/Details";
 import UpdateVehicle from "../Component/UpdateVehicle";
 import LoadingSpinner from "../Component/LoadingSpinner";
 import About from "../Pages/About/About";
+import DashboardLayout from "../Layout/DashboardLayout";
+import Profile from "../Pages/Profile/Profile";
+import DashboardHome from "../Pages/DashboardHome/DashboardHome";
 
 
 const router = createBrowserRouter([
@@ -26,9 +29,6 @@ const router = createBrowserRouter([
       { path: "/register", Component: Register },
       { path: "/allVehicles", Component: AllVehicle },
       { path: "/about", Component: About },
-      { path: "/addVehicle", element: <PrivateRoute><AddVehicle /></PrivateRoute> },
-      { path: "/myVehicles", element: <PrivateRoute><MyVehicles /></PrivateRoute>   },
-      { path: "/myBookings", element: <PrivateRoute><MyBookings /></PrivateRoute>   },
       { path: "/details/:id",
         loader: ({params})=>fetch(`https://travel-ease-server-rho.vercel.app/vehicles/${params.id}`), 
         Component: Details ,
@@ -38,8 +38,41 @@ const router = createBrowserRouter([
         loader: ({params})=>fetch(`https://travel-ease-server-rho.vercel.app/vehicles/${params.id}`), 
         element: <PrivateRoute><UpdateVehicle /></PrivateRoute>,
       HydrateFallback:LoadingSpinner  },
+     
       { path: "/*", element: <NotFound /> }
     ],
+  },
+   {
+    path: "/dashboard",
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>, 
+    children: [
+      {
+        path: "home", 
+        element: <DashboardHome />
+      },
+      {
+        path: "profile", 
+        element: <Profile />
+      },
+      {
+        path: "add-vehicle", 
+        element: <AddVehicle />
+      },
+      {
+        path: "my-vehicles", 
+        element: <MyVehicles />
+      },
+      {
+        path: "my-bookings", 
+        element: <MyBookings />
+      },
+      {
+        path: "update-vehicle/:id",
+        loader: ({ params }) => fetch(`https://travel-ease-server-rho.vercel.app/vehicles/${params.id}`),
+        element: <UpdateVehicle />,
+        HydrateFallback: LoadingSpinner
+      },
+    ]
   },
   { path: "*", element: <NotFound /> },
 ]);

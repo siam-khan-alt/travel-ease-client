@@ -2,13 +2,11 @@ import { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
+import { FaThLarge, FaUserCircle, FaSignOutAlt } from "react-icons/fa";
 
 const Navbar = () => {
   const { users, Logout } = use(AuthContext);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-
-  const firstLetter =
-    users?.displayName?.split(" ")[0]?.[0]?.toUpperCase() || "";
 
   const handleLogout = () => {
     Logout()
@@ -50,24 +48,9 @@ const Navbar = () => {
       >
         About Us
       </NavLink>
-     {users && <><NavLink
-        to="/addVehicle"
-        className="text-[#3D405B] hover:text-[#E07A5F] transition-colors duration-200 font-semibold"
-      >
-        Add Vehicle
-      </NavLink>
-      <NavLink
-        to="/myVehicles"
-        className="text-[#3D405B] hover:text-[#E07A5F] transition-colors duration-200 font-semibold"
-      >
-        My Vehicles
-      </NavLink>
-      <NavLink
-        to="/myBookings"
-        className="text-[#3D405B] hover:text-[#E07A5F] transition-colors duration-200 font-semibold"
-      >
-        My Bookings
-      </NavLink></>}
+     {users && <NavLink to="/dashboard/home" className="text-[#3D405B] hover:text-[#E07A5F] transition-colors duration-200 font-semibold">
+          Dashboard
+        </NavLink>}
       <label className="toggle text-base-content  ">
         <input
           onChange={(e) => handletheme(e.target.checked)}
@@ -216,31 +199,21 @@ const Navbar = () => {
 
         <div className="navbar-end">
           {users ? (
-            <div className="flex justify-center items-center gap-4">
-              <div className="relative group">
-                {users?.photoURL ? (
-                  <img
-                    src={users.photoURL}
-                    alt=""
-                    className="w-10  h-10 rounded-full cursor-pointer border-2 border-[#7C3AED]"
-                  />
-                ) : (
-                  <div className="w-10 h-10 rounded-full  bg-[#E07A5F] text-white flex items-center justify-center font-bold text-lg">
-                    {firstLetter}
-                  </div>
-                )}
-                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-[#1E293B] text-white px-3 py-1 rounded shadow-md whitespace-nowrap">
-                  {users.displayName || "User"}
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar border-2 border-[#E07A5F]">
+                <div className="w-10 rounded-full">
+                  <img src={users?.photoURL || "https://i.ibb.co/0n6CkP9/user.png"} alt="profile" />
                 </div>
               </div>
-              <button
-                onClick={handleLogout}
-                className="px-4 py-2  rounded-full text-white font-semibold bg-gradient-to-r 
-         from-[#E07A5F] to-[#F2CC8F] hover:from-[#D35D42] hover:to-[#E4B462] 
-         transition duration-300 shadow-md"
-              >
-                Logout
-              </button>
+              <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow-2xl menu menu-sm dropdown-content bg-white dark:bg-[#1E293B] rounded-2xl w-56 border border-gray-100 dark:border-gray-800">
+                <li className="px-4 py-3 border-b border-gray-100 dark:border-gray-700 mb-2">
+                  <p className="font-bold text-[#3D405B] dark:text-white truncate">{users?.displayName}</p>
+                  <p className="text-xs text-gray-500 truncate">{users?.email}</p>
+                </li>
+                <li><Link to="/dashboard/home" className="py-3 flex gap-3 items-center"><FaThLarge className="text-[#E07A5F]" /> Dashboard</Link></li>
+                <li><Link to="/dashboard/profile" className="py-3 flex gap-3 items-center"><FaUserCircle className="text-[#E07A5F]" /> My Profile</Link></li>
+                <li><button onClick={handleLogout} className="py-3 flex gap-3 items-center text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10"><FaSignOutAlt /> Logout</button></li>
+              </ul>
             </div>
           ) : (
             <div className="flex gap-2">

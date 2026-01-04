@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { FaEye, FaGoogle } from "react-icons/fa";
+import { FaEye, FaGoogle, FaUserShield } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
 import { Link,  useLocation,  useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -20,8 +20,14 @@ const Login = () => {
   const navigate = useNavigate();
   const instanceAxios = useAxios()
   
-
+const [password, setPassword] = useState("");
   const togglePassword = () => setShowPassword(!showPassword);
+
+  const handleDemoLogin = () => {
+    setEmail("nssiam99@gmail.com"); 
+    setPassword("Sp999999");     
+    toast.info("Demo credentials applied!");
+  };
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -70,6 +76,12 @@ const Login = () => {
     <Motions className="flex items-center justify-center min-h-screen  px-4">
      <div className="bg-base-100 dark:bg-[#1E293B] shadow-lg rounded-xl p-8 w-full max-w-md transition-colors duration-300">
   <h2 className="text-3xl font-bold text-[#3D405B] dark:text-[#E2E8F0] mb-6 text-center">Login</h2>
+  <button 
+          onClick={handleDemoLogin}
+          className="w-full mb-6 flex items-center justify-center gap-2 py-2 px-4 bg-orange-50 dark:bg-orange-900/20 text-[#E07A5F] border border-dashed border-[#E07A5F] rounded-xl hover:bg-orange-100 transition-all text-sm font-bold"
+        >
+          <FaUserShield /> Click for Demo Credentials
+        </button>
 
         <form onSubmit={handleLogIn} className="space-y-4">
           <div className="flex flex-col">
@@ -89,6 +101,7 @@ const Login = () => {
             <input
               type={showPassword ? "text" : "password"}
               name="password"
+              value={password}
               placeholder="Enter your password"
               className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E07A5F]"
               required

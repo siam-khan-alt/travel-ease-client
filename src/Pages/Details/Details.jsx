@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 
 import { FaMapMarkerAlt, FaDollarSign, FaCar, FaCalendarAlt, FaStar, FaInfoCircle, FaCheckCircle, FaUsers } from "react-icons/fa";
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
@@ -13,6 +13,7 @@ const Details = () => {
    const instanceAxios = useAxios();
    const [bookingCount, setBookingCount] = useState(vehicle.bookingCount || 0)
    const [activeImg, setActiveImg] = useState(vehicle?.coverImage);
+   const [relatedVehicles, setRelatedVehicles] = useState([]);
    const navigate = useNavigate();
   const location = useLocation();
   const handleBooking = async () => {
@@ -50,6 +51,14 @@ const Details = () => {
   });
   };
   
+  useEffect(() => {
+  if (vehicle?.categories) {
+    instanceAxios
+      .get(`/related-vehicles?category=${vehicle.categories}&currentId=${vehicle._id}`)
+      .then((res) => setRelatedVehicles(res.data))
+      .catch((err) => console.log(err));
+  }
+}, [vehicle, instanceAxios]);
   
   if (!vehicle) {
     return <LoadingSpinner/>
@@ -175,6 +184,42 @@ const Details = () => {
           </div>
 
         </div>
+        {relatedVehicles.length > 0 && (
+          <div className="mt-16 border-t dark:border-gray-800 pt-10">
+            <h3 className="text-3xl font-black mb-8 text-[#3D405B] dark:text-white flex items-center gap-3">
+              <span className="w-2 h-8 bg-[#E07A5F] rounded-full"></span>
+              Suggested <span className="text-[#E07A5F]">Vehicles</span>
+            </h3>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {relatedVehicles.map((item) => (
+                <div key={item._id} className="bg-[#F4F1DE] dark:bg-[#1E293B] rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                  <div className="relative overflow-hidden h-40">
+                    <img 
+                      src={item.coverImage} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                    />
+                    <div className="absolute bottom-2 right-2 bg-white/90 dark:bg-black/70 px-2 py-1 rounded-lg text-[#E07A5F] text-xs font-bold">
+                      ${item.pricePerDay}/day
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-bold text-gray-800 dark:text-gray-100 truncate mb-3">{item.vehicleName}</h4>
+                    <button 
+                      onClick={() => {
+                        navigate(`/vehicles/${item._id}`);
+                        window.scrollTo(0, 0);
+                      }}
+                      className="w-full py-2 bg-[#3D405B] hover:bg-[#E07A5F] text-white rounded-xl text-sm font-bold transition-colors"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         </div>
       </div>
     </Motions>
