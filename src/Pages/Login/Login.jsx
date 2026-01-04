@@ -2,11 +2,11 @@ import React, { useState, useContext } from "react";
 import { FaEye, FaGoogle, FaUserShield } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
 import { Link,  useLocation,  useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
 import Motions from "../../Component/Motions";
 import { format } from "date-fns";
 import useAxios from "../../Hooks/useAxios";
+import Swal from "sweetalert2";
 const Login = () => {
  
   const [errors, setErrors]=useState("")
@@ -26,7 +26,20 @@ const [password, setPassword] = useState("");
   const handleDemoLogin = () => {
     setEmail("nssiam99@gmail.com"); 
     setPassword("Sp999999");     
-    toast.info("Demo credentials applied!");
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+  Swal.fire({
+    toast: true,
+    position: 'top-end',
+    icon: 'info',
+    title: 'Demo credentials applied!',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    background: isDark ? '#1E293B' : '#FFFFFF',
+    color: isDark ? '#F4F1DE' : '#3D405B',
+    iconColor: '#E07A5F'
+  });
   };
 
   const handleLogIn = (e) => {
@@ -37,39 +50,60 @@ const [password, setPassword] = useState("");
     const password = e.target.password.value;
 
     Login(email, password)
-      .then((res) => {
-        setUser(res.user);
-        toast.success("Login successful!");
-        setLoading(false);
-        navigate(backLocation);
-      })
-      .catch((err) => {
-        setErrors(err.message);
-        setLoading(false);
+    .then((res) => {
+      setUser(res.user);
+      Swal.fire({
+        title: 'Welcome Back!',
+        text: 'Login successful!',
+        icon: 'success',
+        timer: 2000,
+        showConfirmButton: false,
+        background: document.documentElement.getAttribute('data-theme') === 'dark' ? '#1E293B' : '#FFFFFF',
+        color: document.documentElement.getAttribute('data-theme') === 'dark' ? '#F4F1DE' : '#3D405B',
       });
+      setLoading(false);
+      navigate(backLocation);
+    })
+    .catch((err) => {
+      setErrors(err.message);
+      setLoading(false);
+    });
   };
 
   const handleGoogleSignIn = () => {
     setLoading(true);
     SignInGoogle()
-      .then((res) => {
-        setUser(res.user);
-        toast.success("Google SignIn successful!");
-        setLoading(false);
-        navigate(backLocation);
-        const user= res.user 
-        const newUser = {
-                  name: user.displayName,
-                  email: user.email,
-                  photo: user.photoURL,
-                  createdAt: format(new Date(), "yyyy-MM-dd hh:mm:ss a"),
-                };
-                instanceAxios.post("/users", newUser)
-      })
-      .catch((err) => {
-        toast.error(err.message);
-        setLoading(false);
+    .then((res) => {
+      setUser(res.user);
+      Swal.fire({
+        title: 'Success!',
+        text: 'Google SignIn successful!',
+        icon: 'success',
+        timer: 2000,
+        showConfirmButton: false,
+        background: document.documentElement.getAttribute('data-theme') === 'dark' ? '#1E293B' : '#FFFFFF',
+        color: document.documentElement.getAttribute('data-theme') === 'dark' ? '#F4F1DE' : '#3D405B',
       });
+      setLoading(false);
+      navigate(backLocation);
+      const user = res.user;
+      const newUser = {
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+        createdAt: format(new Date(), "yyyy-MM-dd hh:mm:ss a"),
+      };
+      instanceAxios.post("/users", newUser);
+    })
+    .catch((err) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Login Failed',
+        text: err.message,
+        background: document.documentElement.getAttribute('data-theme') === 'dark' ? '#1E293B' : '#FFFFFF',
+      });
+      setLoading(false);
+    });
   };
 
   return (

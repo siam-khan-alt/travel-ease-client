@@ -5,7 +5,7 @@ import {
   FaUserCircle, FaHome, FaSignOutAlt, FaBars 
 } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthContext";
-import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const DashboardLayout = () => {
   const { users, Logout } = useContext(AuthContext);
@@ -23,12 +23,42 @@ const DashboardLayout = () => {
   };
 
   const handleLogout = () => {
-    Logout()
-      .then(() => {
-        toast.success("Logged out successfully");
-        navigate("/");
-      })
-      .catch((err) => toast.error(err.message));
+   Swal.fire({
+      title: 'Are you sure?',
+      text: "You will be logged out of your dashboard!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#E07A5F',
+      cancelButtonColor: '#3D405B',
+      confirmButtonText: 'Yes, Logout!',
+      background: theme === 'dark' ? '#1E293B' : '#FFFFFF',
+      color: theme === 'dark' ? '#F4F1DE' : '#3D405B',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Logout()
+          .then(() => {
+            Swal.fire({
+              title: 'Logged Out!',
+              text: 'Redirecting to home...',
+              icon: 'success',
+              timer: 1500,
+              showConfirmButton: false,
+              background: theme === 'dark' ? '#1E293B' : '#FFFFFF',
+              color: theme === 'dark' ? '#F4F1DE' : '#3D405B',
+            });
+            navigate("/");
+          })
+          .catch((err) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: err.message,
+              background: theme === 'dark' ? '#1E293B' : '#FFFFFF',
+              color: theme === 'dark' ? '#F4F1DE' : '#3D405B',
+            });
+          });
+      }
+    });
   };
 
   const menuItems = (
@@ -53,8 +83,8 @@ const DashboardLayout = () => {
   );
 
   return (
-    <div className="flex min-h-screen bg-[#F4F1DE] dark:bg-[#0F172A]">
-      <aside className="w-72 bg-[#3D405B] text-white hidden lg:flex flex-col sticky top-0 h-screen shadow-2xl">
+    <div className="flex min-h-screen bg-[#F4F1DE] dark:bg-[#1E293B]">
+      <aside className="w-72 bg-[#3D405B] dark:bg-[#1E293B] text-white hidden lg:flex flex-col sticky top-0 h-screen shadow-2xl">
         <div className="p-8">
           <Link to="/" className="text-2xl font-black flex items-center gap-2">
             <span className="text-[#E07A5F]">Travel</span>

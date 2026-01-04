@@ -6,6 +6,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import useAxios from "../../Hooks/useAxios";
 import { format } from "date-fns";
 import Motions from "../../Component/Motions";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { SignUp, profileUpdate, SignInGoogle, setUser, setLoading } =
@@ -43,54 +44,72 @@ const Register = () => {
 
     SignUp(email, password)
       .then(() => {
-        profileUpdate(displayName, photoURL)
-          .then(() => {
-            const newUser = {
-              name: displayName,
-              email,
-              photo: photoURL,
-              createdAt: new Date(),
-            };
-            instanceAxios.post("/users", newUser).then(() => {
-              toast.success("Registration successful!");
-              e.target.reset();
-              navigate("/");
+      profileUpdate(displayName, photoURL)
+        .then(() => {
+          const newUser = {
+            name: displayName,
+            email,
+            photo: photoURL,
+            createdAt: new Date(),
+          };
+          instanceAxios.post("/users", newUser).then(() => {
+            Swal.fire({
+              title: 'Good job!',
+              text: 'Registration successful!',
+              icon: 'success',
+              timer: 2000,
+              showConfirmButton: false,
+              background: document.documentElement.getAttribute('data-theme') === 'dark' ? '#1E293B' : '#FFFFFF',
+              color: document.documentElement.getAttribute('data-theme') === 'dark' ? '#F4F1DE' : '#3D405B',
             });
-          })
-          .catch((err) => toast.error(err.message));
-        setLoading(false);
-      })
-      .catch((err) => {
-        setErrors(err.message);
-        
-        setLoading(false);
-      });
+            e.target.reset();
+            navigate("/");
+          });
+        })
+        .catch((err) => toast.error(err.message));
+      setLoading(false);
+    })
+    .catch((err) => {
+      setErrors(err.message);
+      setLoading(false);
+    });
   };
 
   const handleGoogleSignIn = () => {
     setLoading(true);
     SignInGoogle()
       .then((res) => {
-        const user = res.user;
-        setUser(res.user);
+      const user = res.user;
+      setUser(res.user);
 
-        const newUser = {
-          name: user.displayName,
-          email: user.email,
-          photo: user.photoURL,
-          createdAt: format(new Date(), "yyyy-MM-dd hh:mm:ss a"),
-        };
-        instanceAxios.post("/users", newUser).then(() => {
-          
+      const newUser = {
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+        createdAt: format(new Date(), "yyyy-MM-dd hh:mm:ss a"),
+      };
+      instanceAxios.post("/users", newUser).then(() => {
+        Swal.fire({
+          title: 'Success!',
+          text: 'Google Login Successful',
+          icon: 'success',
+          timer: 2000,
+          showConfirmButton: false,
+          background: document.documentElement.getAttribute('data-theme') === 'dark' ? '#1E293B' : '#FFFFFF',
+          color: document.documentElement.getAttribute('data-theme') === 'dark' ? '#F4F1DE' : '#3D405B',
         });
-        toast.success("Google Login Successful");
-          navigate("/");
-      })
-      .catch((err) => {
-        toast.error(err.message);
-        
-        setLoading(false);
+        navigate("/");
       });
+    })
+    .catch((err) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: err.message,
+        background: document.documentElement.getAttribute('data-theme') === 'dark' ? '#1E293B' : '#FFFFFF',
+      });
+      setLoading(false);
+    });
   };
 
   return (

@@ -45,8 +45,8 @@ const About = () => {
           animate={{ opacity: 1, y: 0 }}
           className="container mx-auto px-4 relative z-10"
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 text-[#3D405B] dark:text-white font-serif">
-            About <span className="text-[#E07A5F]">TravelEase</span>
+          <h1 className="main-heading mb-6 ">
+            About TravelEase
           </h1>
           <p className="text-lg md:text-xl text-[#3D405B]/80 dark:text-gray-300 max-w-3xl mx-auto font-medium">
             Your trusted partner in making every journey comfortable, affordable, and memorable. 

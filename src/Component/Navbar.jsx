@@ -1,21 +1,49 @@
 import { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
-import { toast } from "react-toastify";
 import { FaThLarge, FaUserCircle, FaSignOutAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { users, Logout } = use(AuthContext);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const handleLogout = () => {
-    Logout()
-      .then(() => {
-        toast.success("Successfully logged out!");
-      })
-      .catch((err) => {
-        toast.error(err.message);
-      });
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You will be logged out of your session!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#E07A5F',
+    cancelButtonColor: '#3D405B',
+    confirmButtonText: 'Yes, Logout!',
+    background: theme === 'dark' ? '#1E293B' : '#FFFFFF',
+    color: theme === 'dark' ? '#F4F1DE' : '#3D405B',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Logout()
+        .then(() => {
+          Swal.fire({
+            title: 'Logged Out!',
+            text: 'You have been successfully logged out.',
+            icon: 'success',
+            timer: 1500,
+            showConfirmButton: false,
+            background: theme === 'dark' ? '#1E293B' : '#FFFFFF',
+            color: theme === 'dark' ? '#F4F1DE' : '#3D405B',
+          });
+        })
+        .catch((err) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: err.message,
+            background: theme === 'dark' ? '#1E293B' : '#FFFFFF',
+            color: theme === 'dark' ? '#F4F1DE' : '#3D405B',
+          });
+        });
+    }
+  });
   };
 
   useEffect(() => {
@@ -47,6 +75,12 @@ const Navbar = () => {
         className="text-[#3D405B] hover:text-[#E07A5F] transition-colors duration-200 font-semibold"
       >
         About Us
+      </NavLink>
+      <NavLink
+        to="/contact"
+        className="text-[#3D405B] hover:text-[#E07A5F] transition-colors duration-200 font-semibold"
+      >
+        Contact
       </NavLink>
      {users && <NavLink to="/dashboard/home" className="text-[#3D405B] hover:text-[#E07A5F] transition-colors duration-200 font-semibold">
           Dashboard
