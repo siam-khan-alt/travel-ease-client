@@ -1,4 +1,4 @@
-import React, { use,  } from "react";
+import React, { use } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import useAxios from "../../Hooks/useAxios";
 import { toast } from "react-toastify";
@@ -8,53 +8,42 @@ const AddVehicle = () => {
   const { users } = use(AuthContext);
   const instanceAxios = useAxios();
 
- 
-
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const vehicleName = e.target.vehicleName.value
-    const owner = e.target.owner.value
-    const userEmail = e.target.userEmail.value
-    const pricePerDay = e.target.pricePerDay.value
-    const location = e.target.location.value
-    const description = e.target.description.value
-    const coverImage = e.target.coverImage.value
-    const sets = e.target.sets.value
-    const availability = e.target.availability.value
-    const categories = e.target.categories.value
-     const newVehicle ={
-      vehicleName,
-    owner,
-    userEmail,
-    pricePerDay,
-    location,
-    description,
-    coverImage,
-    sets,
-    availability,
-    categories,
-    createdAt: format(new Date(), "yyyy-MM-dd hh:mm:ss a"),
-    bookingCount:0
-     }
-  instanceAxios.post("/vehicles", newVehicle)
-  .then((res)=>{
-    if (res.data.insertedId) toast.success("Vehicle added successfully!")
-  })
-  .catch((err) => toast.error(err.message));
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const initialData = Object.fromEntries(formData.entries());
+    const newVehicle = {
+      ...initialData,
+      pricePerDay: parseFloat(initialData.pricePerDay),
+      sets: parseInt(initialData.sets),
+      ratings: parseFloat(initialData.ratings),
+
+      features: initialData.features.split(",").map((f) => f.trim()),
+      rules: initialData.rules.split(",").map((r) => r.trim()),
+
+      owner: users?.displayName || "User",
+      userEmail: users?.email,
+      createdAt: format(new Date(), "yyyy-MM-dd hh:mm:ss a"),
+      bookingCount: 0,
+    };
+    instanceAxios
+      .post("/vehicles", newVehicle)
+      .then((res) => {
+        if (res.data.insertedId) toast.success("Vehicle added successfully!");
+        e.target.reset();
+      })
+      .catch((err) => toast.error(err.message));
   };
 
-  
   return (
-    <Motions className="max-w-2xl mx-auto p-6  shadow-lg dark:dark:bg-[#0F172A] bg-base-100 rounded-xl mt-6">
+    <Motions className="max-w-2xl mx-auto p-6 mb-8   shadow-lg dark:dark:bg-[#0F172A] bg-base-100 rounded-xl mt-6">
       <h2 className="main-heading">Add Vehicle</h2>
       <form className="space-y-3" onSubmit={handleSubmit}>
-      
         <div className="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0">
           <input
             type="text"
             name="vehicleName"
             placeholder="Vehicle Name"
-           
             className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
             required
           />
@@ -62,8 +51,7 @@ const AddVehicle = () => {
             type="text"
             name="owner"
             placeholder="Owner"
-            value={users?.displayName|| "User"}
-            
+            value={users?.displayName || "User"}
             className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
             required
           />
@@ -77,7 +65,6 @@ const AddVehicle = () => {
             value={users?.email}
             className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
             required
-            
           />
           <input
             type="number"
@@ -107,21 +94,67 @@ const AddVehicle = () => {
             required
           />
         </div>
-        <div className="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           <input
             type="text"
             name="coverImage"
             placeholder="Cover Image URL"
-            className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
+            className="border rounded-lg px-3 py-2"
             required
           />
-          <select
-            name="availability"
-            className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#E07A5F]"
-          >
-            <option value="Available">Available</option>
-            <option value="Booked">Booked</option>
-          </select>
+          <input
+            type="text"
+            name="additionalImg1"
+            placeholder="Gallery Image 1"
+            className="border rounded-lg px-3 py-2"
+            required
+          />
+          <input
+            type="text"
+            name="additionalImg2"
+            placeholder="Gallery Image 2"
+            className="border rounded-lg px-3 py-2"
+            required
+          />
+        </div>
+        <div className="flex flex-col md:flex-row md:space-x-3 space-y-4 md:space-y-0">
+          <input
+            type="text"
+            name="features"
+            placeholder="Features (e.g. AC, GPS, Bluetooth)"
+            className="flex-1 border rounded-lg px-3 py-2"
+            required
+          />
+          <input
+            type="text"
+            name="rules"
+            placeholder="Rules (e.g. No Smoking, Valid NID)"
+            className="flex-1 border rounded-lg px-3 py-2"
+            required
+          />
+        </div>
+        <div className="flex flex-col md:flex-row md:space-x-3 space-y-4 md:space-y-0">
+          <div className="flex-1">
+            <label className="text-xs font-semibold">Initial Rating</label>
+            <select
+              name="ratings"
+              className="w-full border rounded-lg px-3 py-2"
+            >
+              <option value="5.0">5.0 (Excellent)</option>
+              <option value="4.5">4.5 (Very Good)</option>
+              <option value="4.0">4.0 (Good)</option>
+            </select>
+          </div>
+          <div className="flex-1">
+            <label className="text-xs font-semibold">Availability Status</label>
+            <select
+              name="availability"
+              className="w-full border rounded-lg px-3 py-2"
+            >
+              <option value="Available">Available</option>
+              <option value="Booked">Booked</option>
+            </select>
+          </div>
         </div>
         <select
           name="categories"
@@ -140,10 +173,7 @@ const AddVehicle = () => {
           required
         />
 
-        <button
-          type="submit"
-          className="btn-gradient"
-        >
+        <button type="submit" className="btn-gradient">
           Add Vehicle
         </button>
       </form>

@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       { path: "/myBookings", element: <PrivateRoute><MyBookings /></PrivateRoute>   },
       { path: "/details/:id",
         loader: ({params})=>fetch(`https://travel-ease-server-rho.vercel.app/vehicles/${params.id}`), 
-        element: <PrivateRoute><Details /></PrivateRoute> ,
+        Component: Details ,
         HydrateFallback:LoadingSpinner
        },
         { path: "/updateVehicle/:id",

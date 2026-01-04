@@ -19,7 +19,7 @@ const VehicleCard = ({ vehicle }) => {
 
       <div className="p-4 flex flex-col justify-between ">
         <div>
-          <h2 className="text-[18px] font-bold text-[#3D405B] dark:text-white mb-1">{vehicle.vehicleName}</h2>
+          <h2 className="text-[18px] font-bold text-[#3D405B] dark:text-white mb-1 line-clamp-1 flex-1">{vehicle.vehicleName}</h2>
           <p className="text-[#9CA3AF] dark:text-gray-400 mb-1 flex items-center gap-1 "><FaMapLocation/> <span className="line-clamp-1 flex-1">{vehicle.location}</span></p>
         </div>
 
