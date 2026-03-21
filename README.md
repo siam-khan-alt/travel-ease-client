@@ -21,7 +21,7 @@
 
 ---
 
-## 📖 Project Overview
+## 📖 Project Overview:
 Travel Ease allows users to:  
 - Browse different types of vehicles for rent or travel.  
 - Book vehicles and manage their bookings.  
@@ -32,7 +32,7 @@ The application uses a **single layout** for all pages (Navbar + Footer). Protec
 
 ---
 
-## 🏠 Pages Overview
+## 🏠 Pages Overview:
 
 ### 1. Homepage
 - Hero banner with CTA buttons.  
@@ -87,7 +87,7 @@ The application uses a **single layout** for all pages (Navbar + Footer). Protec
 
 ---
 
-## 🛠️ Technologies & Packages
+## 🛠️ Technologies & Packages:
 - **Frontend:** React, Vite, TailwindCSS, DaisyUI, Framer Motion, React Router Dom, Axios, React Toastify, SweetAlert2  
 - **Backend:** Node.js, Express.js, MongoDB  
 - **Authentication:** Firebase  
@@ -113,7 +113,7 @@ The application uses a **single layout** for all pages (Navbar + Footer). Protec
 }
 ````
 
-### 💻 Local Setup
+### 💻 Local Setup:
 
 1. **Clone the repository**  
  ```base
