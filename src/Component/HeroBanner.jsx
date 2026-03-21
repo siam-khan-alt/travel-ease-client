@@ -83,7 +83,7 @@ const HeroBanner = () => {
                   className="flex justify-center"
                 >
                   <motion.button 
-                    className="bg-[#E07A5F] hover:bg-[#D35D42] text-white px-10 py-4 rounded-full font-bold shadow-xl transition-colors border-2 border-transparent hover:border-white/20"
+                    className="btn-gradient"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
