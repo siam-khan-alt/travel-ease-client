@@ -44,7 +44,7 @@
   }
 
   .btn-gradient {
-    @apply px-8 py-3 rounded-lg font-bold uppercase tracking-[0.2em] transition-all duration-500 shadow-xl inline-block text-center cursor-pointer;
+    @apply px-8 py-3 rounded-lg font-bold uppercase tracking-[0.2em] transition-all duration-500 shadow-sm inline-block text-center cursor-pointer;
     
     background-image: linear-gradient(135deg, #C5A059 0%, #F2CC8F 50%, #D4AF37 100%);
     color: #0A0F14;
@@ -54,7 +54,7 @@
       background-image: linear-gradient(135deg, #D4AF37 0%, #F2CC8F 50%, #C5A059 100%);
       border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+      box-shadow: 0 5px 10px rgba(212, 175, 55, 0.3);
     }
 
     &:active {

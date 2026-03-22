@@ -5,7 +5,7 @@ import { FaStar, FaGasPump, FaUsers, FaCogs, FaArrowRight } from "react-icons/fa
 const VehicleCard = ({ vehicle, isReverse }) => {
   return (
     <div className={`group bg-[var(--card-bg)] border border-white/5 rounded-2xl overflow-hidden flex flex-col shadow-sm transition-all duration-500 hover:border-[var(--primary)]/30 
-      ${isReverse ? 'md:flex-row-reverse' : 'md:flex-row'} w-full md:h-[380px]`}>
+      ${isReverse ? 'md:flex-row-reverse' : 'md:flex-row'} w-full md:h-[300px]`}>
       
       <div className="relative w-full md:w-[40%] overflow-hidden shrink-0 h-64 md:h-full">
         <img

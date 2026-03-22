@@ -7,8 +7,9 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import "swiper/css";
 import useAxios from "../../Hooks/useAxios";
-import LoadingSpinner from "../LoadingSpinner";
 import VehicleCard from "../Card/VehiclesCard";
+import LoadingSpinner from "../shared/LoadingSpinner";
+import Motions from "../Motions";
 
 const TopBooking = () => {
   const instanceAxios = useAxios();
@@ -22,7 +23,6 @@ const TopBooking = () => {
     },
   });
 
-  if (isLoading) return <LoadingSpinner />;
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-[var(--bg-main)] transition-colors duration-500">
@@ -36,8 +36,13 @@ const TopBooking = () => {
           <div className="w-24 h-[1px] bg-[var(--primary)]/30 mx-auto mt-4"></div>
         </div>
 
-        <div className="relative">
-          <Swiper
+        <div className="relative min-h-[450px] flex flex-col justify-center">
+          {isLoading ? (
+            <div className="py-20">
+              <LoadingSpinner />
+            </div>
+          ) : (
+            <Motions><Swiper
             modules={[Navigation]}
             spaceBetween={40}
             slidesPerView={1}
@@ -81,6 +86,8 @@ const TopBooking = () => {
               </button>
             </div>
           </div>
+          </Motions>
+          )}
         </div>
       </div>
     </section>

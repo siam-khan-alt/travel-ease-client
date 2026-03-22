@@ -1,9 +1,9 @@
 import React, { useEffect, useState,  use } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import useAxios from "../../Hooks/useAxios";
-import LoadingSpinner from "../../Component/LoadingSpinner";
 import { FaCar, FaDollarSign, FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
 import Motions from "../../Component/Motions";
+import LoadingSpinner from "../../Component/shared/LoadingSpinner";
 
 const MyBookings = () => {
   const { users} = use(AuthContext);

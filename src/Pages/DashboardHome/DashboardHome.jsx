@@ -3,7 +3,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell } from "recharts";
 import { FaCar, FaClipboardList, FaArrowRight, FaChartLine } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import LoadingSpinner from "../../Component/LoadingSpinner";
+import LoadingSpinner from "../../Component/shared/LoadingSpinner";
 
 const DashboardHome = () => {
   const { users } = useContext(AuthContext);
