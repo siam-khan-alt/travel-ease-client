@@ -9,11 +9,11 @@
 
 @layer base {
   :root {
-    --bg-main: #FFFFFF;
+    --bg-main: #f7f3ee;
     --text-main: #0F172A;     
     --primary: #C5A059;       
     --accent: #1E293B;        
-    --card-bg: #F8FAFC;      
+    --card-bg: #FFFFFF;      
   }
 
   [data-theme="dark"] {
@@ -63,7 +63,7 @@
   }
 
   .main-heading {
-    @apply text-4xl md:text-5xl font-extrabold tracking-tighter text-center uppercase transition-all duration-700 bg-gradient-to-r from-[#D4AF37] via-[#F2CC8F] to-[#C5A059] bg-clip-text text-transparent;
+    @apply text-4xl md:text-5xl font-extrabold tracking-tighter text-center  transition-all duration-700 bg-gradient-to-r from-[#D4AF37] via-[#c79a51] to-[#C5A059] bg-clip-text text-transparent;
   }
   .car-card {
     @apply bg-[var(--card-bg)] border border-white/5 rounded-none p-0 overflow-hidden
@@ -79,7 +79,7 @@
     @apply text-4xl md:text-5xl font-extrabold tracking-tighter text-center uppercase transition-all duration-700 bg-gradient-to-r from-[#D4AF37] via-[#F2CC8F] to-[#C5A059] bg-clip-text text-transparent;
   }
   .text-gradient-gold{
-    @apply font-bold tracking-tighter text-center uppercase transition-all duration-700 bg-gradient-to-r from-[#D4AF37] via-[#F2CC8F] to-[#C5A059] bg-clip-text text-transparent;
+    @apply font-bold tracking-tighter text-center  transition-all duration-700 bg-gradient-to-r from-[#D4AF37] via-[#c79a51] to-[#C5A059] bg-clip-text text-transparent;
   }
 
 }

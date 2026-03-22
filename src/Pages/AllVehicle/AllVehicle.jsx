@@ -1,6 +1,6 @@
 import React, {  useEffect, useState } from "react";
 import useAxios from "../../Hooks/useAxios";
-import VehicleCard from "../../Component/VehiclesCard";
+import VehicleCard from "../../Component/Card/VehiclesCard";
 import LoadingSpinner from "../../Component/LoadingSpinner";
 import Motions from "../../Component/Motions";
 import { FaSearch } from "react-icons/fa";
