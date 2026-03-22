@@ -1,13 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home/Home";
 import NotFound from "../Pages/NotFound/NotFound";
-import Login from "../Pages/Login/Login";
-import Register from "../Pages/Register/Register";
+import Login from "../Pages/auth/Login";
+import Register from "../Pages/auth/Register";
 import AllVehicle from "../Pages/AllVehicle/AllVehicle";
 import AddVehicle from "../Pages/AddVehicle/AddVehicle";
 import MyVehicles from "../Pages/MyVehicles/MyVehicles";
 import MyBookings from "../Pages/MyBookings/MyBookings";
-
 import MainLayout from "../Layout/MainLayout";
 import PrivateRoute from "../Private/PrivateRoute";
 import Details from "../Pages/Details/Details";

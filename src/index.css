@@ -22,7 +22,7 @@
     --primary: #D4AF37;       
     --accent: #1E293B;        
     --card-bg: #111827;       
-  }
+  }#fba403
 
   body {
     font-family: "Poppins", sans-serif;
@@ -63,10 +63,8 @@
   }
 
   .main-heading {
-    @apply font-black text-center text-4xl md:text-6xl tracking-tight;
-    @apply text-[var(--text-main)];
+    @apply text-4xl md:text-5xl font-extrabold tracking-tighter text-center uppercase transition-all duration-700 bg-gradient-to-r from-[#D4AF37] via-[#F2CC8F] to-[#C5A059] bg-clip-text text-transparent;
   }
-
   .car-card {
     @apply bg-[var(--card-bg)] border border-white/5 rounded-none p-0 overflow-hidden
            shadow-2xl transition-all duration-700;
@@ -76,4 +74,12 @@
   .gold-glow {
     @apply shadow-[0_0_20px_rgba(212,175,55,0.2)];
   }
+
+  .heading {
+    @apply text-4xl md:text-5xl font-extrabold tracking-tighter text-center uppercase transition-all duration-700 bg-gradient-to-r from-[#D4AF37] via-[#F2CC8F] to-[#C5A059] bg-clip-text text-transparent;
+  }
+  .text-gradient-gold{
+    @apply font-bold tracking-tighter text-center uppercase transition-all duration-700 bg-gradient-to-r from-[#D4AF37] via-[#F2CC8F] to-[#C5A059] bg-clip-text text-transparent;
+  }
+
 }
