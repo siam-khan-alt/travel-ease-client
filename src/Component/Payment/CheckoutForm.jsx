@@ -34,7 +34,18 @@ const CheckoutForm = ({ vehicle }) => {
     });
 
     if (error) {
-      Swal.fire({ icon: 'error', title: 'Oops...', text: error.message });
+      Swal.fire({ 
+        icon: 'error', 
+        title: 'Mission Failed', 
+        text: error.message,
+        background: 'var(--card-bg)', 
+        color: 'var(--text-main)',   
+        confirmButtonColor: 'var(--primary)',
+        iconColor: '#ef4444',
+        customClass: {
+            popup: 'border border-[var(--primary)]/20 rounded-3xl'
+        }
+    });
       setProcessing(false);
     } else if (paymentIntent.status === "succeeded") {
       const paymentInfo = {
@@ -51,8 +62,21 @@ const CheckoutForm = ({ vehicle }) => {
       
       const res = await instanceAxios.post("/payments", paymentInfo);
       if (res.data.paymentResult.insertedId) {
-        Swal.fire({ icon: 'success', title: 'Payment Confirmed!', text: `TrxID: ${paymentIntent.id}` });
-        navigate("/my-bookings");
+        Swal.fire({ 
+            icon: 'success', 
+            title: 'Payment Confirmed!', 
+            html: `<p style="font-size: 12px; opacity: 0.7; color: var(--text-main);">TRX ID: <span style="color: var(--primary);">${paymentIntent.id}</span></p>`,
+            background: 'var(--card-bg)', 
+            color: 'var(--text-main)',
+            confirmButtonText: 'VIEW DEPLOYMENTS',
+            confirmButtonColor: 'var(--primary)', 
+            iconColor: 'var(--primary)',  
+            customClass: {
+                popup: 'border border-[var(--primary)]/20 rounded-3xl shadow-2xl',
+                confirmButton: 'font-bold tracking-widest uppercase text-xs'
+            }
+        });
+        navigate("/dashboard/my-bookings");
       }
     }
   };

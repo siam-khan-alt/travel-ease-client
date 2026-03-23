@@ -71,8 +71,8 @@ const Navbar = () => {
         Contact
       </NavLink>
       {users && (
-        <NavLink to="/dashboard/home" className="hover:text-[var(--primary)] transition-colors duration-200 font-semibold tracking-wide">
-          Dashboard
+        <NavLink to="/dashboard/overview" className="hover:text-[var(--primary)] transition-colors duration-200 font-semibold tracking-wide">
+          Terminal
         </NavLink>
       )}
     </>

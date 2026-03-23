@@ -6,7 +6,7 @@ import Register from "../Pages/auth/Register";
 import AllVehicle from "../Pages/Public/AllVehicle";
 import AddVehicle from "../Pages/AddVehicle/AddVehicle";
 import MyVehicles from "../Pages/MyVehicles/MyVehicles";
-import MyBookings from "../Pages/MyBookings/MyBookings";
+import MyBookings from "../Pages/Dashboard/User/MyBookings";
 import MainLayout from "../Layout/MainLayout";
 import PrivateRoute from "../Private/PrivateRoute";
 import Details from "../Pages/Public/Details";
@@ -14,10 +14,11 @@ import UpdateVehicle from "../Component/UpdateVehicle";
 import AboutUs from "../Pages/Public/AboutUs";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Profile from "../Pages/Profile/Profile";
-import DashboardHome from "../Pages/DashboardHome/DashboardHome";
 import Contact from "../Pages/Public/Contact";
 import LoadingSpinner from "../Component/shared/LoadingSpinner";
 import Payment from "../Pages/Payment/Payment";
+import Overview from "../Pages/Dashboard/Overview";
+import PaymentHistory from "../Pages/Dashboard/User/PaymentHistory";
 
 
 
@@ -50,31 +51,70 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <PrivateRoute><DashboardLayout /></PrivateRoute>, 
     children: [
+      // Common Routes
       {
-        path: "home", 
-        element: <DashboardHome />
+        path: "overview", 
+        element: <Overview />
       },
       {
-        path: "profile", 
+        path: "profile",
         element: <Profile />
       },
+
+      // --- User (Customer) Routes ---
       {
-        path: "add-vehicle", 
+        path: "my-bookings",
+        element: <MyBookings />
+      },
+      {
+        path: "payment-history",
+        element: <PaymentHistory/>
+      },
+      {
+        path: "wishlist",
+        element: <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">Wishlist: Secure Vault Accessing...</div> // Placeholder
+      },
+
+      // --- Host (Owner) Routes ---
+      {
+        path: "add-vehicle",
         element: <AddVehicle />
       },
       {
-        path: "my-vehicles", 
+        path: "my-vehicles",
         element: <MyVehicles />
       },
       {
-        path: "my-bookings", 
-        element: <MyBookings />
+        path: "booking-requests",
+        element: <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">Incoming Requests: Scanning...</div> // Placeholder
+      },
+      {
+        path: "host-analytics",
+        element: <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">Revenue Flow: Graphing...</div> // Placeholder
       },
       {
         path: "update-vehicle/:id",
         loader: ({ params }) => fetch(`https://travel-ease-server-rho.vercel.app/vehicles/${params.id}`),
         element: <UpdateVehicle />,
         HydrateFallback: LoadingSpinner
+      },
+
+      // --- Admin Routes ---
+      {
+        path: "manage-users",
+        element: <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">Global User Control: Online</div> // Placeholder
+      },
+      {
+        path: "verify-vehicles",
+        element: <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">Safety Verification: Pending...</div> // Placeholder
+      },
+      {
+        path: "all-bookings",
+        element: <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">Master Booking Ledger</div> // Placeholder
+      },
+      {
+        path: "revenue",
+        element: <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">Platform Fiscal Analysis</div> // Placeholder
       },
     ]
   },

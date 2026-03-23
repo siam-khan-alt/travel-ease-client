@@ -2,9 +2,9 @@ import React from "react";
 import { FaCarSide } from "react-icons/fa";
 import Motions from "../Motions";
 
-const LoadingSpinner = () => {
+const LoadingSpinner = ({ minHeight = "70vh" }) => {
   return (
-    <div className="flex flex-col justify-center items-center min-h-[70vh] w-full bg-[var(--bg-main)]">
+    <div className={`flex flex-col justify-center items-center w-full bg-[var(--bg-main)]`}style={{ minHeight }}>
       <div className="relative flex items-center justify-center">
         
         {/* Main Golden Spinner Ring */}
