@@ -4,9 +4,9 @@ import useAxios from "../../Hooks/useAxios";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import LoadingSpinner from "../../Component/LoadingSpinner";
 import Motions from "../../Component/Motions";
 import { FaArrowRight } from "react-icons/fa";
+import LoadingSpinner from "../../Component/shared/LoadingSpinner";
 
 
 const MyVehicles = () => {

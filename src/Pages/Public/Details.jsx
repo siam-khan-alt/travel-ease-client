@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { 
-  FaMapMarkerAlt, FaUsers, FaStar, FaCheckCircle, FaShieldAlt, FaIdCard 
+  FaMapMarkerAlt, FaUsers, FaStar, FaCheckCircle, FaShieldAlt, FaIdCard, 
+  FaArrowRight
 } from "react-icons/fa";
 import { AuthContext } from "../../Context/AuthContext";
 import useAxios from "../../Hooks/useAxios";
@@ -18,7 +19,7 @@ const Details = () => {
   const location = useLocation();
   const [activeImg, setActiveImg] = useState(null);
 
-  const { data: vehicle, isLoading, refetch } = useQuery({
+  const { data: vehicle, isLoading} = useQuery({
     queryKey: ['vehicle', id],
     queryFn: async () => {
       const res = await instanceAxios.get(`/vehicles/${id}`);
@@ -60,36 +61,14 @@ const Details = () => {
       color: 'var(--text-main)',
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const bookingData = {
-          userEmail: users.email,
-          userName: users.displayName,
-          vehicleId: vehicle._id,
-          vehicleName: vehicle.vehicleName,
-          price: vehicle.pricePerDay,
-          image: vehicle.coverImage,
-          status: "Pending",
-          bookedAt: new Date(),
-        };
-
-        try {
-          const res = await instanceAxios.post("/bookings", bookingData);
-          if (res.data.insertedId) {
-            Swal.fire({
-              title: 'Reservation Sent!',
-              text: 'The owner will review your request shortly.',
-              icon: 'success',
-              confirmButtonColor: 'var(--primary)',
-              background: 'var(--bg-main)',
-              color: 'var(--text-main)',
-            });
-            refetch(); 
-          }
-        } catch (error) {
-          Swal.fire({ icon: 'error', title: 'Error', text: error.response?.data?.message || "Booking failed" });
-        }
-      }
-    });
-  };
+       navigate("/payment", { 
+        state: { 
+          vehicle: vehicle 
+        } 
+      });
+    }
+  });
+};
 
   if (isLoading) return <LoadingSpinner />;
 

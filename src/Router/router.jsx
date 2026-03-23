@@ -17,6 +17,7 @@ import Profile from "../Pages/Profile/Profile";
 import DashboardHome from "../Pages/DashboardHome/DashboardHome";
 import Contact from "../Pages/Public/Contact";
 import LoadingSpinner from "../Component/shared/LoadingSpinner";
+import Payment from "../Pages/Payment/Payment";
 
 
 
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
       { path: "/allVehicles", Component: AllVehicle },
       { path: "/about", Component: AboutUs },
       { path: "/contact", Component: Contact },
+      { path: "/payment", Component: Payment },
       { path: "/details/:id",
         loader: ({params})=>fetch(`https://travel-ease-server-rho.vercel.app/vehicles/${params.id}`), 
         Component: Details ,

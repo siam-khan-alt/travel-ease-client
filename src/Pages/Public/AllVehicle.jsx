@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-
+import LoadingSpinner from "../../Component/shared/LoadingSpinner";
 import { FaSearch, FaFilter, FaSortAmountDown, FaTimes, FaCarSide } from "react-icons/fa";
 import useAxios from "../../Hooks/useAxios";
-import LoadingSpinner from "../../Component/LoadingSpinner";
 import VehicleCard from "../../Component/Card/VehiclesCard";
 import Motions from "../../Component/Motions";
 
