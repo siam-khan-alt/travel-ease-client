@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Public/Home";
 import NotFound from "../Pages/Public/NotFound";
-import Login from "../Pages/auth/Login";
-import Register from "../Pages/auth/Register";
+import Login from "../Pages/Auth/Login";
+import Register from "../Pages/Auth/Register";
 import AllVehicle from "../Pages/Public/AllVehicle";
 import AddVehicle from "../Pages/Dashboard/Host/AddVehicle";
 import MyVehicles from "../Pages/MyVehicles/MyVehicles";
