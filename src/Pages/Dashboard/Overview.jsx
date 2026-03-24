@@ -3,12 +3,13 @@ import useRole from "../../Hooks/useRole";
 import AdminOverview from "./Admin/AdminOverview";
 import HostOverview from "./Host/HostOverview";
 import UserOverview from "./User/UserOverview";
+import LoadingSpinner from "../../Component/shared/LoadingSpinner";
 
 
 const Overview = () => {
   const [role, isRoleLoading] = useRole();
 
-  if (isRoleLoading) return <div className="min-h-screen flex justify-center items-center text-[var(--primary)]">Accessing Secure Terminal...</div>;
+  if (isRoleLoading) return <LoadingSpinner minHeight="60vh" />
 
   return (
     <div className="animate-fade-in">
