@@ -5,12 +5,10 @@ import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Register";
 import AllVehicle from "../Pages/Public/AllVehicle";
 import AddVehicle from "../Pages/Dashboard/Host/AddVehicle";
-import MyVehicles from "../Pages/MyVehicles/MyVehicles";
 import MyBookings from "../Pages/Dashboard/User/MyBookings";
 import MainLayout from "../Layout/MainLayout";
 import PrivateRoute from "../Private/PrivateRoute";
 import Details from "../Pages/Public/Details";
-import UpdateVehicle from "../Component/UpdateVehicle";
 import AboutUs from "../Pages/Public/AboutUs";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Profile from "../Pages/Profile/Profile";
@@ -20,6 +18,9 @@ import Payment from "../Pages/Payment/Payment";
 import Overview from "../Pages/Dashboard/Overview";
 import PaymentHistory from "../Pages/Dashboard/User/PaymentHistory";
 import ManageBookings from "../Pages/Dashboard/Host/ManageBookings";
+import MyVehicles from "../Pages/Dashboard/Host/MyVehicle";
+import UpdateVehicle from "../Pages/Dashboard/Host/UpdateVehicle";
+import HostAnalytics from "../Pages/Dashboard/Host/HostAnalytics";
 
 const router = createBrowserRouter([
   {
@@ -110,20 +111,11 @@ const router = createBrowserRouter([
       },
       {
         path: "host-analytics",
-        element: (
-          <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">
-            Revenue Flow: Graphing...
-          </div>
-        ), // Placeholder
+        element: <HostAnalytics/>,
       },
       {
         path: "update-vehicle/:id",
-        loader: ({ params }) =>
-          fetch(
-            `https://travel-ease-server-rho.vercel.app/vehicles/${params.id}`
-          ),
         element: <UpdateVehicle />,
-        HydrateFallback: LoadingSpinner,
       },
 
       // --- Admin Routes ---
