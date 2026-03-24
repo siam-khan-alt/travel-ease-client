@@ -36,6 +36,15 @@ const Details = () => {
     }
   });
 
+  const getSwalStyle = () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || true; // তোমার থিম লজিক অনুযায়ী
+  return {
+    background: isDark ? "#111827" : "#FFFFFF",
+    color: isDark ? "#F1F5F9" : "#0F172A",
+    confirmButtonColor: "#D4AF37",
+    cancelButtonColor: isDark ? "#1E293B" : "#E2E8F0",
+  };
+};
   const handleBooking = async () => {
     if (!users) {
       Swal.fire({
@@ -48,28 +57,47 @@ const Details = () => {
       }).then(() => navigate("/login", { state: location.pathname }));
       return;
     }
+Swal.fire({
+    title: 'Initiate Request?',
+    text: `Send a rental request for ${vehicle.vehicleName}?`,
+    icon: 'info',
+    showCancelButton: true,
+    confirmButtonText: 'Send Request',
+    ...getSwalStyle() 
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      const bookingInfo = {
+        vehicleId: vehicle._id,
+        vehicleName: vehicle.vehicleName,
+        price: vehicle.pricePerDay,
+        userEmail: users.email,
+        userName: users.displayName,
+        hostEmail: vehicle.userEmail, 
+        category: vehicle.categories,
+        image: vehicle.coverImage
+      };
 
-    Swal.fire({
-      title: 'Confirm Booking?',
-      text: `Reserve ${vehicle.vehicleName} for $${vehicle.pricePerDay}/day?`,
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonColor: 'var(--primary)',
-      cancelButtonColor: 'var(--accent)',
-      confirmButtonText: 'Confirm Reservation',
-      background: 'var(--bg-main)',
-      color: 'var(--text-main)',
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-       navigate("/payment", { 
-        state: { 
-          vehicle: vehicle 
-        } 
-      });
+      try {
+        const res = await instanceAxios.post("/bookings", bookingInfo);
+        if (res.data.success) {
+          Swal.fire({
+            title: 'Request Transmitted!',
+            text: "The host has been notified. Check your notifications for approval.",
+            icon: 'success',
+            ...getSwalStyle()
+          });
+        }
+      } catch (err) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Transmission Failed',
+          text: err.response?.data?.message || "Something went wrong",
+          ...getSwalStyle()
+        });
+      }
     }
   });
 };
-
   if (isLoading) return <LoadingSpinner />;
 
   return (

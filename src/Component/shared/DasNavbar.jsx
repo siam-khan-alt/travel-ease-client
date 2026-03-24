@@ -3,10 +3,35 @@ import { FaBars, FaSignOutAlt, FaUserCircle, FaBell } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 import Swal from "sweetalert2";
+import useAxios from "../../Hooks/useAxios";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 const DasNavbar = ({ theme, handletheme }) => {
   const { users, Logout } = useContext(AuthContext);
   const navigate = useNavigate();
+  const instanceAxios = useAxios();
+  const queryClient = useQueryClient();
+
+  const { data: notifications = [] } = useQuery({
+    queryKey: ['notifications', users?.email],
+    enabled: !!users?.email,
+    queryFn: async () => {
+      const res = await instanceAxios.get(`/notifications/${users?.email}`);
+      return res.data;
+    },
+    refetchInterval: 5000, 
+  });
+
+  const unreadCount = notifications.filter(n => !n.isRead).length;
+
+  const markAsRead = useMutation({
+    mutationFn: async (id) => {
+      return await instanceAxios.patch(`/notifications/read/${id}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(['notifications']);
+    }
+  });
 
   // Dynamic SweetAlert Style based on theme
   const getSwalStyle = () => {
@@ -89,10 +114,38 @@ const DasNavbar = ({ theme, handletheme }) => {
         </label>
 
         {/*  Notifications  */}
-        <button className=" text-[var(--primary)] transition-colors hover:text-[#c98405] relative">
-            <FaBell size={18} />
-            <span className="absolute -top-1 -right-1 w-2 h-2 bg-[#c98405] rounded-full"></span>
-        </button>
+        <div className="dropdown dropdown-end">
+      <button tabIndex={0} className="text-[var(--primary)] transition-colors hover:text-[#c98405] relative p-2">
+        <FaBell size={18} />
+        {unreadCount > 0 && (
+          <span className="absolute top-1 right-1 w-4 h-4 bg-[#c98405] text-white text-[10px] flex items-center justify-center rounded-full font-bold">
+            {unreadCount}
+          </span>
+        )}
+      </button>
+      <ul tabIndex={0} className="mt-4 z-[50] p-2 shadow-2xl menu menu-sm dropdown-content bg-[var(--card-bg)] rounded-xl w-80 border border-[var(--primary)]/10 text-[var(--text-main)] max-h-[400px] overflow-y-auto">
+        <li className="menu-title text-[var(--primary)] text-[10px] uppercase tracking-widest opacity-60">Intelligence Feed</li>
+        {notifications.length === 0 ? (
+          <li className="p-4 text-center opacity-50 text-xs  font-poppins">No new briefings available.</li>
+        ) : (
+          notifications.map(n => (
+            <li key={n._id} className={`${!n.isRead ? 'bg-[var(--primary)]/5' : ''} border-b border-white/5`}>
+              <Link 
+                to={n.link} 
+                onClick={() => markAsRead.mutate(n._id)}
+                className="flex flex-col items-start gap-1 py-3"
+              >
+                <div className="flex justify-between w-full items-center">
+                   <span className="font-bold text-[var(--primary)] text-xs uppercase">{n.title}</span>
+                   <span className="text-[8px] opacity-40">{new Date(n.timestamp).toLocaleTimeString()}</span>
+                </div>
+                <p className="text-[11px] leading-tight opacity-80">{n.message}</p>
+              </Link>
+            </li>
+          ))
+        )}
+      </ul>
+    </div>
 
         {/*  User Profile Dropdown */}
         <div className="flex items-center gap-3 border-l border-[var(--primary)]/10 pl-6">
