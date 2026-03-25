@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import { FaEdit, FaTrashAlt, FaCar, FaMapMarkerAlt, FaDollarSign } from 'react-icons/fa';
+import { FaEdit, FaTrashAlt, FaCar, FaMapMarkerAlt, FaDollarSign, FaHourglassHalf, FaCheckCircle } from 'react-icons/fa';
 import useAxios from '../../../Hooks/useAxios';
 import LoadingSpinner from '../../../Component/shared/LoadingSpinner';
 import { AuthContext } from '../../../Context/AuthContext';
@@ -116,6 +116,19 @@ const MyVehicles = () => {
                                                 <FaMapMarkerAlt className="text-[var(--primary)] text-xs" />
                                                 <span className="text-xs font-medium">{vehicle.location}</span>
                                             </div>
+                                        </td>
+
+                                        {/* Verification Status */}
+                                        <td className="px-6 py-5 text-center">
+                                            {vehicle.status === "pending" ? (
+                                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-[9px] font-black uppercase tracking-widest animate-pulse">
+                                                    <FaHourglassHalf /> Pending Audit
+                                                </span>
+                                            ) : (
+                                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-500 text-[9px] font-black uppercase tracking-widest">
+                                                    <FaCheckCircle /> Verified
+                                                </span>
+                                            )}
                                         </td>
 
                                         {/* Actions */}

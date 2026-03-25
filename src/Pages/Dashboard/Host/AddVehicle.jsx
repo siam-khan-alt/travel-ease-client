@@ -10,6 +10,7 @@ import {
   FaTools,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const allBrands = [
   { name: "Mercedes", cat: "Luxury" },
@@ -60,10 +61,20 @@ const AddVehicle = () => {
       userEmail: users?.email,
       createdAt: format(new Date(), "yyyy-MM-dd hh:mm:ss a"),
       bookingCount: 0,
+      status: "pending",
     };
 
     await mutateAsync(newVehicle);
     form.reset();
+
+    Swal.fire({
+      title: "ASSET SUBMITTED!",
+      text: "Your vehicle is in the safety check queue. Admin will verify soon.",
+      icon: "info",
+      confirmButtonColor: "var(--primary)",
+      background: "var(--card-bg)",
+      color: "var(--text-main)"
+    });
   };
 
   // Common input styles to match your CSS

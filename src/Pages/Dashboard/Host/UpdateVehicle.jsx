@@ -29,7 +29,7 @@ const UpdateVehicle = () => {
     },
     onSuccess: () => {
       toast.success("VEHICLE ASSET UPDATED!");
-      navigate("/dashboard/my-vehicles");
+      navigate("/dashboard/my-listings");
     },
   });
 

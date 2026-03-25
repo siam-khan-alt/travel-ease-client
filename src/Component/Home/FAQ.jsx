@@ -32,7 +32,7 @@ const FAQ = () => {
           <p className="text-[10px] uppercase tracking-[0.5em] text-[var(--primary)] font-bold mb-3 text-center">
             Support Terminal
           </p>
-          <h2 className="main-heading">Frequently Asked Questions</h2>
+          <h2 className="text-4xl md:text-5xl main-heading">Frequently Asked Questions</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

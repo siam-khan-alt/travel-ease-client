@@ -52,7 +52,7 @@ const HowItWorks = () => {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-black text-gradient-gold  "
+            className="text-4xl md:text-5xl font-black text-gradient-gold  "
           >
             How It Works
           </motion.h2>

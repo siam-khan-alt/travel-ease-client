@@ -125,7 +125,7 @@ const Register = () => {
   return (
     <Motions className="flex items-center justify-center min-h-screen px-4 py-10 bg-[var(--bg-main)]">
       <div className="bg-[var(--card-bg)] shadow-[0_20px_50px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[var(--primary)]/10 rounded-2xl p-8 w-full max-w-md transition-all duration-300">
-        <h2 className="heading">
+        <h2 className="heading text-4xl md:text-5xl">
           JOIN ELITE
         </h2>
         <p className="text-center text-[var(--text-main)]/60 text-sm mb-8 uppercase tracking-widest">

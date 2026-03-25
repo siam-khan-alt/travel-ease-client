@@ -54,7 +54,7 @@ const Sidebar = () => {
             <NavLink to="/dashboard/add-vehicle" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
               <FaPlus /> Add New Vehicle
             </NavLink>
-            <NavLink to="/dashboard/my-vehicles" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
+            <NavLink to="/dashboard/my-listings" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
               <FaCar /> My Listings
             </NavLink>
             <NavLink to="/dashboard/booking-requests" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>

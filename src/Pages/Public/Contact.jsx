@@ -32,7 +32,7 @@ const Contact = () => {
                         <FaHeadset className="text-2xl" />
                         <span className="text-[10px] uppercase tracking-[0.5em] font-bold">24/7 Concierge Service</span>
                     </div>
-                    <h2 className="main-heading uppercase">Get In Touch</h2>
+                    <h2 className="text-4xl md:text-5xl main-heading uppercase">Get In Touch</h2>
                     <div className="w-16 h-[2px] bg-[var(--primary)] mx-auto mt-4"></div>
                 </Motions>
 

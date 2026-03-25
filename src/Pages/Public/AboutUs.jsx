@@ -39,7 +39,7 @@ const AboutUs = () => {
           <p className="text-[10px] uppercase tracking-[0.6em] text-[var(--primary)] font-bold mb-4">
             Since 2010 | Premium Mobility
           </p>
-          <h1 className="main-heading mb-8 leading-tight">Driving the Future of <br className="lg:hidden flex" /> Luxury<br className="lg:flex hidden" /> Car Rentals</h1>
+          <h1 className="main-heading text-4xl md:text-5xl mb-8 leading-tight">Driving the Future of <br className="lg:hidden flex" /> Luxury<br className="lg:flex hidden" /> Car Rentals</h1>
           <p className="max-w-4xl mx-auto text-sm md:text-base opacity-70 leading-relaxed font-light">
             Travel Ease is a sophisticated ecosystem designed for those who value time, comfort, and class. 
             From Gafargaon to the entire nation, we bring the world's finest wheels to your doorstep, 

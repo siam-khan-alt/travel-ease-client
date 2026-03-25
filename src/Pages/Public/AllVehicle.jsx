@@ -36,7 +36,7 @@ const AllVehicle = () => {
         <p className="text-[10px] uppercase tracking-[0.5em] text-[var(--primary)] font-bold mb-3">
           Our Fleet
         </p>
-        <h2 className="main-heading">Explore All Vehicles</h2>
+        <h2 className="text-4xl md:text-5xl main-heading">Explore All Vehicles</h2>
         <div className="w-24 h-[1px] bg-[var(--primary)]/30 mx-auto mt-4"></div>
       </div>
 

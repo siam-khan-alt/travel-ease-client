@@ -117,7 +117,7 @@ const Login = () => {
   return (
     <Motions className="flex items-center justify-center min-h-screen px-4 bg-[var(--bg-main)] py-10">
       <div className="bg-[var(--card-bg)] shadow-[0_20px_50px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[var(--primary)]/10 rounded-2xl p-8 w-full max-w-md transition-all duration-300">
-      <h2 className="heading">
+      <h2 className="heading text-4xl md:text-5xl">
      
       LOGIN ELITE
   </h2>

@@ -65,7 +65,7 @@
   }
 
   .main-heading, .heading, .text-gradient-gold {
-    @apply font-extrabold tracking-tighter text-center uppercase transition-all duration-700 bg-gradient-to-r from-[#D4AF37] via-[#F2CC8F] to-[#C5A059] bg-clip-text text-transparent;
+    @apply font-extrabold tracking-tighter text-center uppercase transition-all duration-700 bg-gradient-to-r from-[#D4AF37] via-[#eabe77] to-[#D4AF37] bg-clip-text text-transparent;
   }
 
   .car-card {

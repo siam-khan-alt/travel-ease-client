@@ -21,6 +21,8 @@ import ManageBookings from "../Pages/Dashboard/Host/ManageBookings";
 import MyVehicles from "../Pages/Dashboard/Host/MyVehicle";
 import UpdateVehicle from "../Pages/Dashboard/Host/UpdateVehicle";
 import HostAnalytics from "../Pages/Dashboard/Host/HostAnalytics";
+import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
+import VerifyVehicles from "../Pages/Dashboard/Admin/VerifyVehicles";
 
 const router = createBrowserRouter([
   {
@@ -102,7 +104,7 @@ const router = createBrowserRouter([
         element: <AddVehicle />,
       },
       {
-        path: "my-vehicles",
+        path: "my-listings",
         element: <MyVehicles />,
       },
       {
@@ -121,19 +123,11 @@ const router = createBrowserRouter([
       // --- Admin Routes ---
       {
         path: "manage-users",
-        element: (
-          <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">
-            Global User Control: Online
-          </div>
-        ), // Placeholder
+        element: <ManageUsers/>
       },
       {
         path: "verify-vehicles",
-        element: (
-          <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">
-            Safety Verification: Pending...
-          </div>
-        ), // Placeholder
+        element: <VerifyVehicles/>
       },
       {
         path: "all-bookings",
