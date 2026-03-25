@@ -23,6 +23,8 @@ import UpdateVehicle from "../Pages/Dashboard/Host/UpdateVehicle";
 import HostAnalytics from "../Pages/Dashboard/Host/HostAnalytics";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 import VerifyVehicles from "../Pages/Dashboard/Admin/VerifyVehicles";
+import AllBookings from "../Pages/Dashboard/Admin/AllBookings";
+import RevenueAnalytics from "../Pages/Dashboard/Admin/RevenueAnalytics";
 
 const router = createBrowserRouter([
   {
@@ -131,19 +133,11 @@ const router = createBrowserRouter([
       },
       {
         path: "all-bookings",
-        element: (
-          <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">
-            Master Booking Ledger
-          </div>
-        ), // Placeholder
+        element:<AllBookings/>
       },
       {
         path: "revenue",
-        element: (
-          <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">
-            Platform Fiscal Analysis
-          </div>
-        ), // Placeholder
+        element: <RevenueAnalytics/>
       },
     ],
   },
