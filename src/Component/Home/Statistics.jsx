@@ -5,7 +5,7 @@ const Statistics = () => {
   const stats = [
     { label: "Vehicles Available", value: "500+" },
     { label: "Happy Customers", value: "10k+" },
-    { label: "Cities Covered", value: "150" },
+    { label: "Subscription", value: "150" },
     { label: "User Reviews", value: "4.9/5" },
   ];
 
