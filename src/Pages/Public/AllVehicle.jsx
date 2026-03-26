@@ -42,7 +42,7 @@ const AllVehicle = () => {
 
       <div className="flex flex-col lg:flex-row gap-8">
         <aside className="w-full lg:w-80 shrink-0">
-          <div className="sticky top-20 space-y-8 bg-[var(--card-bg)] border border-white/5 p-8 rounded-2xl shadow-xl">
+          <div className="sticky top-20 space-y-8 bg-[var(--card-bg)] border border-white/5 p-8 rounded-2xl shadow-md">
             {/* search */}
             <div className="space-y-4">
               <h3 className="text-[var(--primary)] text-xs font-bold uppercase tracking-widest flex items-center gap-2">
@@ -112,11 +112,11 @@ const AllVehicle = () => {
           ) : (
             <>
           {isFetching && (
-                <div className="absolute inset-0 z-30 bg-[var(--bg-main)]/40 backdrop-blur-[2px] rounded-3xl flex items-center justify-center">
+                <div className="absolute inset-0 z-30 bg-[var(--bg-main)]/40 backdrop-blur-[2px] rounded-2xl flex items-center justify-center">
                   <Motions
                     animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
                     transition={{ repeat: Infinity, duration: 1.5 }}
-                    className="flex flex-col items-center gap-3 bg-[var(--card-bg)] p-8 rounded-3xl border border-[var(--primary)]/20 shadow-2xl"
+                    className="flex flex-col items-center gap-3 bg-[var(--card-bg)] p-8 rounded-2xl border border-[var(--primary)]/20 shadow-md"
                   >
                     <FaCarSide className="text-4xl text-[var(--primary)]" />
                     <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-[var(--primary)]">Updating Fleet...</span>

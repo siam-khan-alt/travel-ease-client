@@ -18,7 +18,7 @@ const HeroBanner = () => {
   };
 
   return (
-    <section className="relative w-full overflow-hidden h-[75vh] md:h-[85vh] shadow-2xl group">
+    <section className="relative w-full overflow-hidden h-[75vh] md:h-[85vh] shadow-md group">
       <div className="absolute inset-0 z-0">
         <video
           autoPlay

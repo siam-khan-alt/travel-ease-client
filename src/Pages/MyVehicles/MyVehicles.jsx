@@ -71,7 +71,7 @@ const [Loading, setLoading] = useState(true);
         {myVehicles.map((vehicle) => (
           <div
             key={vehicle._id}
-            className="bg-white dark:bg-[#0F172A] shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            className="bg-white dark:bg-[#0F172A] shadow-md rounded-2xl overflow-hidden hover:shadow-md transition-shadow duration-300"
           >
             <img
               src={vehicle.coverImage}

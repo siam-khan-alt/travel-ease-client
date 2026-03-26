@@ -63,7 +63,7 @@ const FAQ = () => {
           </div>
           {/* Right side img in lg */}
           <div className="relative group hidden lg:block h-full">
-            <div className="relative h-full min-h-[500px] rounded-3xl overflow-hidden shadow-xl dark:shadow-2xl transition-all duration-700 border border-gray-100 dark:border-white/5">
+            <div className="relative h-full min-h-[500px] rounded-2xl overflow-hidden shadow-sm dark:shadow-md transition-all duration-700 border border-gray-100 dark:border-white/5">
               <img
                 src="https://i.ibb.co.com/6774TNG0/image.png"
                 alt="Elite Car"

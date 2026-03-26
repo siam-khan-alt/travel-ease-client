@@ -69,7 +69,7 @@
   }
 
   .car-card {
-    @apply bg-[var(--card-bg)] border border-white/5 rounded-none p-0 overflow-hidden shadow-2xl transition-all duration-700;
+    @apply bg-[var(--card-bg)] border border-white/5 rounded-none p-0 overflow-hidden shadow-md transition-all duration-700;
   }
 
   .car-card:hover {

@@ -115,16 +115,6 @@ const AdminOverview = () => {
             </div>
           </div>
 
-          {/* Admin Elite Tip */}
-          <div className="bg-gradient-to-br from-[#1E293B] to-[#0A0F14] border border-[var(--primary)]/20 p-8 rounded-2xl relative overflow-hidden shadow-2xl">
-             <div className="absolute -right-6 -bottom-6 opacity-10 rotate-12">
-                <FaUserShield size={120} />
-             </div>
-             <p className="text-[10px] font-black uppercase tracking-widest text-[var(--primary)] mb-4">Admin Intelligence</p>
-             <p className="text-xs leading-relaxed text-white/70 italic relative z-10">
-               "System stability is 100%. User conversion has increased by 8% this week. Monitor the SUV segment for potential price optimization."
-             </p>
-          </div>
         </div>
       </div>
     </div>

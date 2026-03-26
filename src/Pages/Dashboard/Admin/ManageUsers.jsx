@@ -21,7 +21,7 @@ const ManageUsers = () => {
         color: 'var(--text-main)',
         confirmButtonColor: 'var(--primary)',
         customClass: {
-            popup: 'border border-[var(--primary)]/20 rounded-2xl shadow-2xl',
+            popup: 'border border-[var(--primary)]/20 rounded-2xl shadow-md',
             title: 'font-bold uppercase tracking-tighter',
         }
     });

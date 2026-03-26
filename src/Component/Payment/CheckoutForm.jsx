@@ -44,7 +44,7 @@ const CheckoutForm = ({ vehicle }) => {
           confirmButtonColor: 'var(--primary)', 
           iconColor: 'var(--primary)',
           customClass: {
-            popup: 'border border-[var(--primary)]/20 rounded-3xl shadow-2xl',
+            popup: 'border border-[var(--primary)]/20 rounded-2xl shadow-md',
             confirmButton: 'font-bold tracking-widest uppercase text-xs'
           }
         });

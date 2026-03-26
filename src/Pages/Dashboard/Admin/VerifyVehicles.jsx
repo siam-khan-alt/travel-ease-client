@@ -97,7 +97,7 @@ const VerifyVehicles = () => {
             {/* Verification Modal */}
             {selectedVehicle && (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-                    <div className="bg-[var(--card-bg)] w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl border border-[var(--primary)]/20 shadow-2xl relative animate-scale-up">
+                    <div className="bg-[var(--card-bg)] w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl border border-[var(--primary)]/20 shadow-md relative animate-scale-up">
                         <button onClick={() => setSelectedVehicle(null)} className="absolute top-6 right-6 text-2xl opacity-30 hover:opacity-100"><FaTimes /></button>
                         
                         <div className="p-8 md:p-12">

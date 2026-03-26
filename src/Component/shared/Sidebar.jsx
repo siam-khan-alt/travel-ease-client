@@ -13,7 +13,7 @@ const Sidebar = () => {
   const normalClass = "flex items-center gap-3 p-3 rounded-lg transition-all hover:bg-[var(--primary)]/10 text-[var(--text-main)]/80 hover:text-[var(--primary)] font-medium";
 
   return (
-    <aside className="w-72 bg-[var(--card-bg)] border-r border-[var(--primary)]/10 flex flex-col h-full shadow-xl relative">
+    <aside className="w-72 bg-[var(--card-bg)] border-r border-[var(--primary)]/10 flex flex-col h-full shadow-md relative">
       <div className="p-8 border-b border-[var(--primary)]/5 text-center">
       <div className="absolute right-4 top-4 lg:hidden">
         <label htmlFor="dashboard-drawer" className="btn btn-ghost text-left btn-circle text-[var(--primary)]">

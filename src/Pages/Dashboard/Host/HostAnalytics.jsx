@@ -29,7 +29,7 @@ const HostAnalytics = () => {
     const chartGridColor = "rgba(197, 160, 89, 0.1)"; // Primary gold with low opacity
 
     return (
-        <div className="p-6 lg:p-10 space-y-10 min-h-screen">
+        <div className=" space-y-10 min-h-screen">
             <div>
                 <h2 className="text-3xl !text-center md:!text-left uppercase tracking-tighter text-gradient-gold">
                     Fleet Intelligence
@@ -42,7 +42,7 @@ const HostAnalytics = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
                 {/* ১. Category-wise Price (Pie Chart) */}
-                <div className="bg-[var(--card-bg)] p-6 rounded-2xl border border-[var(--primary)]/10 shadow-xl car-card">
+                <div className="bg-[var(--card-bg)] p-6 rounded-2xl border border-[var(--primary)]/10 shadow-md car-card">
                     <h3 className="text-[var(--primary)] text-sm font-black uppercase mb-6 tracking-widest">Category Distribution</h3>
                     <div className="h-[300px] w-full">
                         <ResponsiveContainer width="100%" height="100%">
@@ -70,7 +70,7 @@ const HostAnalytics = () => {
                 </div>
 
                 {/* ২. Vehicle per Piece Revenue (Bar Chart) */}
-                <div className="bg-[var(--card-bg)] p-6 rounded-2xl border border-[var(--primary)]/10 shadow-xl car-card">
+                <div className="bg-[var(--card-bg)] p-6 rounded-2xl border border-[var(--primary)]/10 shadow-md car-card">
                     <h3 className="text-[var(--primary)] text-sm font-black uppercase mb-6 tracking-widest">Revenue Per Vehicle</h3>
                     <div className="h-[300px] w-full">
                         <ResponsiveContainer width="100%" height="100%">
@@ -89,7 +89,7 @@ const HostAnalytics = () => {
                 </div>
 
                 {/* ৩. Monthly Revenue (Area Chart) */}
-                <div className="bg-[var(--card-bg)] p-8 rounded-2xl border border-[var(--primary)]/10 shadow-2xl lg:col-span-2 car-card">
+                <div className="bg-[var(--card-bg)] p-8 rounded-2xl border border-[var(--primary)]/10 shadow-md lg:col-span-2 car-card">
                     <h3 className="text-[var(--primary)] text-sm font-black uppercase mb-6 tracking-widest text-center">Monthly Revenue Stream</h3>
                     <div className="h-[350px] w-full">
                         <ResponsiveContainer width="100%" height="100%">

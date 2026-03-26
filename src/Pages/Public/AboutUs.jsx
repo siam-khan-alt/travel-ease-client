@@ -115,14 +115,14 @@ const AboutUs = () => {
               </div>
             </Motions>
             <Motions className="w-full lg:w-1/2 relative">
-               <div className="rounded-2xl overflow-hidden shadow-2xl border border-black/5">
+               <div className="rounded-2xl overflow-hidden shadow-md border border-black/5">
                   <img 
                     src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800" 
                     alt="Dashboard Preview" 
                     className="w-full h-full object-cover"
                   />
                </div>
-               <div className="absolute -bottom-6 -left-6 bg-[var(--primary)] px-8 py-6 rounded-2xl hidden md:block shadow-2xl">
+               <div className="absolute -bottom-6 -left-6 bg-[var(--primary)] px-8 py-6 rounded-2xl hidden md:block shadow-md">
                   <p className="text-[#0A0F14] font-black text-3xl tracking-tighter uppercase">Secure & <br /> Fast</p>
                </div>
             </Motions>

@@ -11,7 +11,7 @@ import PrivateRoute from "../Private/PrivateRoute";
 import Details from "../Pages/Public/Details";
 import AboutUs from "../Pages/Public/AboutUs";
 import DashboardLayout from "../Layout/DashboardLayout";
-import Profile from "../Pages/Profile/Profile";
+import Profile from "../Pages/Dashboard/Profile";
 import Contact from "../Pages/Public/Contact";
 import LoadingSpinner from "../Component/shared/LoadingSpinner";
 import Payment from "../Pages/Payment/Payment";
@@ -25,6 +25,7 @@ import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 import VerifyVehicles from "../Pages/Dashboard/Admin/VerifyVehicles";
 import AllBookings from "../Pages/Dashboard/Admin/AllBookings";
 import RevenueAnalytics from "../Pages/Dashboard/Admin/RevenueAnalytics";
+import Wishlist from "../Pages/Dashboard/User/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -40,19 +41,12 @@ const router = createBrowserRouter([
       { path: "/payment/:id", Component: Payment },
       {
         path: "/details/:id",
-        loader: ({ params }) =>
-          fetch(
-            `https://travel-ease-server-rho.vercel.app/vehicles/${params.id}`
-          ),
         Component: Details,
-        HydrateFallback: LoadingSpinner,
       },
       {
         path: "/updateVehicle/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://travel-ease-server-rho.vercel.app/vehicles/${params.id}`
-          ),
+          fetch(`${import.meta.env.VITE_API_URL}/vehicles/${params.id}`),
         element: (
           <PrivateRoute>
             <UpdateVehicle />
@@ -93,11 +87,7 @@ const router = createBrowserRouter([
       },
       {
         path: "wishlist",
-        element: (
-          <div className="text-[var(--primary)] p-10 font-bold uppercase tracking-widest">
-            Wishlist: Secure Vault Accessing...
-          </div>
-        ), // Placeholder
+        element: <Wishlist/>
       },
 
       // --- Host (Owner) Routes ---

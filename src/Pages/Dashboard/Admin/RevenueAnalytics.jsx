@@ -22,11 +22,11 @@ const RevenueAnalytics = () => {
 
     if (isLoading) return <LoadingSpinner />;
 
-    const chartStyle = "bg-[var(--card-bg)] p-6 rounded-2xl border border-[var(--primary)]/10 shadow-xl car-card";
+    const chartStyle = "bg-[var(--card-bg)] p-6 rounded-2xl border border-[var(--primary)]/10 shadow-md car-card";
     const titleStyle = "text-[var(--primary)] text-[10px] font-black uppercase mb-6 tracking-[0.2em]";
 
     return (
-        <div className="p-6 lg:p-10 space-y-10">
+        <div className="space-y-10">
             <div>
                 <h1 className="text-3xl font-black uppercase !text-center md:!text-left tracking-tighter text-gradient-gold">Platform Fiscal Analysis</h1>
                 <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] uppercase">Global Revenue Flow & Commission Reports</p>

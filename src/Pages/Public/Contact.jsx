@@ -16,7 +16,7 @@ const Contact = () => {
             color: 'var(--text-main)',
             confirmButtonText: 'Great!',
             customClass: {
-                popup: 'rounded-2xl border border-[var(--primary)]/20 shadow-2xl'
+                popup: 'rounded-2xl border border-[var(--primary)]/20 shadow-md'
             }
         });
 
@@ -45,7 +45,7 @@ const Contact = () => {
                             { icon: <FaRegEnvelope />, label: "Email Us", value: "nssiam99@gmail.com" },
                             { icon: <FaMapMarkerAlt />, label: "Location", value: "Gafargaon, Mymensingh" }
                         ].map((info, index) => (
-                            <div key={index} className="p-6 bg-[var(--card-bg)] rounded-2xl border border-[var(--primary)]/10 shadow-xl group hover:border-[var(--primary)]/40 transition-all duration-500">
+                            <div key={index} className="p-6 bg-[var(--card-bg)] rounded-2xl border border-[var(--primary)]/10 shadow-md group hover:border-[var(--primary)]/40 transition-all duration-500">
                                 <div className="flex items-center gap-5">
                                     <div className="text-[var(--primary)] text-xl bg-[var(--primary)]/10 p-4 rounded-xl group-hover:scale-110 transition-transform">
                                         {info.icon}
@@ -59,7 +59,7 @@ const Contact = () => {
                         ))}
 
                         {/* Social Connect */}
-                        <div className="p-8 bg-[var(--card-bg)]  rounded-2xl shadow-2xl text-center border border-white/5 relative overflow-hidden group">
+                        <div className="p-8 bg-[var(--card-bg)]  rounded-2xl shadow-md text-center border border-white/5 relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--primary)]/10 rounded-full blur-2xl -translate-y-10 translate-x-10"></div>
                             <p className="text-[var(--primary)] text-[10px] font-bold mb-6 uppercase tracking-[0.3em] relative z-10">Connect With Our Network</p>
                             <div className="flex justify-center gap-6 relative z-10">
@@ -72,7 +72,7 @@ const Contact = () => {
 
                     {/* Contact Form */}
                     <Motions className="lg:col-span-8">
-                        <div className="h-full w-full bg-[var(--card-bg)] rounded-2xl p-8 md:p-10 shadow-2xl">
+                        <div className="h-full w-full bg-[var(--card-bg)] rounded-2xl p-8 md:p-10 shadow-md">
                             <form className="space-y-6" onSubmit={handleSubmit}>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
@@ -114,7 +114,7 @@ const Contact = () => {
                                     />
                                 </div>
 
-                                <button type="submit" className="btn-gradient w-full flex items-center justify-center gap-3 py-5 rounded-xl font-bold text-sm uppercase tracking-[0.2em] shadow-2xl">
+                                <button type="submit" className="btn-gradient w-full flex items-center justify-center gap-3 py-5 rounded-xl font-bold text-sm uppercase tracking-[0.2em] shadow-md">
                                     <FaPaperPlane className="text-xs" /> Send Message
                                 </button>
                             </form>

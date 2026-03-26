@@ -123,7 +123,7 @@ const DasNavbar = ({ theme, handletheme }) => {
           </span>
         )}
       </button>
-      <ul tabIndex={0} className="mt-4 z-[50] p-2 shadow-2xl menu menu-sm dropdown-content bg-[var(--card-bg)] rounded-xl w-80 border border-[var(--primary)]/10 text-[var(--text-main)] max-h-[400px] overflow-y-auto">
+      <ul tabIndex={0} className="mt-4 z-[50] p-2 shadow-md menu menu-sm dropdown-content bg-[var(--card-bg)] rounded-xl w-80 border border-[var(--primary)]/10 text-[var(--text-main)] max-h-[400px] overflow-y-auto">
         <li className="menu-title text-[var(--primary)] text-[10px] uppercase tracking-widest opacity-60">Intelligence Feed</li>
         {notifications.length === 0 ? (
           <li className="p-4 text-center opacity-50 text-xs  font-poppins">No new briefings available.</li>
@@ -160,7 +160,7 @@ const DasNavbar = ({ theme, handletheme }) => {
                 <img src={users?.photoURL || "https://i.ibb.co/0n6CkP9/user.png"} alt="profile" />
               </div>
             </div>
-            <ul tabIndex={0} className="mt-4 z-[50] p-2 shadow-2xl menu menu-sm dropdown-content bg-[var(--card-bg)] rounded-xl w-60 border border-[var(--primary)]/10 text-[var(--text-main)]">
+            <ul tabIndex={0} className="mt-4 z-[50] p-2 shadow-md menu menu-sm dropdown-content bg-[var(--card-bg)] rounded-xl w-60 border border-[var(--primary)]/10 text-[var(--text-main)]">
               <li className="menu-title text-[var(--primary)] text-[10px] uppercase tracking-widest opacity-60">Account Settings</li>
               <li><Link to="/dashboard/profile" className="py-3 flex gap-3 items-center hover:text-[var(--primary)]"><FaUserCircle /> My Profile Details</Link></li>
               <div className="h-[1px] bg-[var(--primary)]/5 my-1"></div>

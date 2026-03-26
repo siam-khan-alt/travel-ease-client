@@ -31,7 +31,7 @@ const UpdateVehicle = () => {
 
   return (
     <Motions className="min-h-screen bg-[#F4F1DE] dark:bg-[#1E293B] py-10 px-4">
-      <div className="max-w-3xl mx-auto bg-white dark:bg-[#0F172A] shadow-2xl rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800">
+      <div className="max-w-3xl mx-auto bg-white dark:bg-[#0F172A] shadow-md rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800">
         <div className=" pt-6">
           <h2 className="main-heading tracking-tight">
             Update Vehicle Info

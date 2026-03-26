@@ -1,13 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaStar, FaGasPump, FaUsers, FaCogs, FaArrowRight } from "react-icons/fa";
+import { FaStar, FaGasPump, FaUsers, FaCogs, FaArrowRight, FaHeart, FaRegHeart } from "react-icons/fa";
+import useWishlist from "../../Hooks/useWishlist";
 
 const VehicleCard = ({ vehicle, isReverse }) => {
+  const { isWished, toggleWish } = useWishlist(vehicle._id);
   return (
     <div className={`group bg-[var(--card-bg)] border border-white/5 rounded-2xl overflow-hidden flex flex-col shadow-sm transition-all duration-500 hover:border-[var(--primary)]/30 
       ${isReverse ? 'md:flex-row-reverse' : 'md:flex-row'} w-full md:h-[300px]`}>
+        <svg width="0" height="0" className="absolute">
+        <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop stopColor="#C5A059" offset="0%" />
+          <stop stopColor="#F2CC8F" offset="50%" />
+          <stop stopColor="#D4AF37" offset="100%" />
+        </linearGradient>
+      </svg>
       
       <div className="relative w-full md:w-[40%] overflow-hidden shrink-0 h-64 md:h-full">
+        <button 
+          onClick={(e) => { e.preventDefault(); toggleWish(); }}
+          className="absolute top-4 right-4 z-10 p-3 rounded-full bg-[var(--bg-main)]/60 backdrop-blur-md border border-[var(--primary)]/20 text-xl transition-all hover:scale-110 active:scale-90 group/heart"
+        >
+          {isWished ? (
+            <FaHeart 
+              style={{ fill: "url(#gold-gradient)" }} 
+              className="drop-shadow-[0_0_8px_rgba(197,160,89,0.5)] transition-all" 
+            />
+          ) : (
+            <FaRegHeart className="text-[var(--primary)] opacity-70 group-hover/heart:opacity-100 transition-all" />
+          )}
+        </button>
         <img
           src={vehicle.coverImage}
           alt={vehicle.vehicleName}
@@ -55,6 +77,7 @@ const VehicleCard = ({ vehicle, isReverse }) => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3">
+          
           <Link to={`/details/${vehicle._id}`} className="flex-1 btn-gradient !py-3 !rounded-xl flex items-center justify-center gap-3 font-bold uppercase tracking-widest text-[10px] italic">
             Book Now <FaArrowRight />
           </Link>

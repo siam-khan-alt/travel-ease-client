@@ -43,7 +43,7 @@ const ManageBookings = () => {
     if (isLoading) return <LoadingSpinner />;
 
     return (
-        <div className="p-6 lg:p-10 bg-[var(--bg-main)] min-h-screen">
+        <div className=" bg-[var(--bg-main)] min-h-screen">
             <div>
                 <div className="mb-10">
                     <h2 className="text-3xl font-black uppercase tracking-tighter text-gradient-gold !text-center md:!text-left">Rental Requests</h2>
@@ -51,7 +51,7 @@ const ManageBookings = () => {
                 </div>
 
                 {/* Table Container */}
-            <div className="bg-[var(--card-bg)] border border-[var(--primary)]/10 rounded-2xl overflow-hidden shadow-2xl">
+            <div className="bg-[var(--card-bg)] border border-[var(--primary)]/10 rounded-2xl overflow-hidden shadow-md">
                 <div className="overflow-x-auto">
                     {requests.length > 0 ? (
                         <table className="table w-full border-collapse">

@@ -88,7 +88,7 @@ const Navbar = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </div>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content bg-[var(--bg-main)] rounded-none mt-3 w-64 p-6 shadow-2xl border border-[var(--primary)]/20 space-y-4 uppercase tracking-widest">
+            <ul tabIndex={0} className="menu menu-sm dropdown-content bg-[var(--bg-main)] rounded-none mt-3 w-64 p-6 shadow-md border border-[var(--primary)]/20 space-y-4 uppercase tracking-widest">
               {allLinks}
             </ul>
           </div>
@@ -129,7 +129,7 @@ const Navbar = () => {
                   <img src={users?.photoURL || "https://i.ibb.co/0n6CkP9/user.png"} alt="profile" />
                 </div>
               </div>
-              <ul tabIndex={0} className="mt-4 z-[1] p-2 shadow-2xl menu menu-sm dropdown-content bg-[var(--card-bg)] rounded-none w-64 border border-[var(--primary)]/20 backdrop-blur-xl">
+              <ul tabIndex={0} className="mt-4 z-[1] p-2 shadow-md menu menu-sm dropdown-content bg-[var(--card-bg)] rounded-none w-64 border border-[var(--primary)]/20 backdrop-blur-xl">
                 <li className="px-4 py-4 border-b border-white/5 mb-2">
                   <p className="font-bold text-[var(--primary)] truncate tracking-wide uppercase text-sm">{users?.displayName}</p>
                   <p className="text-[10px] opacity-50 truncate">{users?.email}</p>

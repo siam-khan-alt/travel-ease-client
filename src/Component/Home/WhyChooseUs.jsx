@@ -75,7 +75,7 @@ const WhyChooseUs = () => {
                     </span>
                   </div>
 
-                  <div className="bg-[var(--card-bg)] p-8 rounded-2xl border border-white/5 shadow-2xl transition-all duration-500 hover:border-[var(--primary)]/30 group-hover:-translate-y-1">
+                  <div className="bg-[var(--card-bg)] p-8 rounded-2xl border border-white/5 shadow-md transition-all duration-500 hover:border-[var(--primary)]/30 group-hover:-translate-y-1">
                     <h3 className="text-xl font-bold mb-3 text-[var(--text-main)] group-hover:text-[var(--primary)] transition-colors duration-300">
                       {feature.title}
                     </h3>
