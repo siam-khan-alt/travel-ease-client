@@ -2,7 +2,9 @@ import { Link, NavLink } from "react-router-dom";
 import { 
   FaThLarge, FaCar, FaBookmark, FaUserShield, 
   FaHistory, FaChartLine, FaUsers, FaCheckCircle, FaPlus, 
-  FaTimes
+  FaTimes,
+  FaBullhorn,
+  FaAd
 } from "react-icons/fa";
 import useRole from "../../Hooks/useRole";
 
@@ -60,6 +62,9 @@ const Sidebar = () => {
             <NavLink to="/dashboard/booking-requests" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
               <FaHistory /> Booking Requests
             </NavLink>
+            <NavLink to="/dashboard/promotion-request" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
+              <FaBullhorn /> Asset Promotion
+            </NavLink>
             <NavLink to="/dashboard/host-analytics" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
               <FaChartLine /> Income Analytics
             </NavLink>
@@ -74,6 +79,9 @@ const Sidebar = () => {
             </NavLink>
             <NavLink to="/dashboard/verify-vehicles" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
               <FaUserShield /> Verify Vehicles
+            </NavLink>
+            <NavLink to="/dashboard/manage-promotions" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
+              <FaAd /> Manage Promotions
             </NavLink>
             <NavLink to="/dashboard/all-bookings" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
               <FaBookmark /> All Bookings

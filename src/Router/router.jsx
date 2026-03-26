@@ -26,6 +26,8 @@ import VerifyVehicles from "../Pages/Dashboard/Admin/VerifyVehicles";
 import AllBookings from "../Pages/Dashboard/Admin/AllBookings";
 import RevenueAnalytics from "../Pages/Dashboard/Admin/RevenueAnalytics";
 import Wishlist from "../Pages/Dashboard/User/Wishlist";
+import ManagePromotions from "../Pages/Dashboard/Admin/ManagePromotions";
+import PromotionRequest from "../Pages/Dashboard/Host/PromotionRequest";
 
 const router = createBrowserRouter([
   {
@@ -104,6 +106,10 @@ const router = createBrowserRouter([
         element: <ManageBookings/>, 
       },
       {
+        path:"promotion-request",
+        element: <PromotionRequest/>
+      },
+      {
         path: "host-analytics",
         element: <HostAnalytics/>,
       },
@@ -120,6 +126,10 @@ const router = createBrowserRouter([
       {
         path: "verify-vehicles",
         element: <VerifyVehicles/>
+      },
+      {
+        path:"manage-promotions",
+        element:<ManagePromotions/>
       },
       {
         path: "all-bookings",

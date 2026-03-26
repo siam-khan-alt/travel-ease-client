@@ -134,7 +134,7 @@ const Navbar = () => {
                   <p className="font-bold text-[var(--primary)] truncate tracking-wide uppercase text-sm">{users?.displayName}</p>
                   <p className="text-[10px] opacity-50 truncate">{users?.email}</p>
                 </li>
-                <li><Link to="/dashboard/home" className="py-3 flex gap-3 items-center hover:text-[var(--primary)]"><FaThLarge /> Dashboard</Link></li>
+                <li><Link to="/dashboard/overview" className="py-3 flex gap-3 items-center hover:text-[var(--primary)]"><FaThLarge /> Terminal</Link></li>
                 <li><Link to="/dashboard/profile" className="py-3 flex gap-3 items-center hover:text-[var(--primary)]"><FaUserCircle /> My Profile</Link></li>
                 <li><button onClick={handleLogout} className="py-3 flex gap-3 items-center text-red-500 font-bold hover:bg-red-500/5"><FaSignOutAlt /> Logout</button></li>
               </ul>

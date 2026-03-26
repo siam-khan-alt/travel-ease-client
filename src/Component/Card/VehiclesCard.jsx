@@ -5,6 +5,9 @@ import useWishlist from "../../Hooks/useWishlist";
 
 const VehicleCard = ({ vehicle, isReverse }) => {
   const { isWished, toggleWish } = useWishlist(vehicle._id);
+
+  const hasPromo = vehicle.promo && vehicle.promo.status === "approved";
+  const finalPrice = hasPromo ? vehicle.promo.discountPrice : vehicle.pricePerDay;
   return (
     <div className={`group bg-[var(--card-bg)] border border-white/5 rounded-2xl overflow-hidden flex flex-col shadow-sm transition-all duration-500 hover:border-[var(--primary)]/30 
       ${isReverse ? 'md:flex-row-reverse' : 'md:flex-row'} w-full md:h-[300px]`}>
@@ -51,8 +54,13 @@ const VehicleCard = ({ vehicle, isReverse }) => {
               {vehicle.vehicleName}
             </h3>
           </div>
-          <div className="bg-[var(--primary)]/5 px-4 py-2 rounded-xl border border-[var(--primary)]/10 shrink-0">
-            <p className="text-xl text-gradient-gold">${vehicle.pricePerDay}</p>
+          <div className="bg-[var(--primary)]/5 px-4 py-2 rounded-xl border border-[var(--primary)]/10 shrink-0 text-right">
+            <div className="flex items-center gap-2 justify-end">
+              {hasPromo && (
+                <span className="text-[10px] line-through opacity-40 font-bold">${vehicle.pricePerDay}</span>
+              )}
+              <p className="text-xl text-gradient-gold">${finalPrice}</p>
+            </div>
             <p className="text-[8px] uppercase font-bold opacity-50 tracking-tighter">Day Rate</p>
           </div>
         </div>

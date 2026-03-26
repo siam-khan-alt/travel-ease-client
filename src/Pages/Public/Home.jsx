@@ -10,6 +10,7 @@ import FAQ from '../../Component/Home/FAQ';
 import Newsletter from '../../Component/Home/Newsletter';
 import Statistics from '../../Component/Home/Statistics';
 import LoadingSpinner from '../../Component/shared/LoadingSpinner';
+import PromoBanner from '../../Component/Home/PromoBanner';
 
 const Home = () => {
     const {loading}=use(AuthContext)
@@ -19,6 +20,7 @@ const Home = () => {
             <HeroBanner />
             <TopBooking/>
             <BrandShowcase/>
+            <PromoBanner/>
             <HowItWorks/>
             <WhyChooseUs/>
             <Statistics />
