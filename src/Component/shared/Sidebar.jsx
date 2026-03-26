@@ -4,7 +4,9 @@ import {
   FaHistory, FaChartLine, FaUsers, FaCheckCircle, FaPlus, 
   FaTimes,
   FaBullhorn,
-  FaAd
+  FaAd,
+  FaStar,
+  FaCommentDots
 } from "react-icons/fa";
 import useRole from "../../Hooks/useRole";
 
@@ -89,12 +91,19 @@ const Sidebar = () => {
             <NavLink to="/dashboard/revenue" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
               <FaChartLine /> Platform Revenue
             </NavLink>
+            <NavLink to="/dashboard/manage-reviews" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
+                <FaCommentDots /> Manage Reviews
+            </NavLink>
           </>
         )}
+        
       </nav>
 
       {/* --- Profile Bottom --- */}
       <div className="p-6 border-t border-[var(--primary)]/5">
+        <NavLink to="/dashboard/web-review" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
+        <FaStar /> Feedback
+    </NavLink>
         <NavLink to="/dashboard/profile" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
            My Profile
         </NavLink>

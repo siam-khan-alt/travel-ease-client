@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
               </span>
             </div>
             
-            <h2 className="main-heading !text-left mb-6 leading-tight">
+            <h2 className="main-heading text-3xl md:text-5xl !text-left mb-6 leading-tight">
               Redefining Luxury Mobility <br /> with Distinction
             </h2>
             

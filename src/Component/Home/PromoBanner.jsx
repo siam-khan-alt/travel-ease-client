@@ -112,7 +112,7 @@ const PromoBanner = () => {
                         <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[var(--card-bg)] to-transparent hidden lg:block opacity-40"></div>
                         
                         {/* Percentage Float Badge */}
-                        <div className="absolute top-6 right-6 w-16 h-16 rounded-full bg-[var(--primary)] flex flex-col items-center justify-center shadow-2xl -rotate-12 group-hover:rotate-0 transition-all duration-500 border-4 border-[var(--card-bg)]">
+                        <div className="absolute top-6 right-6 w-16 h-16 rounded-full bg-[var(--primary)] flex flex-col items-center justify-center shadow-md -rotate-12 group-hover:rotate-0 transition-all duration-500 border-4 border-[var(--card-bg)]">
                             <span className="text-xl font-black text-black leading-none">{promo.promotionPercentage}%</span>
                             <span className="text-[7px] font-bold text-black uppercase">OFF</span>
                         </div>

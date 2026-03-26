@@ -28,6 +28,8 @@ import RevenueAnalytics from "../Pages/Dashboard/Admin/RevenueAnalytics";
 import Wishlist from "../Pages/Dashboard/User/Wishlist";
 import ManagePromotions from "../Pages/Dashboard/Admin/ManagePromotions";
 import PromotionRequest from "../Pages/Dashboard/Host/PromotionRequest";
+import ReviewInput from "../Pages/Dashboard/ReviewInput";
+import ManageWebReviews from "../Pages/Dashboard/Admin/ManageWebReviews";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +75,8 @@ const router = createBrowserRouter([
         path: "overview",
         element: <Overview />,
       },
+      { path: "web-review", 
+        element: <ReviewInput /> },
       {
         path: "profile",
         element: <Profile />,
@@ -123,6 +127,8 @@ const router = createBrowserRouter([
         path: "manage-users",
         element: <ManageUsers/>
       },
+      { path: "manage-reviews", 
+        element: <ManageWebReviews/> },
       {
         path: "verify-vehicles",
         element: <VerifyVehicles/>
