@@ -1,17 +1,33 @@
 import React from "react";
 import { 
-  FaUsers, FaCar, FaShieldAlt, FaChartLine, FaCheckCircle, 
-  FaAward, FaHandshake, FaGem, FaClock, FaQuestionCircle 
+  FaUsers, FaCar, FaHandshake, FaGem, FaClock, FaQuestionCircle, 
+  FaStar,
+  FaBell
 } from "react-icons/fa";
 import Motions from "../../Component/Motions";
+import useAxios from "../../Hooks/useAxios";
+import { useQuery } from "@tanstack/react-query";
 
 const AboutUs = () => {
-  const stats = [
-    { icon: <FaUsers />, value: "50K+", label: "Happy Users" },
-    { icon: <FaCar />, value: "1,200+", label: "Luxury Fleet" },
-    { icon: <FaAward />, value: "15+", label: "Years Experience" },
-    { icon: <FaShieldAlt />, value: "100%", label: "Safe Travels" },
+  const axiosPublic = useAxios();
+
+  const { data: statsData, isLoading } = useQuery({
+    queryKey: ['site-statistics'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('/site-stats');
+      return res.data;
+    }
+  });
+
+  if (isLoading) return <LoadingSpinner />;
+ const stats = [
+    {icon: <FaCar />, label: "Vehicles Available", value: `${statsData?.totalVehicles || 0}+` },
+    { icon: <FaUsers />, label: "Happy Customers", value: `${statsData?.totalHappyCustomers || 0}+` },
+    {icon: <FaBell />, label: "Subscription", value: statsData?.totalSubscriptions || 0 },
+    {icon: <FaStar />, label: "User Reviews", value: `${statsData?.avgRating || "0.0"}/5` },
   ];
+
+ 
 
   const values = [
     {

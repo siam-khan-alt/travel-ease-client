@@ -1,14 +1,27 @@
 import React from "react";
 import { motion } from "framer-motion";
+import useAxios from "../../Hooks/useAxios";
+import { useQuery } from "@tanstack/react-query";
+import LoadingSpinner from "../shared/LoadingSpinner";
 
 const Statistics = () => {
-  const stats = [
-    { label: "Vehicles Available", value: "500+" },
-    { label: "Happy Customers", value: "10k+" },
-    { label: "Subscription", value: "150" },
-    { label: "User Reviews", value: "4.9/5" },
-  ];
+  const axiosPublic = useAxios();
 
+  const { data: statsData, isLoading } = useQuery({
+    queryKey: ['site-statistics'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('/site-stats');
+      return res.data;
+    }
+  });
+
+  if (isLoading) return <LoadingSpinner />;
+ const stats = [
+    { label: "Vehicles Available", value: `${statsData?.totalVehicles || 0}+` },
+    { label: "Happy Customers", value: `${statsData?.totalHappyCustomers || 0}+` },
+    { label: "Subscription", value: statsData?.totalSubscriptions || 0 },
+    { label: "User Reviews", value: `${statsData?.avgRating || "0.0"}/5` },
+  ];
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-[var(--bg-main)] overflow-hidden">
       <div className="container mx-auto px-6">
