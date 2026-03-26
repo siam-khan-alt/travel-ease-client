@@ -145,7 +145,7 @@ const ManageWebReviews = () => {
                                             {rev.status === 'pending' && (
                                                 <button 
                                                     onClick={() => handleUpdateStatus({ id: rev._id, status: 'approved' })} 
-                                                    className="p-3 text-green-700/40 hover:text-green-500 hover:bg-green-500/10 rounded-xl transition-all"
+                                                    className="p-3 text-green-700 hover:text-green-500 hover:bg-green-500/10 rounded-xl transition-all"
                                                     title="Approve Review"
                                                 >
                                                     <FaCheckCircle size={16} />
@@ -153,7 +153,7 @@ const ManageWebReviews = () => {
                                             )}
                                             <button 
                                                 onClick={() => handleDelete(rev._id)} 
-                                                className="p-3 text-red-700/20 hover:text-red-600 hover:bg-red-600/10 rounded-xl transition-all"
+                                                className="p-3 text-red-700/80 hover:text-red-600 hover:bg-red-600/10 rounded-xl transition-all"
                                                 title="Delete Review"
                                             >
                                                 <FaTrash size={14} />

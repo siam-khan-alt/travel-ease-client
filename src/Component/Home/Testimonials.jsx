@@ -4,25 +4,23 @@ import { Navigation } from "swiper/modules";
 import { FaChevronLeft, FaChevronRight, FaQuoteRight, FaStar } from "react-icons/fa";
 
 import "swiper/css";
+import { useQuery } from "@tanstack/react-query";
+import useAxios from "../../Hooks/useAxios";
+import LoadingSpinner from "../shared/LoadingSpinner";
 
 const Testimonials = () => {
   const [progress, setProgress] = useState(0);
+  const instanceAxios=useAxios()
 
-  const reviews = [
-    { name: "Rahat Chowdhury", role: "Verified User", text: "The booking process was incredibly smooth. The SUV I rented was in top-notch condition and perfect for my business trip.", img: "https://i.pravatar.cc/150?u=1", rating: 5 },
-    { name: "Tanvir Ahmed", role: "Happy Client", text: "Best rental prices I've found so far in Dhaka. Their customer service team helped me pick the right car for my family tour.", img: "https://i.pravatar.cc/150?u=2", rating: 5 },
-    { name: "Mahmuda Akter", role: "Verified User", text: "Highly recommended! Huge variety of cars and very transparent pricing. No hidden charges at all, which is rare these days.", img: "https://i.pravatar.cc/150?u=3", rating: 5 },
-    { name: "Ariful Islam", role: "Happy Client", text: "I've used many rental services, but Travel Ease stands out for their professionalism and car quality. Will book again!", img: "https://i.pravatar.cc/150?u=4", rating: 4 },
-    { name: "Farhana Priti", role: "Verified User", text: "Managed my corporate trips easily through the dashboard. The interface is very user-friendly and the cars are luxurious.", img: "https://i.pravatar.cc/150?u=5", rating: 5 },
-    { name: "Nabil Rahman", role: "Happy Client", text: "The Wishlist feature helped me track my favorite cars. Finally booked a Mustang for my birthday and it was epic!", img: "https://i.pravatar.cc/150?u=6", rating: 5 },
-    { name: "Zubayer Hossain", role: "Verified User", text: "Secure payments and instant transaction IDs. I feel very safe using this platform for my high-end vehicle needs.", img: "https://i.pravatar.cc/150?u=7", rating: 5 },
-    { name: "Sadia Afrin", role: "Happy Client", text: "Beautiful design and smooth experience. From selecting the car to the final payment, everything was seamless.", img: "https://i.pravatar.cc/150?u=8", rating: 5 },
-    { name: "Mahim Ahmed", role: "Verified User", text: "The host was very polite and the car was spotless. I appreciate the verify-vehicle process they have in place.", img: "https://i.pravatar.cc/150?u=9", rating: 4 },
-    { name: "Ishrat Jahan", role: "Happy Client", text: "A truly premium experience. The fleet is diverse and the booking history helps me track my expenses easily.", img: "https://i.pravatar.cc/150?u=10", rating: 5 },
-    { name: "Kamrul Hassan", role: "Verified User", text: "Excellent service! The car was delivered right on time. This is now my go-to platform for all my travels.", img: "https://i.pravatar.cc/150?u=11", rating: 5 },
-    { name: "Tanima Akter", role: "Happy Client", text: "I love the gold aesthetic of the site. It matches the luxury feel of the cars they provide. 10/10 experience!", img: "https://i.pravatar.cc/150?u=12", rating: 5 },
-  ];
+  const { data: reviews = [], isLoading } = useQuery({
+    queryKey: ['approved-reviews'],
+    queryFn: async () => {
+      const res = await instanceAxios.get('/approved-reviews');
+      return res.data;
+    }
+  });
 
+  if (isLoading) return <LoadingSpinner />;
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-[var(--bg-main)] transition-colors duration-500">
       <div className="container mx-auto px-6">
