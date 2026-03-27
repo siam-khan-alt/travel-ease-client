@@ -10,20 +10,26 @@
 
 ## 📸 Project Showcases (Dark & Light Experience)
 
+### 1. Home Page & Hero Experience (Full View)
 <div align="center">
-  <h3>1. Home Page & Hero Experience</h3>
   <table width="100%">
     <tr>
-      <td width="50%">
-        <p align="center"><b>Light Mode</b></p>
-        <img src="https://i.ibb.co.com/d01DPJpX/screencapture-travel-ease-drab-vercel-app-2026-03-27-09-27-55.png" alt="Home Light" />
+      <td width="50%" align="center">
+        <p><b>☀️ Light Mode</b></p>
+        <img src="https://i.ibb.co.com/d01DPJpX/screencapture-travel-ease-drab-vercel-app-2026-03-27-09-27-55.png" 
+             alt="Home Light" 
+             style="max-height: 500px; width: auto; object-fit: cover; border: 1px solid #ddd; border-radius: 8px;" />
       </td>
-      <td width="50%">
-        <p align="center"><b>Dark Mode</b></p>
-        <img src="https://i.ibb.co.com/N67NKGKC/screencapture-travel-ease-drab-vercel-app-2026-03-27-09-35-39.png" alt="Home Dark" />
+      <td width="50%" align="center">
+        <p><b>🌙 Dark Mode</b></p>
+        <img src="https://i.ibb.co.com/N67NKGKC/screencapture-travel-ease-drab-vercel-app-2026-03-27-09-35-39.png" 
+             alt="Home Dark" 
+             style="max-height: 500px; width: auto; object-fit: cover; border: 1px solid #333; border-radius: 8px;" />
       </td>
     </tr>
   </table>
+  <p><i>Click on images to view full resolution in the browser.</i></p>
+</div>
 
   <br />
 
