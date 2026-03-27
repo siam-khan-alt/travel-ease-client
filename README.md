@@ -10,27 +10,31 @@
 
 ## 📸 Project Showcases (Dark & Light Experience)
 
-### 1. Home Page & Hero Experience (Full View)
+<h3> 1. Home Page & Hero Experience (Visualized) </h3>
+
 <div align="center">
-  <table width="100%">
+  <table>
     <tr>
-      <td width="50%" align="center">
+      <td align="center" width="50%">
         <p><b>☀️ Light Mode</b></p>
-        <img src="https://i.ibb.co.com/d01DPJpX/screencapture-travel-ease-drab-vercel-app-2026-03-27-09-27-55.png" 
-             alt="Home Light" 
-             style="max-height: 500px; width: auto; object-fit: cover; border: 1px solid #ddd; border-radius: 8px;" />
+        <a href="https://i.ibb.co.com/d01DPJpX/screencapture-travel-ease-drab-vercel-app-2026-03-27-09-27-55.png">
+          <img src="https://i.ibb.co.com/d01DPJpX/screencapture-travel-ease-drab-vercel-app-2026-03-27-09-27-55.png" 
+               alt="Home Light" 
+               height="450" />
+        </a>
       </td>
-      <td width="50%" align="center">
+      <td align="center" width="50%">
         <p><b>🌙 Dark Mode</b></p>
-        <img src="https://i.ibb.co.com/N67NKGKC/screencapture-travel-ease-drab-vercel-app-2026-03-27-09-35-39.png" 
-             alt="Home Dark" 
-             style="max-height: 500px; width: auto; object-fit: cover; border: 1px solid #333; border-radius: 8px;" />
+        <a href="https://i.ibb.co.com/N67NKGKC/screencapture-travel-ease-drab-vercel-app-2026-03-27-09-35-39.png">
+          <img src="https://i.ibb.co.com/N67NKGKC/screencapture-travel-ease-drab-vercel-app-2026-03-27-09-35-39.png" 
+               alt="Home Dark" 
+               height="450" />
+        </a>
       </td>
     </tr>
   </table>
-  <p><i>Click on images to view full resolution in the browser.</i></p>
+  <p><i>(Tip: Click on the images to see the full long-page view)</i></p>
 </div>
-
   <br />
 
   <h3>2. User Dashboard (Customer)</h3>
