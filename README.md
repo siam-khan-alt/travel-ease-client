@@ -45,7 +45,7 @@
   <table width="100%">
     <tr>
       <td width="50%">
-        <img src="c:\Users\DELL\Downloads\screencapture-travel-ease-drab-vercel-app-dashboard-overview-2026-03-27-09_39_07.png" alt="Host Light" />
+        <img src="https://i.ibb.co.com/qYrTnmh2/screencapture-travel-ease-drab-vercel-app-dashboard-overview-2026-03-27-09-39-07-1.png" alt="Host Light" />
       </td>
       <td width="50%">
         <img src="https://i.ibb.co.com/6Rhj1Q86/screencapture-travel-ease-drab-vercel-app-dashboard-overview-2026-03-27-09-40-05.png" alt="Host Dark" />
