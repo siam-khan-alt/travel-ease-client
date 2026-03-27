@@ -26,6 +26,7 @@ const Details = () => {
   });
 
   if (isLoading) return <LoadingSpinner />;
+  if (!vehicle) return <div className="text-[var(--text-main)] bg-[var(--bg-main)] text-center  py-20">Vehicle details not found!</div>;
 
   return (
     <Motions className="bg-[var(--bg-main)] min-h-screen py-10 px-4 md:py-16">

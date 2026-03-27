@@ -91,10 +91,11 @@ const CheckoutForm = ({ vehicle }) => {
     } else if (paymentIntent.status === "succeeded") {
       const paymentInfo = {
         transactionId: paymentIntent.id,
+        bookingId: vehicle._id,
         bookingDetails: {
           userEmail: users.email,
           userName: users.displayName,
-          vehicleId: vehicle.vehicleId,
+          vehicleId: vehicle.vehicleId || vehicle._id,
           vehicleName: vehicle.vehicleName,
           price: vehicle.price,
           image: vehicle.coverImage,

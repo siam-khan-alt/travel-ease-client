@@ -25,7 +25,7 @@ const Payment = () => {
   const vehicle = state?.vehicle || booking;
 
   if (isLoading) return <LoadingSpinner />;
-  if (!vehicle) return <div className="text-white text-center py-20">No booking details found!</div>;
+  if (!vehicle) return <div className="text-[var(--text-main)] bg-[var(--bg-main)] text-center  py-20">No booking details found!</div>;
 
   return (
     <div className="min-h-screen bg-[var(--bg-main)] py-20 px-6 mt-10">

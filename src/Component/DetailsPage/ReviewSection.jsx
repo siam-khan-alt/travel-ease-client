@@ -16,15 +16,42 @@ const ReviewSection = ({ vehicleId, users, instanceAxios, refetchVehicle }) => {
   });
 
   const handleReviewSubmit = async () => {
-    if (!comment) return Swal.fire('Warning', 'Write something!', 'warning');
+    if (!comment) {return Swal.fire({
+      icon: 'warning',
+      title: 'Warning',
+      text: 'Write something!',
+      background: 'var(--card-bg)',
+      color: 'var(--text-main)',   
+      confirmButtonColor: 'var(--primary)',
+    });}
     try {
       await instanceAxios.post("/reviews", { vehicleId, userEmail: users.email, userName: users.displayName, rating: userRating, comment });
-      Swal.fire('Success', 'Review posted!', 'success');
+      Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: 'Review posted!',
+      background: 'var(--card-bg)',
+      color: 'var(--text-main)',
+      confirmButtonColor: 'var(--primary)',
+      iconColor: 'var(--primary)', 
+      customClass: {
+        popup: 'rounded-2xl border border-[var(--primary)]/20 shadow-xl', 
+        title: 'font-black uppercase tracking-widest text-xl',
+      }
+    });
       setComment("");
       refetchReviews();
       refetchVehicle();
     } catch (err) {
-      Swal.fire('Error', 'Failed to post', err);
+      const errorMessage = err.response?.data?.message || 'Failed to post review';
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: errorMessage,
+      background: 'var(--card-bg)',
+      color: 'var(--text-main)',
+      confirmButtonColor: '#ef4444', 
+    });
     }
   };
 
