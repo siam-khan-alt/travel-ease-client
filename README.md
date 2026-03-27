@@ -1,103 +1,123 @@
 # 🌍 Travel Ease 🚗💨
 
-**Travel Ease** is a modern **vehicle booking and travel management web application** where users can browse, book, and manage different types of vehicles seamlessly.
+**Travel Ease** is a high-performance, full-stack vehicle booking ecosystem designed for seamless travel management. Featuring a sophisticated multi-role dashboard, real-time analytics, and secure payment processing, it provides a premium experience for both vehicle owners and travelers.
 
-## 🔗 Live Demo
-
-🔗 **Live Client URL:** [Travel Ease](https://monumental-licorice-6fb8c3.netlify.app)  
-🔗 **Server URL:** [Server API](https://travel-ease-server-rho.vercel.app)
-
----
-
-## 📸 Project Visuals
-
-<p align="center">
-  <img src="https://i.ibb.co.com/0LxQgKr/Travel-Ease1.png" alt="Homepage" width="45%" />
-  <img src="https://i.ibb.co.com/HLzDtwVK/Trabel-each-2.png" alt="Vehicle Grid" width="45%" />
-</p>
-<p align="center">
-  <img src="https://i.ibb.co.com/mCq1hjds/tarabel-each-3.png" alt="Details Page" width="91%" />
-</p>
+## 🔗 Quick Links
+- 🌐 **Live Platform:** [Travel Ease Live](https://travel-ease-drab.vercel.app)
+- 🖥️ **Server API:** [Vercel API](https://travel-ease-server-iota.vercel.app)
 
 ---
 
-## 📖 Project Overview:
-Travel Ease allows users to:  
-- Browse different types of vehicles for rent or travel.  
-- Book vehicles and manage their bookings.  
-- Add and manage their own vehicle listings (authenticated users).  
-- Enjoy smooth dark/light mode toggling and responsive UI.  
+## 📸 Project Showcases (Dark & Light Experience)
 
-The application uses a **single layout** for all pages (Navbar + Footer). Protected routes like `My Bookings` and `Add Vehicle` require authentication.
+<div align="center">
+  <h3>1. Home Page & Hero Experience</h3>
+  <table width="100%">
+    <tr>
+      <td width="50%">
+        <p align="center"><b>Light Mode</b></p>
+        <img src="https://i.ibb.co.com/d01DPJpX/screencapture-travel-ease-drab-vercel-app-2026-03-27-09-27-55.png" alt="Home Light" />
+      </td>
+      <td width="50%">
+        <p align="center"><b>Dark Mode</b></p>
+        <img src="https://i.ibb.co.com/N67NKGKC/screencapture-travel-ease-drab-vercel-app-2026-03-27-09-35-39.png" alt="Home Dark" />
+      </td>
+    </tr>
+  </table>
 
----
+  <br />
 
-## 🏠 Pages Overview:
+  <h3>2. User Dashboard (Customer)</h3>
+  <table width="100%">
+    <tr>
+      <td width="50%">
+        <img src="https://i.ibb.co.com/Wv63Zd2L/screencapture-travel-ease-drab-vercel-app-dashboard-overview-2026-03-27-09-38-00.png" alt="User Light" />
+      </td>
+      <td width="50%">
+        <img src="https://i.ibb.co.com/KjJczTdC/screencapture-travel-ease-drab-vercel-app-dashboard-overview-2026-03-27-09-36-56.png" alt="User Dark" />
+      </td>
+    </tr>
+  </table>
 
-### 1. Homepage
-- Hero banner with CTA buttons.  
-- Dynamic section showing latest 6 vehicles (sorted by creation date).  
-- Optional sections: Top Categories, Featured Owner, About Travel Ease.  
-- Fully responsive for all screen sizes.
+  <br />
 
-### 2. All Vehicles Page
-- Displays all vehicles in a grid/table.  
-- Includes filter/sort functionalities.  
-- Each vehicle has a "View Details" button.
+  <h3>3. Host Dashboard (Owner)</h3>
+  <table width="100%">
+    <tr>
+      <td width="50%">
+        <img src="c:\Users\DELL\Downloads\screencapture-travel-ease-drab-vercel-app-dashboard-overview-2026-03-27-09_39_07.png" alt="Host Light" />
+      </td>
+      <td width="50%">
+        <img src="https://i.ibb.co.com/6Rhj1Q86/screencapture-travel-ease-drab-vercel-app-dashboard-overview-2026-03-27-09-40-05.png" alt="Host Dark" />
+      </td>
+    </tr>
+  </table>
 
-### 3. Vehicle Details Page (Private)
-- Complete info for selected vehicle.  
-- "Book Now" button stores booking in the database.
+  <br />
 
-### 4. Add Vehicle Page (Private)
-- Form fields: Vehicle Name, Owner Name, Category, Price, Location, Availability, Description, Cover Image, User Email.  
-- Adds new vehicle to MongoDB and shows toast notifications.
-
-### 5. My Vehicles Page (Private)
-- Displays vehicles added by logged-in user.  
-- Options to View, Update, or Delete each vehicle.
-
-### 6. My Bookings Page (Private)
-- Displays all bookings placed by logged-in user.
-
-### 7. Update Vehicle Page (Private)
-- Prefilled form to edit vehicle info.  
-- Shows toast notifications on success/failure.
-
-### 8. Authentication Pages
-- **Login:** Email/Password, Google Login, link to Register.  
-- **Register:** Name, Email, Photo URL, Password validation.
-
-### 9. Others
-- Loading spinners for API requests.  
-- Custom 404 Page.  
-- Axios for API calls.  
-- Private routes protected (`/addVehicle`, `/myVehicles`, `/myBookings`, `/updateVehicle/:id`).  
-
----
-
-## ⚡ Features
-- User-friendly booking system.  
-- Dark & Light theme toggle (Tailwind + DaisyUI).  
-- Authentication via Firebase (Email/Password + Google).  
-- Fully responsive design.  
-- Interactive UI components with Tailwind CSS & Framer Motion.  
-- Advanced filter and sorting on All Vehicles page.  
-- Optional: Top Rated Vehicles section on homepage.  
+  <h3>4. Admin Dashboard (Orchestrator)</h3>
+  <table width="100%">
+    <tr>
+      <td width="50%">
+        <img src="https://i.ibb.co.com/VYhgQL4Z/screencapture-travel-ease-drab-vercel-app-dashboard-overview-2026-03-27-09-43-50.png" alt="Admin Light" />
+      </td>
+      <td width="50%">
+        <img src="https://i.ibb.co.com/prKCGBP6/screencapture-travel-ease-drab-vercel-app-dashboard-overview-2026-03-27-09-42-19.png" alt="Admin Dark" />
+      </td>
+    </tr>
+  </table>
+  
+  <p><i>Premium glassmorphism and theme toggles are implemented across all dashboard layers.</i></p>
+</div>
 
 ---
 
-## 🛠️ Technologies & Packages:
-- **Frontend:** React, Vite, TailwindCSS, DaisyUI, Framer Motion, React Router Dom, Axios, React Toastify, SweetAlert2  
-- **Backend:** Node.js, Express.js, MongoDB  
-- **Authentication:** Firebase  
-- **Hosting:** Netlify (Client), Vercel (Server)  
+## 🚀 Specialized Role-Based Features
+
+### 🛠 Admin (The Orchestrator)
+- **User Management:** Full control over user roles (Admin, Host, User) and status updates.
+- **Listing Verification:** Approve or reject vehicle listings to maintain platform quality.
+- **Revenue Analytics:** Monitor platform growth and financial health with **Recharts** visualizations.
+- **Content Management:** Oversee community feedback through web reviews and manage promotion requests.
+
+### 🏠 Host (The Provider)
+- **Smart Listing:** Sophisticated form to add and manage vehicles with multi-image support.
+- **Booking Management:** Real-time request handling (Accept/Reject) with instant notifications.
+- **Host Analytics:** Track personal earnings, booking trends, and vehicle popularity.
+- **Promotions:** Request featured spots to increase listing visibility and conversion.
+
+### 👤 User (The Traveler)
+- **Advanced Discovery:** High-speed filter and sort functionality through a wide range of verified vehicles.
+- **Secure Checkout:** Fully integrated **Stripe** payment gateway for 100% safe transactions.
+- **Personalized Space:** Dedicated dashboard to manage wishlist, booking history, and review shared experiences.
+
+---
+
+## 🛠 Tech Stack & Core Dependencies
+
+### Frontend Excellence
+- **React 19 & Vite:** Next-gen performance and lightning-fast development cycle.
+- **Tailwind CSS 4 & DaisyUI:** Cutting-edge styling including glassmorphism and multi-theme support.
+- **Framer Motion:** Cinematic animations and fluid UI transitions.
+- **TanStack Query v5:** Professional state management and high-efficiency data caching.
+
+### Backend Robustness
+- **Node.js & Express:** Scalable and optimized API architecture.
+- **MongoDB:** Flexible document-based database for complex booking relationships.
+- **Firebase Admin SDK:** Secure server-side identity and role-based access control (RBAC).
+- **Stripe API:** Industry-standard secure payment processing.
+
+---
+  
 
 **Dependencies (npm):**
 ```json
 {
   "dependencies": {
+    "@stripe/react-stripe-js": "^5.6.1",
+    "@stripe/stripe-js": "^8.11.0",
     "@tailwindcss/vite": "^4.1.17",
+    "@tanstack/react-query": "^5.94.5",
     "axios": "^1.13.2",
     "date-fns": "^4.1.0",
     "firebase": "^12.5.0",
@@ -107,7 +127,9 @@ The application uses a **single layout** for all pages (Navbar + Footer). Protec
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.5",
     "react-toastify": "^11.0.5",
+    "recharts": "^3.6.0",
     "sweetalert2": "^11.26.3",
+    "swiper": "^12.0.3",
     "tailwindcss": "^4.1.17"
   }
 }
