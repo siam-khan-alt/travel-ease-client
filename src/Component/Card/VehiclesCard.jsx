@@ -40,7 +40,7 @@ const VehicleCard = ({ vehicle, isReverse }) => {
         />
         <div className="absolute top-4 left-4 bg-[var(--bg-main)]/80 backdrop-blur-md px-3 py-1 rounded-xl border border-[var(--primary)]/20 flex items-center gap-2">
           <FaStar className="text-[var(--primary)] text-xs" />
-          <span className="text-[var(--text-main)] font-bold text-xs">{vehicle.ratings}</span>
+          <span className="text-[var(--text-main)] font-bold text-xs">{vehicle.ratings > 0 ? vehicle.ratings.toFixed(1) : "New"}</span>
         </div>
       </div>
 

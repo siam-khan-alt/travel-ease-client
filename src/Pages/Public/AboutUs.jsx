@@ -7,6 +7,7 @@ import {
 import Motions from "../../Component/Motions";
 import useAxios from "../../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
+import LoadingSpinner from "../../Component/shared/LoadingSpinner";
 
 const AboutUs = () => {
   const axiosPublic = useAxios();
@@ -133,7 +134,7 @@ const AboutUs = () => {
             <Motions className="w-full lg:w-1/2 relative">
                <div className="rounded-2xl overflow-hidden shadow-md border border-black/5">
                   <img 
-                    src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800" 
+                    src="https://i.ibb.co.com/Nnyk8xnm/icsilviu-car-rental-6792111.jpg" 
                     alt="Dashboard Preview" 
                     className="w-full h-full object-cover"
                   />

@@ -66,7 +66,7 @@ const VehicleHero = ({ vehicle, users, instanceAxios }) => {
               <div className="bg-[var(--primary)] px-4 py-2 rounded-xl flex items-center gap-2 shadow-lg">
                 <FaStar className="text-[var(--accent)]" />
                 <span className="text-[var(--accent)] font-black text-xs">
-                  {vehicle.ratings || "0.0"}
+                  {vehicle.ratings > 0 ? vehicle.ratings.toFixed(1) : "New"}
                 </span>
               </div>
             </div>

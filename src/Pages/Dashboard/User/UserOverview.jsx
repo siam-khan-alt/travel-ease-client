@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../../Context/AuthContext";
 import useAxios from "../../../Hooks/useAxios";
 import LoadingSpinner from "../../../Component/shared/LoadingSpinner";
-import { FaCar, FaWallet, FaShieldAlt, FaGem, FaHistory } from "react-icons/fa";
+import { FaCar, FaWallet, FaShieldAlt, FaHistory, FaHeart } from "react-icons/fa";
 import StatCards from "../../../Component/Dashboard/Common/StatCards";
 import BookingPieChart from "../../../Component/Dashboard/User/BookingPieChart";
 
@@ -37,10 +37,10 @@ const UserOverview = () => {
       color: "from-[#F2CC8F]/20", 
     },
     {
-      label: "Favorite Class",
-      value: overviewData?.stats?.favCategory || "N/A",
-      icon: <FaGem />,
-      color: "from-[#D4AF37]/20", 
+      label: "Wishlist Items", 
+      value: overviewData?.stats?.wishlistCount || 0, 
+      icon: <FaHeart />,
+       color: "from-[#D4AF37]/20",  
     },
     {
       label: "Security Level",
