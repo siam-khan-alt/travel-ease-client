@@ -60,16 +60,38 @@ const ReviewSection = ({ vehicleId, users, instanceAxios, refetchVehicle }) => {
       <h3 className="text-3xl font-black text-gradient-gold uppercase mb-12 text-center lg:text-left">Guest Experiences</h3>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-7 space-y-6">
-          {reviews.map((r, i) => (
-            <div key={i} className="bg-[var(--card-bg)] p-8 rounded-2xl border border-[var(--primary)]/5">
-              <div className="flex gap-4 mb-4 items-center">
-                <div className="w-10 h-10 rounded-full bg-[var(--primary)]/20 flex items-center justify-center font-bold">{r.userName?.charAt(0)}</div>
-                <div><p className="text-xs font-black uppercase">{r.userName}</p><div className="flex gap-1">{[...Array(5)].map((_, i) => <FaStar key={i} size={8} className={i < r.rating ? "text-[var(--primary)]" : "opacity-10"} />)}</div></div>
-              </div>
-              <p className="text-sm opacity-60 italic">"{r.comment}"</p>
+  {/* রিভিউ চেক করা হচ্ছে */}
+  {reviews.length > 0 ? (
+    reviews.map((r, i) => (
+      <div key={i} className="bg-[var(--card-bg)] p-8 rounded-2xl border border-[var(--primary)]/5 transition-all hover:border-[var(--primary)]/20">
+        <div className="flex gap-4 mb-4 items-center">
+          <div className="w-10 h-10 rounded-full bg-[var(--primary)]/20 flex items-center justify-center font-bold text-[var(--primary)]">
+            {r.userName?.charAt(0)}
+          </div>
+          <div>
+            <p className="text-xs font-black uppercase tracking-wider">{r.userName}</p>
+            <div className="flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} size={8} className={i < r.rating ? "text-[var(--primary)]" : "opacity-10"} />
+              ))}
             </div>
-          ))}
+          </div>
         </div>
+        <p className="text-sm opacity-60 italic leading-relaxed">"{r.comment}"</p>
+      </div>
+    ))
+  ) : (
+    <div className="text-center py-20 bg-[var(--card-bg)] rounded-2xl border border-dashed border-[var(--primary)]/20">
+      <div className="mb-4 flex justify-center opacity-20">
+        <FaStar size={40} className="text-[var(--primary)] rotate-12" />
+        <FaStar size={60} className="text-[var(--primary)] -mt-4" />
+        <FaStar size={40} className="text-[var(--primary)] -rotate-12" />
+      </div>
+      <h4 className="text-xl font-bold opacity-40 uppercase tracking-widest">No Experiences Shared Yet</h4>
+      <p className="text-xs opacity-30 mt-2">Be the first to share your journey with this vehicle!</p>
+    </div>
+  )}
+</div>
 
         <div className="lg:col-span-5">
           {users ? (

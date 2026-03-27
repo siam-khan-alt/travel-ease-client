@@ -6,7 +6,8 @@ import {
   FaBullhorn,
   FaAd,
   FaStar,
-  FaCommentDots
+  FaCommentDots,
+  FaHeadset
 } from "react-icons/fa";
 import useRole from "../../Hooks/useRole";
 
@@ -94,6 +95,9 @@ const Sidebar = () => {
             <NavLink to="/dashboard/manage-reviews" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
                 <FaCommentDots /> Manage Reviews
             </NavLink>
+            <NavLink to="/dashboard/manage-contacts" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
+    <FaHeadset /> Manage Contacts
+</NavLink>
           </>
         )}
         

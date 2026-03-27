@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="bg-[var(--bg-main)] text-[var(--text-main)] pt-16 pb-8 border-t border-[var(--primary)]/10 transition-colors duration-500">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6">
         
         <div className="flex flex-wrap justify-between items-start mb-12 gap-10">
 
           {/* Brand Section */}
           <div className="w-full md:w-1/3">
             <Link to="/" className="group inline-block mb-6">
-              <h3 className="text-3xl font-black tracking-tighter transition-transform duration-300 group-hover:scale-105 bg-gradient-to-r from-[#D4AF37] via-[#F2CC8F] to-[#C5A059] bg-clip-text text-transparent ml-1">
+              <h3 className="text-3xl font-black tracking-tighter transition-transform duration-300 group-hover:scale-105 bg-gradient-to-r from-[#D4AF37] via-[#F2CC8F] to-[#C5A059] bg-clip-text text-transparent ">
                  TRAVEL EASE
               </h3>
             </Link>

@@ -62,7 +62,7 @@ const AllVehicle = () => {
                 <FaFilter className="text-[10px]" /> Category
               </h3>
               <div className="flex flex-col gap-2">
-                {["Luxury", "SUV", "Sedan", "Economy"].map((cat) => (
+                {["Luxury", "SUV", "Sedan", "Sports", "Electric"].map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setCategory(category === cat ? "" : cat)}

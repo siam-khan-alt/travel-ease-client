@@ -2,25 +2,37 @@ import React from 'react';
 import { FaPhone, FaMapMarkerAlt, FaRegEnvelope, FaFacebookF, FaGithub, FaLinkedinIn, FaPaperPlane, FaHeadset } from "react-icons/fa";
 import Swal from 'sweetalert2';
 import Motions from '../../Component/Motions';
+import useAxios from '../../Hooks/useAxios';
 
 const Contact = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
-        Swal.fire({
-            title: 'Message Received!',
-            text: 'Our concierge will get back to you shortly.',
-            icon: 'success',
-            confirmButtonColor: 'var(--primary)',
-            background: 'var(--card-bg)',
-            color: 'var(--text-main)',
-            confirmButtonText: 'Great!',
-            customClass: {
-                popup: 'rounded-2xl border border-[var(--primary)]/20 shadow-md'
-            }
-        });
+    const instanceAxios=useAxios()
+    const handleSubmit = async(e) => {
+       e.preventDefault();
+    const form = e.target;
+    const name = form.name.value; 
+    
+    const email = form.email.value;
+    const subject = form.subject.value;
+    const message = form.message.value;
 
-        e.target.reset();
+    const contactData = { name, email, subject, message };
+
+    try {
+        const res = await instanceAxios.post("/contacts", contactData);
+        if (res.data.insertedId) {
+            Swal.fire({
+                title: 'Message Received!',
+                text: 'Our concierge will get back to you shortly.',
+                icon: 'success',
+                confirmButtonColor: 'var(--primary)',
+                background: 'var(--card-bg)',
+                color: 'var(--text-main)',
+            });
+            form.reset();
+        }
+    } catch (err) {
+        Swal.fire({ icon: 'error', title: 'Oops...', text: 'Something went wrong!' });
+    }
     };
 
     return (

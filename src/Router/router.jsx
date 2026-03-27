@@ -30,6 +30,7 @@ import ManagePromotions from "../Pages/Dashboard/Admin/ManagePromotions";
 import PromotionRequest from "../Pages/Dashboard/Host/PromotionRequest";
 import ReviewInput from "../Pages/Dashboard/ReviewInput";
 import ManageWebReviews from "../Pages/Dashboard/Admin/ManageWebReviews";
+import ManageContacts from "../Pages/Dashboard/Admin/ManageContacts";
 
 const router = createBrowserRouter([
   {
@@ -144,6 +145,10 @@ const router = createBrowserRouter([
       {
         path: "revenue",
         element: <RevenueAnalytics/>
+      },
+      { 
+         path: "manage-contacts", 
+         element: <ManageContacts /> 
       },
     ],
   },
