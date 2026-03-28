@@ -89,12 +89,14 @@
 - **Listing Verification:** Approve or reject vehicle listings to maintain platform quality.
 - **Revenue Analytics:** Monitor platform growth and financial health with **Recharts** visualizations.
 - **Content Management:** Oversee community feedback through web reviews and manage promotion requests.
+- **System Monitoring:** Receive instant alerts for critical platform events via the notification engine.
 
 ### 🏠 Host (The Provider)
 - **Smart Listing:** Sophisticated form to add and manage vehicles with multi-image support.
 - **Booking Management:** Real-time request handling (Accept/Reject) with instant notifications.
 - **Host Analytics:** Track personal earnings, booking trends, and vehicle popularity.
 - **Promotions:** Request featured spots to increase listing visibility and conversion.
+**Instant Response:** Get notified immediately when a traveler books a vehicle.
 
 ### 👤 User (The Traveler)
 - **Advanced Discovery:** High-speed filter and sort functionality through a wide range of verified vehicles.
@@ -114,6 +116,7 @@
 ### Backend Robustness
 - **Node.js & Express:** Scalable and optimized API architecture.
 - **MongoDB:** Flexible document-based database for complex booking relationships.
+- **Event-Driven Notifications:** Custom-built logic to trigger real-time alerts for critical system events (New User, Bookings, Contact Inquiries).
 - **Firebase Admin SDK:** Secure server-side identity and role-based access control (RBAC).
 - **Stripe API:** Industry-standard secure payment processing.
 

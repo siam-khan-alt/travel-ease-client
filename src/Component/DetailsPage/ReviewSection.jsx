@@ -103,7 +103,7 @@ const ReviewSection = ({ vehicleId, users, instanceAxios, refetchVehicle }) => {
               <button onClick={handleReviewSubmit} className="btn-gradient w-full py-4 mt-4 rounded-xl font-bold uppercase tracking-widest text-xs">Submit</button>
             </div>
           ) : (
-            <div className="bg-[var(--accent)] p-8 rounded-2xl text-center"><FaShieldAlt className="mx-auto text-2xl mb-4 text-[var(--primary)]" /><p className="text-xs font-bold text-white uppercase">Login to share review</p></div>
+            <div className="bg-[var(--card-bg)] p-8 rounded-2xl text-center"><FaShieldAlt className="mx-auto text-2xl mb-4 text-[var(--primary)]" /><p className="text-xs font-bold  uppercase">Login to share review</p></div>
           )}
         </div>
       </div>
