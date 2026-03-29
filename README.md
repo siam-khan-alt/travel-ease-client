@@ -101,6 +101,8 @@
 ### 👤 User (The Traveler)
 - **Advanced Discovery:** High-speed filter and sort functionality through a wide range of verified vehicles.
 - **Secure Checkout:** Fully integrated **Stripe** payment gateway for 100% safe transactions.
+- **Interactive Calendar Booking:** High-precision date range selection using **React Datepicker**.
+- **Smart Date Blocking:** Dynamic exclusion of already booked intervals to prevent double-booking.
 - **Personalized Space:** Dedicated dashboard to manage wishlist, booking history, and review shared experiences.
 
 ---
@@ -132,6 +134,7 @@
     "@tailwindcss/vite": "^4.1.17",
     "@tanstack/react-query": "^5.94.5",
     "axios": "^1.13.2",
+    "react-datepicker": "^8.1.0",
     "date-fns": "^4.1.0",
     "firebase": "^12.5.0",
     "framer-motion": "^12.23.24",
