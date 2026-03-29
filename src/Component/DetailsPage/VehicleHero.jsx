@@ -8,9 +8,11 @@ import {
 } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { useNavigate, useLocation } from "react-router-dom";
+import BookingModal from "./BookingModal";
 
 const VehicleHero = ({ vehicle, users, instanceAxios }) => {
   const [activeImg, setActiveImg] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const hasPromo = vehicle.promo && vehicle.promo.status === "approved";
@@ -18,40 +20,19 @@ const VehicleHero = ({ vehicle, users, instanceAxios }) => {
     ? vehicle.promo.discountPrice
     : vehicle.pricePerDay;
 
-  const handleBooking = async () => {
+  const handleBooking = () => {
     if (!users) {
-      return Swal.fire({ title: "Login Required", icon: "warning" }).then(() =>
-        navigate("/login", { state: location.pathname })
-      );
+      return Swal.fire({
+        title: "Login Required",
+        text: "Please login to reserve this vehicle.",
+        icon: "warning",
+        background: "var(--card-bg)",
+        color: "var(--text-main)",
+        confirmButtonColor: "var(--primary)",
+      }).then(() => navigate("/login", { state: location.pathname }));
     }
-
-    Swal.fire({
-      title: "Confirm Booking?",
-      text: `Request ${vehicle.vehicleName} for $${finalPrice}/day?`,
-      icon: "question",
-      showCancelButton: true,
-      confirmButtonText: "Confirm",
-    }).then(async (res) => {
-      if (res.isConfirmed) {
-        try {
-          const bookingData = {
-            vehicleId: vehicle._id,
-            vehicleName: vehicle.vehicleName,
-            price: finalPrice,
-            userEmail: users.email,
-            userName: users.displayName,
-            hostEmail: vehicle.userEmail,
-            image: vehicle.coverImage,
-          };
-          await instanceAxios.post("/bookings", bookingData);
-          Swal.fire("Success", "Booking request sent!", "success");
-        } catch (err) {
-          Swal.fire("Error", err.response?.data?.message, "error");
-        }
-      }
-    });
+    setIsModalOpen(true);
   };
-
   return (
     <div className="bg-[var(--card-bg)] rounded-2xl shadow-md border border-[var(--primary)]/10 overflow-hidden mb-12">
       <div className="grid grid-cols-1 lg:grid-cols-12">
@@ -134,8 +115,16 @@ const VehicleHero = ({ vehicle, users, instanceAxios }) => {
             onClick={handleBooking}
             className="btn-gradient w-full py-5 rounded-2xl font-black uppercase tracking-widest"
           >
-            Reserve Now <FaArrowRight className="inline ml-2" />
+            Select Date & Reserve <FaArrowRight className="inline ml-2" />
           </button>
+          <BookingModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            vehicle={vehicle}
+            users={users}
+            instanceAxios={instanceAxios}
+            finalPrice={finalPrice}
+          />
         </div>
       </div>
     </div>

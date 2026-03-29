@@ -73,13 +73,12 @@ const AddVehicle = () => {
       icon: "info",
       confirmButtonColor: "var(--primary)",
       background: "var(--card-bg)",
-      color: "var(--text-main)"
+      color: "var(--text-main)",
     });
   };
 
   // Common input styles to match your CSS
-  const inputStyle =
-    `
+  const inputStyle = `
   w-full select bg-[var(--bg-main)] 
   border border-[var(--primary)]/20 
   rounded-xl px-4 py-3 text-sm 

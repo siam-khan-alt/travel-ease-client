@@ -3,7 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../../Context/AuthContext";
 import useAxios from "../../../Hooks/useAxios";
 import LoadingSpinner from "../../../Component/shared/LoadingSpinner";
-import { FaFingerprint, FaCheckDouble, FaExternalLinkAlt } from "react-icons/fa";
+import {
+  FaFingerprint,
+  FaCheckDouble,
+  FaExternalLinkAlt,
+} from "react-icons/fa";
 
 const PaymentHistory = () => {
   const { users } = useContext(AuthContext);
@@ -24,7 +28,9 @@ const PaymentHistory = () => {
     <div className="space-y-8 animate-fade-in pb-10">
       {/* Header */}
       <div>
-        <h1 className="text-3xl md:!text-left font-black uppercase tracking-tighter text-gradient-gold">Payment Ledger</h1>
+        <h1 className="text-3xl md:!text-left font-black uppercase tracking-tighter text-gradient-gold">
+          Payment Ledger
+        </h1>
         <p className="text-[var(--text-main)]/40 text-[10px] font-bold tracking-[0.4em] text-center md:text-left uppercase mt-1">
           Verified Transactions & Encrypted Logs
         </p>
@@ -38,21 +44,29 @@ const PaymentHistory = () => {
               <thead>
                 <tr className="bg-[var(--primary)]/5 border-b border-[var(--primary)]/10 text-[var(--primary)] uppercase text-[10px] tracking-[0.2em]">
                   <th className="py-5 px-6 font-black text-left">Asset</th>
-                  <th className="py-5 px-6 font-black text-left">Transaction Hash</th>
+                  <th className="py-5 px-6 font-black text-left">
+                    Transaction Hash
+                  </th>
                   <th className="py-5 px-6 font-black text-left">Amount</th>
                   <th className="py-5 px-6 font-black text-center">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[var(--primary)]/5">
                 {payments.map((payment) => (
-                  <tr key={payment._id} className="hover:bg-[var(--primary)]/5 transition-all duration-300">
+                  <tr
+                    key={payment._id}
+                    className="hover:bg-[var(--primary)]/5 transition-all duration-300"
+                  >
                     {/* Vehicle info from bookingDetails */}
                     <td className="px-6 py-5">
                       <div className="flex items-center gap-4">
                         <div className="w-10 h-10 rounded bg-[var(--primary)]/10 border border-[var(--primary)]/20 overflow-hidden">
-                          <img 
-                            src={payment.bookingDetails?.image} 
-                            alt="" 
+                          <img
+                            src={
+                              payment.bookingDetails?.image ||
+                              payment.bookingDetails?.coverImage
+                            }
+                            alt=""
                             className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"
                           />
                         </div>
@@ -64,7 +78,7 @@ const PaymentHistory = () => {
 
                     {/* Transaction ID */}
                     <td className="px-6 py-5">
-                      <div className="flex items-center gap-2 font-mono text-[10px] text-[var(--primary)]/60 bg-[var(--primary)]/5 px-3 py-1.5 rounded-md border border-[var(--primary)]/5 w-fit">
+                      <div className="flex items-center gap-2 font-mono text-[10px] text-[var(--primary)] bg-[var(--primary)]/5 px-3 py-1.5 rounded-md border border-[var(--primary)]/5 w-fit">
                         <FaFingerprint className="opacity-40" />
                         {payment.transactionId}
                       </div>

@@ -3,7 +3,14 @@ import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../../Hooks/useAxios";
 import LoadingSpinner from "../../../Component/shared/LoadingSpinner";
 import StatCards from "../../../Component/Dashboard/Common/StatCards";
-import { FaUsers, FaCar, FaWallet, FaUserShield, FaCrown, FaExchangeAlt } from "react-icons/fa";
+import {
+  FaUsers,
+  FaCar,
+  FaWallet,
+  FaUserShield,
+  FaCrown,
+  FaExchangeAlt,
+} from "react-icons/fa";
 
 const AdminOverview = () => {
   const axiosSecure = useAxios();
@@ -51,7 +58,8 @@ const AdminOverview = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-3xl font-black uppercase tracking-tighter text-gradient-gold flex items-center gap-3">
-            <FaUserShield className="text-[var(--primary)]" /> System Control Center
+            <FaUserShield className="text-[var(--primary)]" /> System Control
+            Center
           </h1>
           <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] uppercase mt-1">
             Global Platform Oversight & Analytics
@@ -72,7 +80,7 @@ const AdminOverview = () => {
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
             Live Transaction Stream
           </h3>
-          
+
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
@@ -84,15 +92,25 @@ const AdminOverview = () => {
               </thead>
               <tbody className="divide-y divide-white/5">
                 {adminData?.recentTransactions?.map((tx, idx) => (
-                  <tr key={idx} className="group hover:bg-white/[0.02] transition-all">
-                    <td className="py-4 font-mono text-[10px] opacity-50">{tx.transactionId}</td>
+                  <tr
+                    key={idx}
+                    className="group hover:bg-white/[0.02] transition-all"
+                  >
+                    <td className="py-4 font-mono text-[10px] opacity-50">
+                      {tx.transactionId?.slice(0, 15)}...
+                    </td>
                     <td className="py-4">
                       <span className="text-xs font-bold uppercase tracking-tighter">
                         {tx.bookingDetails?.vehicleName}
                       </span>
                     </td>
                     <td className="py-4 text-right">
-                      <span className="text-xs font-black text-[var(--primary)]">${tx.bookingDetails?.price}</span>
+                      <span className="text-xs font-black text-[var(--primary)]">
+                        $
+                        {tx.bookingDetails?.totalPrice ||
+                          tx.bookingDetails?.price ||
+                          0}
+                      </span>
                     </td>
                   </tr>
                 ))}
@@ -104,17 +122,25 @@ const AdminOverview = () => {
         {/* User Distribution & Elite Insight */}
         <div className="space-y-6">
           <div className="bg-[var(--card-bg)] border border-[var(--primary)]/10 rounded-2xl p-6">
-            <h3 className="text-xs font-black uppercase tracking-widest mb-6 text-center">User Distribution</h3>
+            <h3 className="text-xs font-black uppercase tracking-widest mb-6 text-center">
+              User Distribution
+            </h3>
             <div className="space-y-4">
               {adminData?.userRoles?.map((role, idx) => (
-                <div key={idx} className="flex items-center justify-between p-3 bg-[var(--bg-main)] rounded-xl border border-white/5">
-                  <span className="text-[10px] uppercase font-bold tracking-widest opacity-60">{role._id || "User"}</span>
-                  <span className="text-sm font-black text-[var(--primary)]">{role.count}</span>
+                <div
+                  key={idx}
+                  className="flex items-center justify-between p-3 ..."
+                >
+                  <span className="text-[10px] uppercase font-bold tracking-widest opacity-60">
+                    {role._id || "General User"}
+                  </span>
+                  <span className="text-sm font-black text-[var(--primary)]">
+                    {role.count}
+                  </span>
                 </div>
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </div>

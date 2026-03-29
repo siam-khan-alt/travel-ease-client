@@ -79,4 +79,73 @@
   .gold-glow {
     @apply shadow-[0_0_20px_rgba(212,175,55,0.2)];
   }
+
+  /* Custom DatePicker Styling */
+.custom-datepicker .react-datepicker {
+  background-color: var(--card-bg) !important;
+  color: var(--text-main) !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 1rem !important;
+  padding: 10px;
 }
+
+/* বড় ডিভাইসে ক্যালেন্ডার বড় করার জন্য */
+@media (min-width: 1024px) {
+  .custom-datepicker .react-datepicker__month-container {
+    width: 400px !important; /* ক্যালেন্ডারের প্রস্থ বাড়ানো */
+  }
+  .custom-datepicker .react-datepicker__day-name, 
+  .custom-datepicker .react-datepicker__day, 
+  .custom-datepicker .react-datepicker__time-name {
+    width: 3.5rem !important; /* প্রতিটি ঘরের প্রস্থ */
+    line-height: 3.5rem !important; /* প্রতিটি ঘরের উচ্চতা */
+    margin: 0.2rem !important;
+    font-size: 1rem !important;
+  }
+}
+
+.custom-datepicker .react-datepicker__header {
+  background-color: var(--bg-main) !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1) !important;
+  border-radius: 1rem 1rem 0 0 !important;
+  padding-top: 15px;
+}
+
+/* ডার্ক মোডে মাসের নাম এবং দিনের নাম পরিষ্কার করার জন্য */
+.custom-datepicker .react-datepicker__current-month,
+.custom-datepicker .react-datepicker__day-name,
+.custom-datepicker .react-datepicker__day {
+  color: var(--text-main) !important;
+}
+
+/* বুকড বা ডিজেবল ডেট (ডার্ক মোডেও যাতে বোঝা যায়) */
+.custom-datepicker .react-datepicker__day--disabled {
+  color: #64748b !important; /* Gray color */
+  opacity: 0.3 !important;
+  cursor: not-allowed;
+}
+
+/* সিলেক্টেড ডেট রেঞ্জ */
+.custom-datepicker .react-datepicker__day--in-range {
+  background-color: rgba(212, 175, 55, 0.2) !important;
+  color: var(--text-main) !important;
+}
+
+.custom-datepicker .react-datepicker__day--selected,
+.custom-datepicker .react-datepicker__day--range-start,
+.custom-datepicker .react-datepicker__day--range-end {
+  background-color: var(--primary) !important;
+  color: #000 !important; 
+  font-weight: bold;
+  border-radius: 0.5rem !important;
+}
+
+.custom-datepicker .react-datepicker__navigation-icon::before {
+  border-color: var(--primary) !important;
+}
+
+  
+}
+
+
