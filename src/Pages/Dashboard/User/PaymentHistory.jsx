@@ -7,7 +7,9 @@ import {
   FaFingerprint,
   FaCheckDouble,
   FaExternalLinkAlt,
+  FaHistory,
 } from "react-icons/fa";
+import DashboardHeader from "../../../Component/Dashboard/Common/DashboardHeader";
 
 const PaymentHistory = () => {
   const { users } = useContext(AuthContext);
@@ -26,15 +28,13 @@ const PaymentHistory = () => {
 
   return (
     <div className="space-y-8 animate-fade-in pb-10">
-      {/* Header */}
-      <div>
-        <h1 className="text-3xl md:!text-left font-black uppercase tracking-tighter text-gradient-gold">
-          Payment Ledger
-        </h1>
-        <p className="text-[var(--text-main)]/40 text-[10px] font-bold tracking-[0.4em] text-center md:text-left uppercase mt-1">
-          Verified Transactions & Encrypted Logs
-        </p>
-      </div>
+      <DashboardHeader 
+        title="Payment Ledger" 
+        subtitle="Verified Transactions & Encrypted Logs"
+        role="user"
+        Icon={FaHistory}
+        statusText="Financial Sync Active"
+      />
 
       {/* History Grid/Table */}
       <div className="bg-[var(--card-bg)] border border-[var(--primary)]/10 rounded-2xl overflow-hidden shadow-sm">

@@ -4,6 +4,7 @@ import useAxios from '../../../Hooks/useAxios';
 import LoadingSpinner from '../../../Component/shared/LoadingSpinner';
 import { FaCommentDots, FaTrash, FaStar, FaCheckCircle, FaQuoteLeft } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import DashboardHeader from '../../../Component/Dashboard/Common/DashboardHeader';
 
 const ManageWebReviews = () => {
     const axiosSecure = useAxios();
@@ -65,20 +66,13 @@ const ManageWebReviews = () => {
 
     return (
         <div className="space-y-10 animate-fade-in pb-10">
-            {/* Header Area */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <h1 className="text-3xl font-black uppercase tracking-tighter text-gradient-gold flex items-center gap-3">
-                        <FaCommentDots className="text-[var(--primary)]" /> User Experiences
-                    </h1>
-                    <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] uppercase mt-1">
-                        Manage and curate website testimonials
-                    </p>
-                </div>
-                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[var(--primary)] bg-[var(--primary)]/5 px-4 py-2 rounded-lg border border-[var(--primary)]/10">
-                    Total: {reviews.length} Feedbacks
-                </div>
-            </div>
+          <DashboardHeader 
+                title="User Experiences" 
+                subtitle="Manage and curate website testimonials"
+                role="admin"
+                Icon={FaCommentDots}
+                statusText={`Total: ${reviews.length} Feedbacks`}
+            />
 
             {/* Reviews Table Container */}
             <div className="bg-[var(--card-bg)] border border-[var(--primary)]/10 rounded-2xl shadow-sm overflow-hidden">

@@ -9,8 +9,10 @@ import {
   FaCloudUploadAlt,
   FaTools,
   FaMapMarkerAlt,
+  FaPlusSquare,
 } from "react-icons/fa";
 import Swal from "sweetalert2";
+import DashboardHeader from "../../../Component/Dashboard/Common/DashboardHeader";
 
 const allBrands = [
   { name: "Mercedes", cat: "Luxury" },
@@ -93,15 +95,13 @@ const AddVehicle = () => {
   return (
     <div className=" pb-10">
       {/* Header Section */}
-      <div className="mb-10 ">
-        <h1 className="text-3xl font-black uppercase tracking-tighter text-gradient-gold !text-center md:!text-left">
-          {" "}
-          Asset Registration
-        </h1>
-        <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] !text-center md:!text-left uppercase mt-1">
-          Deploy New Vehicle to the Elite Fleet
-        </p>
-      </div>
+      <DashboardHeader
+        title="Asset Registration"
+        subtitle="Deploy New Vehicle to the Elite Fleet"
+        role="host"
+        Icon={FaPlusSquare}
+        statusText="Ready for Deployment"
+      />
 
       <form
         onSubmit={handleSubmit}

@@ -2,8 +2,9 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import useAxios from '../../../Hooks/useAxios';
 import LoadingSpinner from '../../../Component/shared/LoadingSpinner';
-import { FaUserShield, FaUserEdit, FaTrashAlt, FaBan, FaCheckCircle, FaCrown } from 'react-icons/fa';
+import {  FaTrashAlt, FaBan, FaCheckCircle, FaCrown, FaUsers } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import DashboardHeader from '../../../Component/Dashboard/Common/DashboardHeader';
 
 const ManageUsers = () => {
     const axiosSecure = useAxios();
@@ -66,20 +67,13 @@ const ManageUsers = () => {
 
     return (
         <div className="space-y-10 animate-fade-in pb-10">
-            {/* Header - Consistent with AdminOverview */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <h1 className="text-3xl font-black uppercase tracking-tighter text-gradient-gold flex items-center gap-3">
-                        <FaUserShield className="text-[var(--primary)]" /> Global User Control
-                    </h1>
-                    <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] uppercase mt-1">
-                        Personnel Management & Authority Levels
-                    </p>
-                </div>
-                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[var(--primary)] bg-[var(--primary)]/5 px-4 py-2 rounded-lg border border-[var(--primary)]/10">
-                    <FaCrown /> Authentication Protocol Active
-                </div>
-            </div>
+            <DashboardHeader 
+                title="Global User Control" 
+                subtitle="Personnel Management & Authority Levels"
+                role="admin"
+                Icon={FaUsers}
+                statusText="Authentication Protocol Active"
+            />
 
             {/* User Table Card */}
             <div className="bg-[var(--card-bg)] border border-[var(--primary)]/10 rounded-2xl shadow-sm overflow-hidden transition-all">
@@ -144,7 +138,7 @@ const ManageUsers = () => {
                                             </button>
                                             <button 
                                                 onClick={() => handleDeleteUser(user)} 
-                                                className="text-lg text-red-700/20 hover:text-red-600 transition-all hover:scale-125"
+                                                className="text-lg text-red-700 hover:text-red-600 transition-all hover:scale-125"
                                                 title="Delete Account"
                                             >
                                                 <FaTrashAlt />

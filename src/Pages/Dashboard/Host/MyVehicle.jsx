@@ -7,6 +7,7 @@ import { FaEdit, FaTrashAlt, FaCar, FaMapMarkerAlt, FaDollarSign, FaHourglassHal
 import useAxios from '../../../Hooks/useAxios';
 import LoadingSpinner from '../../../Component/shared/LoadingSpinner';
 import { AuthContext } from '../../../Context/AuthContext';
+import DashboardHeader from '../../../Component/Dashboard/Common/DashboardHeader';
 
 const MyVehicles = () => {
     const axiosSecure = useAxios();
@@ -52,14 +53,13 @@ const MyVehicles = () => {
 
     return (
         <div className="bg-[var(--bg-main)] min-h-screen">
-            <div className="mb-10">
-                <h2 className="text-3xl font-black uppercase tracking-tighter text-gradient-gold !text-center md:!text-left">
-                    My Fleet ({vehicles.length})
-                </h2>
-                <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] uppercase mt-1">
-                    Manage and monitor your registered vehicles in the system.
-                </p>
-            </div>
+            <DashboardHeader 
+                title="My Fleet" 
+                subtitle="Manage and monitor your registered vehicles in the system"
+                role="host"
+                Icon={FaCar}
+                statusText={`${vehicles.length} Assets`}
+            />
 
             {/* Table Container - Styled like ManageBookings */}
             <div className="bg-[var(--card-bg)] border border-[var(--primary)]/10 rounded-2xl overflow-hidden shadow-md">

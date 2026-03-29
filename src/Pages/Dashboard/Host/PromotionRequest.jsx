@@ -5,6 +5,7 @@ import { AuthContext } from '../../../Context/AuthContext';
 import LoadingSpinner from '../../../Component/shared/LoadingSpinner';
 import { FaBullhorn, FaPaperPlane, FaImage } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import DashboardHeader from '../../../Component/Dashboard/Common/DashboardHeader';
 
 const PromotionRequest = () => {
     const { users } = useContext(AuthContext);
@@ -88,14 +89,13 @@ const PromotionRequest = () => {
 
     return (
         <div className="w-full space-y-8 animate-fade-in pb-10">
-            <header>
-                <h1 className="text-3xl font-black uppercase tracking-tighter text-gradient-gold flex items-center gap-3">
-                    <FaBullhorn className="text-[var(--primary)]" /> Flash Promotion
-                </h1>
-                <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] uppercase mt-1">
-                    Boost your visibility on the home section
-                </p>
-            </header>
+            <DashboardHeader 
+                title="Flash Promotion" 
+                subtitle="Boost your visibility on the home section"
+                role="host"
+                Icon={FaBullhorn}
+                statusText="Marketing Hub"
+            />
 
             <div className="w-full bg-[var(--card-bg)] border border-[var(--primary)]/10 rounded-2xl p-6 md:p-10 shadow-md">
                 <form onSubmit={handlePromoSubmit} className="grid grid-cols-1 lg:grid-cols-2 gap-8">

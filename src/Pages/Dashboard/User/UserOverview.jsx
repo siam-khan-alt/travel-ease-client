@@ -9,9 +9,11 @@ import {
   FaShieldAlt,
   FaHistory,
   FaHeart,
+  FaThLarge,
 } from "react-icons/fa";
 import StatCards from "../../../Component/Dashboard/Common/StatCards";
 import BookingPieChart from "../../../Component/Dashboard/User/BookingPieChart";
+import DashboardHeader from "../../../Component/Dashboard/Common/DashboardHeader";
 
 const UserOverview = () => {
   const { users } = useContext(AuthContext);
@@ -58,20 +60,13 @@ const UserOverview = () => {
 
   return (
     <div className="space-y-10 animate-fade-in pb-10">
-      {/* Welcome Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-black md:!text-left uppercase tracking-tighter text-gradient-gold">
-            System Overview
-          </h1>
-          <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] text-center md:text-left uppercase mt-1">
-            Welcome back, Agent {users?.displayName?.split(" ")[0]}
-          </p>
-        </div>
-        <div className="text-[10px] font-mono text-[var(--primary)]/50 bg-[var(--primary)]/5 px-4 py-2 rounded-full border border-[var(--primary)]/10">
-          Last Sync: {new Date().toLocaleTimeString()}
-        </div>
-      </div>
+      <DashboardHeader 
+        title="System Overview" 
+        subtitle={`Welcome back, Agent ${users?.displayName?.split(" ")[0]}`}
+        role="user"
+        Icon={FaThLarge}
+        statusText={`Last Sync: ${new Date().toLocaleTimeString()}`}
+      />
 
       {/* 1. Dynamic Stat Cards */}
       <StatCards data={statsForCards} />

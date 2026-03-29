@@ -3,9 +3,10 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { AuthContext } from "../../../Context/AuthContext";
 import useAxios from "../../../Hooks/useAxios";
 import LoadingSpinner from "../../../Component/shared/LoadingSpinner";
-import { FaHeart, FaExternalLinkAlt, FaGem, FaMapMarkerAlt } from "react-icons/fa";
+import { FaHeart, FaExternalLinkAlt, FaGem, FaMapMarkerAlt, FaCheckCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import DashboardHeader from "../../../Component/Dashboard/Common/DashboardHeader";
 
 const Wishlist = () => {
   const { users } = useContext(AuthContext);
@@ -66,13 +67,13 @@ const Wishlist = () => {
 
   return (
     <div className="space-y-8 animate-fade-in pb-10">
-      <div>
-        <h1 className="text-3xl md:!text-left font-black uppercase tracking-tighter text-gradient-gold">Secure Vault</h1>
-        <p className="text-[var(--text-main)]/40 text-[10px] font-bold tracking-[0.4em] text-center md:text-left uppercase mt-1">
-          Reserved Assets & Priority Interest Logs
-        </p>
-      </div>
-
+    <DashboardHeader 
+        title="Secure Vault" 
+        subtitle="Reserved Assets & Priority Interest Logs"
+        role="user"
+        Icon={FaHeart}
+        statusText="Priority Access Enabled"
+      />
       <div className="bg-[var(--card-bg)] border border-[var(--primary)]/10 rounded-2xl overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
           {items.length > 0 ? (

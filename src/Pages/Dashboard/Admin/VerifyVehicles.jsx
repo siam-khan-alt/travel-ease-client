@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import useAxios from '../../../Hooks/useAxios';
 import LoadingSpinner from '../../../Component/shared/LoadingSpinner';
-import { FaCheck, FaTimes, FaEye, FaCarSide, FaShieldAlt } from 'react-icons/fa';
+import { FaCheck, FaTimes, FaEye, FaCarSide, FaUserShield } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import DashboardHeader from '../../../Component/Dashboard/Common/DashboardHeader';
 
 const VerifyVehicles = () => {
     const axiosSecure = useAxios();
@@ -43,16 +44,13 @@ const VerifyVehicles = () => {
 
     return (
         <div className="space-y-10 animate-fade-in pb-10">
-            {/* Header */}
-            <div>
-                <h1 className="text-3xl font-black uppercase tracking-tighter text-gradient-gold flex items-center gap-3">
-                    <FaShieldAlt className="text-[var(--primary)]" /> Safety Verification
-                </h1>
-                <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] uppercase mt-1">
-                    Pending Fleet Audit & Quality Control
-                </p>
-            </div>
-
+            <DashboardHeader 
+                title="Safety Verification" 
+                subtitle="Pending Fleet Audit & Quality Control"
+                role="admin"
+                Icon={FaUserShield}
+                statusText={`${pendingVehicles.length} Assets Pending`}
+            />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {pendingVehicles.map(vehicle => (
                     <div key={vehicle._id} className="bg-[var(--card-bg)] border border-[var(--primary)]/10 rounded-2xl overflow-hidden shadow-sm hover:border-[var(--primary)]/40 transition-all group">

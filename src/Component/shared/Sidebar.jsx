@@ -1,13 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import { 
   FaThLarge, FaCar, FaBookmark, FaUserShield, 
-  FaHistory, FaChartLine, FaUsers, FaCheckCircle, FaPlus, 
+  FaHistory, FaChartLine, FaUsers, FaPlus, 
   FaTimes,
   FaBullhorn,
   FaAd,
   FaStar,
   FaCommentDots,
-  FaHeadset
+  FaHeadset,
+  FaHeart
 } from "react-icons/fa";
 import useRole from "../../Hooks/useRole";
 
@@ -48,7 +49,7 @@ const Sidebar = () => {
               <FaHistory /> Payment History
             </NavLink>
             <NavLink to="/dashboard/wishlist" className={({ isActive }) => isActive ? `${normalClass} ${activeClass}` : normalClass}>
-              <FaCheckCircle /> Wishlist
+              <FaHeart /> Wishlist
             </NavLink>
           </>
         )}

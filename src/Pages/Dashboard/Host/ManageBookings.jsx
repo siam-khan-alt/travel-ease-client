@@ -1,12 +1,13 @@
 import React from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useContext } from "react";
-import { FaCheck, FaTimes, FaCar, FaUserAlt } from "react-icons/fa";
+import { FaCheck, FaTimes, FaCar, FaUserAlt, FaTasks } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Context/AuthContext";
 import useAxios from "../../../Hooks/useAxios";
 import LoadingSpinner from "../../../Component/shared/LoadingSpinner";
 import { format } from "date-fns";
+import DashboardHeader from "../../../Component/Dashboard/Common/DashboardHeader";
 
 const ManageBookings = () => {
   const { users } = useContext(AuthContext);
@@ -55,14 +56,13 @@ const ManageBookings = () => {
   return (
     <div className=" bg-[var(--bg-main)] min-h-screen">
       <div>
-        <div className="mb-10">
-          <h2 className="text-3xl font-black uppercase tracking-tighter text-gradient-gold !text-center md:!text-left">
-            Rental Requests
-          </h2>
-          <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] uppercase mt-1">
-            Manage your incoming vehicle bookings and deployments.
-          </p>
-        </div>
+        <DashboardHeader
+          title="Rental Requests"
+          subtitle="Manage incoming vehicle bookings and deployments"
+          role="host"
+          Icon={FaTasks}
+          statusText="Awaiting Clearance"
+        />
 
         {/* Table Container */}
         <div className="bg-[var(--card-bg)] border border-[var(--primary)]/10 rounded-2xl overflow-hidden shadow-md">

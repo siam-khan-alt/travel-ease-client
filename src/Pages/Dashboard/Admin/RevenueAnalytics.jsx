@@ -3,6 +3,8 @@ import { useQuery } from '@tanstack/react-query';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, AreaChart, Area, Legend, LineChart, Line } from 'recharts';
 import useAxios from '../../../Hooks/useAxios';
 import LoadingSpinner from '../../../Component/shared/LoadingSpinner';
+import { FaChartLine } from 'react-icons/fa';
+import DashboardHeader from '../../../Component/Dashboard/Common/DashboardHeader';
 
 const COLORS = ['#D4AF37', '#C5A059', '#F2CC8F', '#B8860B', '#DAA520'];
 
@@ -36,11 +38,13 @@ const RevenueAnalytics = () => {
 
     return (
         <div className="space-y-10 animate-fade-in pb-10">
-            <div>
-                <h1 className="text-3xl font-black uppercase tracking-tighter text-gradient-gold">Platform Fiscal Analysis</h1>
-                <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] uppercase mt-1">Real-time Revenue Audit</p>
-            </div>
-
+            <DashboardHeader 
+                title="Platform Fiscal Analysis" 
+                subtitle="Real-time Revenue Audit & Growth Tracking"
+                role="admin"
+                Icon={FaChartLine}
+                statusText="Live Intelligence"
+            />
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className={chartStyle}>
                     <h3 className={titleStyle}>01. Monthly Commission</h3>

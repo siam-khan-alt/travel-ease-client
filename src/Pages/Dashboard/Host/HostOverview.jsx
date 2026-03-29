@@ -9,9 +9,11 @@ import {
   FaCubes,
   FaHistory,
   FaMoneyBillWave,
+  FaThLarge,
 } from "react-icons/fa";
 import StatCards from "../../../Component/Dashboard/Common/StatCards";
 import HostRevenueChart from "../../../Component/Dashboard/Host/HostRevenueChart";
+import DashboardHeader from "../../../Component/Dashboard/Common/DashboardHeader";
 
 const HostOverview = () => {
   const { users } = useContext(AuthContext);
@@ -57,20 +59,13 @@ const HostOverview = () => {
 
   return (
     <div className="space-y-10 animate-fade-in pb-10">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-black uppercase tracking-tighter text-gradient-gold !text-center md:!text-left">
-            Host Command Center
-          </h1>
-          <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] uppercase mt-1">
-            Fleet Management Profile: {users?.displayName}
-          </p>
-        </div>
-        <div className="text-[10px] font-mono text-[var(--primary)]/50 bg-[var(--primary)]/5 px-4 py-2 rounded-full border border-[var(--primary)]/10">
-          Sync Status: Operational
-        </div>
-      </div>
+      <DashboardHeader
+        title="Host Command Center"
+        subtitle={`Fleet Management Profile: ${users?.displayName}`}
+        role="host"
+        Icon={FaThLarge}
+        statusText="System Operational"
+      />
 
       {/* Stats Section */}
       <StatCards data={statsForCards} />

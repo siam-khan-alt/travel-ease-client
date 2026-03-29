@@ -18,6 +18,8 @@ import {
 import useAxios from "../../../Hooks/useAxios";
 import { AuthContext } from "../../../Context/AuthContext";
 import LoadingSpinner from "../../../Component/shared/LoadingSpinner";
+import { FaCarSide,  FaChartLine } from "react-icons/fa";
+import DashboardHeader from "../../../Component/Dashboard/Common/DashboardHeader";
 
 const COLORS = ["#D4AF37", "#C5A059", "#F2CC8F", "#B8860B", "#DAA520"];
 
@@ -51,14 +53,13 @@ const HostAnalytics = () => {
 
   return (
     <div className=" space-y-10 min-h-screen">
-      <div>
-        <h2 className="text-3xl !text-center md:!text-left uppercase tracking-tighter text-gradient-gold">
-          Fleet Intelligence
-        </h2>
-        <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] uppercase !text-center md:!text-left">
-          Revenue Flow & Asset Performance
-        </p>
-      </div>
+      <DashboardHeader
+        title="Fleet Intelligence"
+        subtitle="Revenue Flow & Asset Performance Analytics"
+        role="host"
+        Icon={FaChartLine}
+        statusText="Live Data Sync"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* ১. Category-wise Price (Pie Chart) */}

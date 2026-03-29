@@ -7,10 +7,10 @@ import {
   FaUsers,
   FaCar,
   FaWallet,
-  FaUserShield,
-  FaCrown,
   FaExchangeAlt,
+  FaThLarge,
 } from "react-icons/fa";
+import DashboardHeader from "../../../Component/Dashboard/Common/DashboardHeader";
 
 const AdminOverview = () => {
   const axiosSecure = useAxios();
@@ -55,20 +55,13 @@ const AdminOverview = () => {
   return (
     <div className="space-y-10 animate-fade-in pb-10">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-black uppercase tracking-tighter text-gradient-gold flex items-center gap-3">
-            <FaUserShield className="text-[var(--primary)]" /> System Control
-            Center
-          </h1>
-          <p className="text-[var(--text-main)]/40 text-xs font-bold tracking-[0.3em] uppercase mt-1">
-            Global Platform Oversight & Analytics
-          </p>
-        </div>
-        <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[var(--primary)] bg-[var(--primary)]/5 px-4 py-2 rounded-lg border border-[var(--primary)]/10">
-          <FaCrown /> Root Access Verified
-        </div>
-      </div>
+      <DashboardHeader
+        title="System Control Center"
+        subtitle="Global Platform Oversight & Analytics"
+        role="admin"
+        Icon={FaThLarge}
+        statusText="Root Access Verified"
+      />
 
       {/* Global Stats */}
       <StatCards data={statsForCards} />
