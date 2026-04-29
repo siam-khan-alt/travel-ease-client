@@ -44,10 +44,10 @@ const PromoBanner = () => {
     // --- Empty State  ---
     if (!promo?.vehicleName || !timeLeft) {
         return (
-            <section className="container my-16 px-4">
+            <section className="container mx-auto my-16 px-4">
                 <div className="relative overflow-hidden rounded-2xl border border-dashed border-[var(--primary)]/30 bg-[var(--card-bg)] p-12 text-center">
                     <FaRocket className="mx-auto text-[var(--primary)] text-3xl mb-4 animate-bounce" />
-                    <h2 className="text-2xl md:text-3xl font-black text-[var(--text-main)] uppercase tracking-tighter italic">Something <span className="text-gradient-gold">Epic</span> is Coming</h2>
+                    <h2 className="text-2xl md:text-3xl font-black text-[var(--text-main)] uppercase tracking-tighter ">Something <span className="text-gradient-gold">Epic</span> is Coming</h2>
                     <p className="text-[var(--text-main)]/50 text-[10px] uppercase tracking-widest mt-2">New Luxury Fleet & Exclusive Discounts Under Preparation</p>
                 </div>
             </section>
